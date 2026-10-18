@@ -8,7 +8,7 @@ const CartItems = () => {
   return (
     <div>
       {basket.length === 0 ? (
-        <p>Nothing in the Card</p>
+        <p>Your basket is empty.</p>
       ) : (
         basket.map((product) => <ItemCard product={product} key={product.id} />)
       )}

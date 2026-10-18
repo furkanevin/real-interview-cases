@@ -37,8 +37,9 @@ Build an authentication system where users log in with **Auth0**, sessions are c
 
 ## 💡 Solution
 
-- NextAuth is configured with the Auth0 provider under `src/app/api/auth/[...nextauth]`, using the JWT session strategy.
-- In `middleware.ts`, `withAuth` from `next-auth/middleware` protects the `/admin` route. Unauthenticated users are redirected to the login page.
+- NextAuth is configured in `src/lib/auth.ts` with the Auth0 provider and the **JWT** session strategy. The route handler (`src/app/api/auth/[...nextauth]/route.ts`) only exports `GET` and `POST`; exporting the options from the route file breaks `next build` in Next.js 15.
+- **Role-based authorization (bonus):** The `jwt` callback adds a `role` (`admin` or `user`) to the token, based on the comma-separated `ADMIN_EMAILS` environment variable. The `session` callback exposes it as `session.user.role`, typed in `src/types/next-auth.d.ts`.
+- `middleware.ts` uses `withAuth` to send signed-out users to the sign-in page for every `/admin` route. The admin page checks the role again on the server and shows a "no permission" message to regular users.
 - `SessionProvider` and `AuthButton` are separate components, so sign-in/sign-out logic lives in one place.
 - Page and component tests are written with Jest + React Testing Library.
 
@@ -46,8 +47,8 @@ Build an authentication system where users log in with **Auth0**, sessions are c
 
 | Route | Description |
 |---|---|
-| `/` | Home page that greets the signed-in user |
-| `/admin` | Protected page, only for signed-in users |
+| `/` | Home page, greets the signed-in user |
+| `/admin` | Only for users with the `admin` role |
 | `/api/auth/signin` | NextAuth sign-in page |
 
 ## 🚀 Getting started

@@ -1,7 +1,9 @@
 .news-wrapper{
     display: flex;
     flex-direction: column;
-    width: 800px;
+    max-width: 800px;
+    color: inherit;
+    text-decoration: none;
     margin: 1rem;
     padding: 1rem;
     cursor: pointer;

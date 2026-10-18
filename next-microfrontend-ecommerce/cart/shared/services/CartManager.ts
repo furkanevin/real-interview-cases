@@ -175,7 +175,6 @@ class CartManagerService {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.STORAGE_KEY && !this.isUpdating) {
-      console.log("CartManager: Detected storage change from another tab/app");
 
       try {
         if (event.newValue) {
@@ -275,5 +274,3 @@ class CartManagerService {
 // Export singleton instance
 export const CartManager = CartManagerService.getInstance();
 
-// Export types
-export type { CartUpdateCallback };

@@ -33,7 +33,9 @@ Split an e-commerce site into two independent Next.js applications using a **mic
 
 - **Routing:** `next.config.js` in the Home app forwards `/cart/*` requests to the Cart app (3001) with `rewrites`, so the user reaches both apps through one address.
 - **Shared code:** The `shared/` folder contains common types (`types`) and the cart service (`services/CartManager.ts`).
-- **Cart sync:** `CartManager` stores the cart in `localStorage` (key `e-commerce-cart`) and listens to the browser's `storage` event. A change in one app is reflected in the other instantly, with no need for Redux, BroadcastChannel or URL parameters.
+- **Cart sync:** `CartManager` stores the cart in `localStorage` (key `e-commerce-cart`) and listens to the browser's `storage` event. Because the two apps run on different ports (different origins), they don't share `localStorage`; when the user switches apps, the cart is passed along in a `?cart=` URL parameter and saved on the other side.
+
+> 💡 **Room for improvement:** Serving the Cart app under the Home app's address (e.g. `basePath: '/cart'` + `rewrites`) would make both apps the same origin, so they could share `localStorage` without URL parameters. The app URLs are also hard-coded as `localhost`, which would need environment variables for a real deployment.
 - **Fault tolerance:** Loading states, error screens and safe defaults when `localStorage` is unavailable.
 
 ## 🚀 Getting started

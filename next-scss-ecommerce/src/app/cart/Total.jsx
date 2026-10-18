@@ -7,7 +7,10 @@ const Total = () => {
 
   return (
     <p>
-      Total cost: <span>${total.toFixed(3)}</span>
+      Total cost:{' '}
+      <span>
+        {new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(total)}
+      </span>
     </p>
   );
 };

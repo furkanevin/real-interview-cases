@@ -1,40 +1,44 @@
-import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import News from '../News/News';
 import Stocks from '../Stocks/Stocks';
+import { CATEGORIES } from '../../utils/api';
 import './Home.css';
-import { useNavigate } from 'react-router-dom';
+
 const Home = () => {
-  const [activeItem, setActiveItem] = useState(false);
+  // seçili kategori URL'de tutulur: /?category=Technology
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeCategory = searchParams.get('category') ?? 'Home';
 
-  const navigate = useNavigate();
-
-  const navItems = ['Home', 'Economy', 'Technology', 'Blockchain'];
+  const handleCategoryClick = (name) => {
+    setSearchParams(name === 'Home' ? {} : { category: name });
+  };
 
   return (
     <div>
       <h1 className="mt-4">
         Capital<span>Current</span>
       </h1>
-      <ul
-        className="d-flex list-unstyled gap-md-3 gap-sm-1 fs-6 justify-content-center align-items-center mt-4"
-        role="button"
-      >
-        {navItems.map((item, i) => (
-          <li
-            key={i}
-            className={activeItem === item ? 'active' : ''}
-            onClick={() => {
-              setActiveItem(item);
-              navigate('/');
-            }}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
+
+      <nav aria-label="News categories">
+        <ul className="d-flex list-unstyled gap-md-3 gap-sm-1 fs-6 justify-content-center align-items-center mt-4">
+          {CATEGORIES.map(({ name }) => (
+            <li key={name}>
+              <button
+                type="button"
+                className={`category-btn ${activeCategory === name ? 'active' : ''}`}
+                aria-current={activeCategory === name ? 'page' : undefined}
+                onClick={() => handleCategoryClick(name)}
+              >
+                {name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <div className="home">
         <main>
-          <News />
+          <News category={activeCategory} />
         </main>
         <aside>
           <Stocks />

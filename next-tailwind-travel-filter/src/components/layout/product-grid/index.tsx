@@ -19,7 +19,7 @@ const ProductGrid: React.FC = () => {
       {(!filteredProducts || filteredProducts.length === 0) && (
         <div className="text-center py-12">
           <h3 className="text-xl font-semibold text-gray-700 mb-2">No products found</h3>
-          <p className="text-gray-500">Try adjusting your filters to find what you're looking for.</p>
+          <p className="text-gray-500">Try adjusting your filters to find what you&apos;re looking for.</p>
         </div>
       )}
     </div>

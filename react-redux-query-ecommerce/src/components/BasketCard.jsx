@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import {
   addToCart,
   decreaseCart,
@@ -15,7 +16,12 @@ const BasketCard = ({ cartItem }) => {
         <div>
           <h3>{cartItem.title}</h3>
           <p>{cartItem.description}</p>
-          <button onClick={() => dispatch(removeFromCart(cartItem))}>
+          <button
+            onClick={() => {
+              dispatch(removeFromCart(cartItem));
+              toast.error('Product removed from cart', { position: 'bottom-left' });
+            }}
+          >
             Remove
           </button>
         </div>
@@ -31,7 +37,7 @@ const BasketCard = ({ cartItem }) => {
         </button>
       </div>
       <div className="cart-product-total-price">
-        ${cartItem.price * cartItem.cartQuantity}
+        ${(cartItem.price * cartItem.cartQuantity).toFixed(2)}
       </div>
     </div>
   );

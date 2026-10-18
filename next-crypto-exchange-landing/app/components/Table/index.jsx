@@ -66,8 +66,9 @@ const Table = async () => {
               <button
                 key={i}
                 className={`${
-                  item.active &&
-                  'border border-gray-300 rounded-md text-dblue bg-blue-100'
+                  item.active
+                    ? 'border border-gray-300 rounded-md text-dblue bg-blue-100'
+                    : ''
                 } text-gray-600 flex font-bold py-2 px-4 hover:text-dblue`}
               >
                 {item.name}

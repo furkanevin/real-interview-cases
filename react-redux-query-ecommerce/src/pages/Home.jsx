@@ -12,11 +12,11 @@ const Home = () => {
         {isLoading ? (
           <p>Yükleniyor...</p>
         ) : isError ? (
-          <p>Üzgünüz :( Beklenemdik bir hata oluştu</p>
+          <p>Üzgünüz :( Beklenmedik bir hata oluştu</p>
         ) : (
           data.map((product) => (
-            <Col>
-              <ProductCard key={product.id} product={product} />
+            <Col key={product.id}>
+              <ProductCard product={product} />
             </Col>
           ))
         )}

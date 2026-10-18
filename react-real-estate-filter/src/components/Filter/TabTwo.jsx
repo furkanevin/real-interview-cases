@@ -14,7 +14,7 @@ const TabTwo = () => {
 
   useEffect(() => {
     setDistricts(getUniqueDistricts(locations, selectedCity));
-  }, [selectedCity]);
+  }, [locations, selectedCity]);
 
   return (
     <div className="flex flex-col gap-10">
@@ -51,7 +51,7 @@ const TabTwo = () => {
           İstediğiniz İlçedeki İlanları Arayın
         </label>
         <select
-          defaultValue={''}
+          defaultValue={district}
           id="districts"
           name="district"
           className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"

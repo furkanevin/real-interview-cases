@@ -25,7 +25,6 @@ export function useCart() {
   // Subscribe to cart changes
   useEffect(() => {
     const unsubscribe = CartManager.subscribe((newCart) => {
-      console.log("🏠 Home: Cart updated via subscription:", newCart);
       setCart(newCart);
     });
 
@@ -42,7 +41,6 @@ export function useCart() {
       // Force a sync when URL changes (for URL parameter transfer)
       const currentCart = CartManager.sync();
       setCart(currentCart);
-      console.log("🏠 Home: URL changed, syncing cart:", currentCart);
     };
 
     // Initial check
@@ -60,7 +58,6 @@ export function useCart() {
   const addToCart = useCallback(async (product: Product) => {
     setIsLoading(true);
     try {
-      console.log("🏠 Home: Adding product to cart:", product.title);
       const updatedCart = CartManager.addToCart(product);
       setCart(updatedCart);
       return updatedCart;
@@ -75,7 +72,6 @@ export function useCart() {
   const removeFromCart = useCallback(async (productId: number) => {
     setIsLoading(true);
     try {
-      console.log("🏠 Home: Removing product from cart:", productId);
       const updatedCart = CartManager.removeFromCart(productId);
       setCart(updatedCart);
       return updatedCart;
@@ -90,7 +86,6 @@ export function useCart() {
   const updateQuantity = useCallback(async (productId: number, quantity: number) => {
     setIsLoading(true);
     try {
-      console.log("🏠 Home: Updating quantity:", productId, quantity);
       const updatedCart = CartManager.updateQuantity(productId, quantity);
       setCart(updatedCart);
       return updatedCart;
@@ -105,7 +100,6 @@ export function useCart() {
   const clearCart = useCallback(async () => {
     setIsLoading(true);
     try {
-      console.log("🏠 Home: Clearing cart");
       const updatedCart = CartManager.clearCart();
       setCart(updatedCart);
       return updatedCart;

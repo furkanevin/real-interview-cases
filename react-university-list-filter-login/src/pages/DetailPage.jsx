@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../utils/api";
 
@@ -12,10 +12,9 @@ const DetailPage = () => {
       .get(`universities/${id}`)
       .then((res) => setUniversity(res.data))
       .catch((err) => {
-        console.log(err);
         navigate("/undefined", { state: err.message });
       });
-  }, []);
+  }, [id, navigate]);
 
   return (
     <div className=" md:mt-20">

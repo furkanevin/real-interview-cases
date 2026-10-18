@@ -1,4 +1,4 @@
-import React from 'react';
+import { toast } from 'react-toastify';
 import { addToCart } from '../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import { Button, Card } from 'react-bootstrap';
@@ -19,14 +19,17 @@ const ProductCard = ({ product }) => {
           <Card.Title className="text-truncate">
             {product.title}
           </Card.Title>
-          <Card.Text>
+          <Card.Text as="div">
             <p>{product.description.slice(0, 70) + '...'}</p>
             <p className="text-success fw-bold">${product.price}</p>
           </Card.Text>
         </div>
 
         <Button
-          onClick={() => dispatch(addToCart(product))}
+          onClick={() => {
+            dispatch(addToCart(product));
+            toast.success('Product added to cart', { position: 'bottom-left' });
+          }}
           variant="primary"
         >
           Sepete Ekle

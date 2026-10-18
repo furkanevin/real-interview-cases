@@ -4,7 +4,6 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 const HomeLoading = () => {
   const fakeCards = Array.from({ length: 2 });
   const fakeGenre = Array.from({ length: 19 });
-  // console.log(fakeGenre);
   return (
     <>
       <div className="grid place-items-center grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10 gap-4 p-4">

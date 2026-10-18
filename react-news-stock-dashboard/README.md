@@ -22,10 +22,12 @@ Build a news site interface that shows financial news and stock/crypto search re
 
 ## 💡 Solution
 
-- The free API has a low request limit, so sample API responses were saved to `db.json` and served as a local REST API with **json-server** (`/feed`, `/matches`).
-- The news list is paginated with `react-paginate`.
-- Stock search filters the already-fetched list on the client.
-- Code that calls Alpha Vantage directly is left commented out in `src/constant.js`; you can switch to live data with your own API key.
+- The free API has a low request limit, so sample API responses were saved to `db.json` and served as a local REST API with **json-server** (`/feed`, `/feed/:id`, `/matches`). The API address is in `src/utils/api.js` and can be changed with `VITE_API_URL`.
+- **Categories:** The selected category is kept in the URL (`?category=Technology`), so it survives reloads and can be shared. Each news item has a `topics` list; `matchesCategory` checks it against the topics mapped to each menu item.
+- **Pagination:** `react-paginate` shows 3 items per page and jumps back to page 1 when the category changes.
+- **Stock search:** Filters the list by symbol or company name as you type.
+- **News detail:** Shows the image, date, authors, source, summary, topics, sentiment and a link to the original article.
+- Loading, error and empty states are handled in every list.
 
 ## 🚀 Getting started
 
@@ -36,5 +38,3 @@ npm install
 npm run server   # json-server → http://localhost:3050
 npm run dev      # http://localhost:5173
 ```
-
-To use the live API, get a free key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and copy `src/.env.example` to `.env`.

@@ -15,9 +15,9 @@ const PageTwo = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {products.map((product, i) => (
-          <div className="col">
-            <Card product={product} key={i} />
+        {products.map((product) => (
+          <div className="col" key={product.name}>
+            <Card product={product} />
           </div>
         ))}
       </div>

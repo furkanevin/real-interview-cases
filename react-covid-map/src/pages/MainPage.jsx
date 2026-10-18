@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import World from '@react-map/world';
 import { CovidInfo } from '../components/CovidInfo';
@@ -7,7 +6,7 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   const handleSelect = (country) => {
-    navigate(`/detail?country=${country}`);
+    navigate(`/detail?country=${encodeURIComponent(country)}`);
   };
 
   return (

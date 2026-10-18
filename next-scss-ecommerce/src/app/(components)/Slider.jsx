@@ -14,13 +14,13 @@ const Slider = () => {
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
         <div className="embla__slide">
-          <Image src={slide1} alt="slide" />
+          <Image src={slide1} alt="Campaign slide 1" priority />
         </div>
         <div className="embla__slide">
-          <Image src={slide2} alt="slide" />
+          <Image src={slide2} alt="Campaign slide 2" />
         </div>
         <div className="embla__slide">
-          <Image src={slide3} alt="slide" />
+          <Image src={slide3} alt="Campaign slide 3" />
         </div>
       </div>
     </div>

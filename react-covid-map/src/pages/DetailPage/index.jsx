@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import millify from 'millify';
@@ -10,23 +10,23 @@ const DetailPage = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const selectedCountry = new URLSearchParams(location.search).get('country');
-  const { isLoading, error, data } = useSelector((state) => state);
+  const isLoading = useSelector((state) => state.isLoading);
+  const error = useSelector((state) => state.error);
+  const data = useSelector((state) => state.data);
 
   useEffect(() => {
     dispatch({ type: 'DATA_FETCH_REQUESTED', payload: selectedCountry });
   }, [dispatch, selectedCountry]);
 
   const fieldArray = [
-    { label: 'Active Cases', value: millify(data?.active) },
-    { label: 'Cases Confirmed', value: millify(data?.confirmed) },
-    { label: 'Deaths', value: millify(data?.deaths) },
-    { label: 'Recovered', value: millify(data?.recovered) },
-    { label: 'Fatality Rate', value: millify(data?.fatality_rate) },
-    { label: 'Last Update', value: data?.last_update },
-    { label: 'Country Name', value: data?.region.name },
-    { label: 'Country Code', value: data?.region.iso },
-    { label: 'Country Latitude', value: data?.region.lat },
-    { label: 'Country Longitude', value: data?.region.long },
+    { label: 'Confirmed Cases', value: millify(data?.confirmed ?? 0) },
+    { label: 'Active Cases', value: millify(data?.active ?? 0) },
+    { label: 'Deaths', value: millify(data?.deaths ?? 0) },
+    { label: 'Recovered', value: millify(data?.recovered ?? 0) },
+    { label: 'Fatality Rate', value: `${((data?.fatalityRate ?? 0) * 100).toFixed(2)}%` },
+    { label: 'Last Update', value: data?.lastUpdate },
+    { label: 'Country Code', value: data?.iso },
+    { label: 'Regions Included', value: data?.regionCount },
   ];
 
   return (
@@ -41,16 +41,7 @@ const DetailPage = () => {
           </Link>
           <div className="flex items-center space-x-2">
             {!isLoading && !error && (
-              <>
-                <img
-                  src={data?.flagUrl}
-                  alt="Country Flag"
-                  className="w-12 h-12 rounded-full"
-                />
-                <h1 className="text-3xl font-bold text-gray-800">
-                  {data?.region.name}
-                </h1>
-              </>
+              <h1 className="text-3xl font-bold text-gray-800">{data?.name}</h1>
             )}
           </div>
           <div></div>
@@ -62,9 +53,7 @@ const DetailPage = () => {
 
           {!isLoading &&
             !error &&
-            fieldArray.map((field, index) => (
-              <InfoField key={index} field={field} />
-            ))}
+            fieldArray.map((field) => <InfoField key={field.label} field={field} />)}
         </div>
       </div>
     </div>

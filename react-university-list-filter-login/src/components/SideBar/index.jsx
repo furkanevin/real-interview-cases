@@ -1,13 +1,10 @@
-import { useState } from 'react';
-import { useData } from '../../context/UniversityContext';
 import SelectFilter from './SelectFilter';
 import { useSearchParams } from 'react-router-dom';
 import CostFilter from './CostFilter';
 import SortArea from './SortArea';
 
 const SideBar = () => {
-  const [params, setParams] = useSearchParams();
-  const [selectedCost, setSelectedCost] = useState(1);
+  const [, setParams] = useSearchParams();
 
   return (
     <div className="mb-5 flex justify-center">

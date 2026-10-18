@@ -27,10 +27,11 @@ Mainly HTML/CSS quality, responsive behaviour and attention to detail.
 
 ## 💡 Solution
 
+- **Semantic structure:** `header` and `nav` for the top area, `main` and `section` for the content, and a real `<form>` with `label` + `input` pairs (each input has `id` and `name`).
 - **CSS Grid** and **Flexbox** are used for layout.
 - Spacing and layout are adjusted for mobile, tablet and desktop breakpoints. On mobile the menu icons are hidden and the form goes full width.
 - The font stack falls back to Arial when Gibson is not available.
-- Font Awesome and small PNG/SVG images are used for icons.
+- The form is presentational only, as required, so submitting it does nothing.
 
 ## 🚀 Getting started
 

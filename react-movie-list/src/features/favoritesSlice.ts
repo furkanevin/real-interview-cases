@@ -5,21 +5,32 @@ interface FavoritesState {
   movies: Movie[];
 }
 
-const initialState: FavoritesState = {
-  movies: JSON.parse(localStorage.getItem('favoriteMovies') || '[]'),
+export const FAVORITES_STORAGE_KEY = 'favoriteMovies';
+
+const loadFavorites = (): Movie[] => {
+  try {
+    return JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || '[]');
+  } catch {
+    return [];
+  }
 };
+
+const initialState: FavoritesState = {
+  movies: loadFavorites(),
+};
+
+// Reducer'lar saftır; localStorage'a yazma işi store.ts içindeki subscribe'da yapılır
 
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
     addToFavorites: (state, action: PayloadAction<Movie>) => {
-      state.movies.push(action.payload);
-      localStorage.setItem('favoriteMovies', JSON.stringify(state.movies));
+      const alreadyAdded = state.movies.some((movie) => movie.id === action.payload.id);
+      if (!alreadyAdded) state.movies.push(action.payload);
     },
     removeFromFavorites: (state, action: PayloadAction<number>) => {
       state.movies = state.movies.filter((movie) => movie.id !== action.payload);
-      localStorage.setItem('favoriteMovies', JSON.stringify(state.movies));
     },
   },
 });

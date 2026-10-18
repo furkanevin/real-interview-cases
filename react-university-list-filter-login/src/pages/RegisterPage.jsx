@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import api from "../utils/api";
+import { useAuth } from "../context/AuthContext";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
@@ -10,6 +10,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { saveSession } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +63,7 @@ const RegisterPage = () => {
                     password: password,
                   })
                   .then(() => {
-                    console.log("User created successfully");
+                    saveSession({ id: userId, name, email });
                     navigate("/main");
                   })
                   .catch((error) => {

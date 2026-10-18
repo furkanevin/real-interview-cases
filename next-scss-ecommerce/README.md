@@ -30,7 +30,9 @@ Build an e-commerce site with data from the [Fake Store API](https://fakestoreap
 - Cart actions show notifications with `react-toastify`.
 - Sliders are built with `embla-carousel-react` and its autoplay plugin.
 - Styles are split into `main`, `responsive`, `slide`, `loader` and other partials under `src/app/assets/css`.
-- The App Router special files `loading.jsx` and `not-found.jsx` are used.
+- The App Router special files `loading.jsx` and `not-found.jsx` are used. Opening a product id that doesn't exist shows the 404 page (the Fake Store API returns an empty body for unknown ids).
+- The category page shows 3 products at a time and keeps the "Load more" button until every product in the category is visible. Category names are encoded in API URLs (e.g. `men's clothing`).
+- Prices are formatted with `Intl.NumberFormat`.
 
 ## 🚀 Getting started
 

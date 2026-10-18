@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { useFilter } from "@/context/filter-context";
+import { useFilter, initialFilters } from "@/context/filter-context";
 import { themes, activities, vehicles, features } from "@/data/mock-data";
-import DOMPurify from "isomorphic-dompurify";
 
 interface CountMap {
   [key: string]: number;
@@ -24,7 +23,9 @@ const FilterModal = () => {
 
   const handleCategoryChange = (category: "tour" | "ticket" | "rent" | "transfer" | null) => {
     setActiveCategory(category);
-    setFilters((prev) => ({ ...prev, category }));
+    // Kategori değişince önceki kategoriye ait filtreler (tema, araç vb.) sıfırlanır;
+    // aynı anda iki kategoride arama yapılamaz. Konum araması korunur.
+    setFilters((prev) => ({ ...initialFilters, location: prev.location, category }));
   };
 
   const handleThemeChange = (theme: string) => {
@@ -93,11 +94,10 @@ const FilterModal = () => {
   };
 
   const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Sanitize input
-    const sanitizedValue = DOMPurify.sanitize(e.target.value);
+    // React metni otomatik olarak escape eder; ayrıca sanitize etmeye gerek yok
     setFilters((prev) => ({
       ...prev,
-      location: sanitizedValue,
+      location: e.target.value,
     }));
   };
 

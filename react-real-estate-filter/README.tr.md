@@ -26,8 +26,10 @@ Bir emlak firmasının API'sinden gelen ilanları listeleyen ve **ilan tipi** il
 ## 💡 Çözüm
 
 - Veri çekme ve filtreleme `src/context/apiContext.jsx` içinde **Context API** ile yapılıyor. Filtre değerleri `useSearchParams` ile URL'den okunuyor; URL değiştikçe liste yeniden filtreleniyor.
-- Filtre formu `FormData` ile okunup değerler `searchParams`'a yazılıyor.
-- İl listesindeki tekrar eden kayıtlar `utils/getUnique.js` ile temizleniyor.
+- **İki sekme, tek form:** İki sekme de DOM'da kalıyor, pasif olan sadece gizleniyor. Böylece ilk sekmede seçilen ilan tipi ile ikinci sekmede seçilen konum birlikte gönderiliyor. Sekme butonları `type="button"` olduğu için sekme değiştirmek formu göndermiyor.
+- Form gönderilince boş alanlar URL'de kalmıyor, siliniyor; "Temizle" butonu tüm filtreleri sıfırlıyor.
+- Başlıkta toplam ilandan kaç tanesinin kriterlere uyduğu yazıyor; sonuçlar 10'ar 10'ar, "Daha fazla göster" butonuyla listeleniyor.
+- İl listesindeki tekrar eden kayıtlar `utils/getUnique.js` ile temizleniyor; il değişince ilçe listesi güncelleniyor.
 - `Filter` ve `Content` bileşenleri iki sayfada da yeniden kullanılıyor; sadece sıraları değişiyor.
 
 ## 🚀 Çalıştırma

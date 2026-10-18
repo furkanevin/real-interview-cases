@@ -1,55 +1,61 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import NewsFeed from "../NewsFeed/NewsFeed";
-import ReactPaginate from "react-paginate";
-import "./News.css";
+import { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import NewsFeed from '../NewsFeed/NewsFeed';
+import { api, matchesCategory } from '../../utils/api';
+import './News.css';
 
-const News = () => {
+const ITEMS_PER_PAGE = 3;
+
+const News = ({ category }) => {
   const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3050/feed")
+    api
+      .get('/feed')
       .then((res) => setNews(res.data))
-      .catch((error) => console.error("Error fetching news:", error));
+      .catch(() => setError('News could not be loaded. Is json-server running?'))
+      .finally(() => setIsLoading(false));
   }, []);
 
-  const [itemOffset, setItemOffset] = useState(0);
+  // kategori değişince ilk sayfaya dön
+  useEffect(() => {
+    setPage(0);
+  }, [category]);
 
-  // items per page
-  const itemsPerPage = 3;
-
-  // last element
-  const endOffset = itemOffset + itemsPerPage;
-
-  // data slice
-  const currentItems = news.slice(itemOffset, endOffset);
-
-  // total page
-  const pageCount = Math.ceil(news.length / itemsPerPage);
-
-  // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
-    const newOffset = event.selected * itemsPerPage;
-    setItemOffset(newOffset);
-  };
+  const filteredNews = news.filter((item) => matchesCategory(item, category));
+  const pageCount = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
+  const offset = page * ITEMS_PER_PAGE;
+  const currentItems = filteredNews.slice(offset, offset + ITEMS_PER_PAGE);
 
   return (
     <div>
       <h1>News</h1>
-      {currentItems.map((singleNews, index) => (
-        <NewsFeed key={index} singleNews={singleNews} />
+
+      {isLoading && <p className="text-center">Loading...</p>}
+      {error && <p className="text-center text-danger">{error}</p>}
+      {!isLoading && !error && filteredNews.length === 0 && (
+        <p className="text-center">No news found in this category.</p>
+      )}
+
+      {currentItems.map((item) => (
+        <NewsFeed key={item.id} singleNews={item} />
       ))}
 
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel=""
-        className="pagination"
-      />
+      {pageCount > 1 && (
+        <ReactPaginate
+          breakLabel="..."
+          previousLabel="‹ prev"
+          nextLabel="next ›"
+          onPageChange={(event) => setPage(event.selected)}
+          forcePage={page}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          className="pagination"
+        />
+      )}
     </div>
   );
 };

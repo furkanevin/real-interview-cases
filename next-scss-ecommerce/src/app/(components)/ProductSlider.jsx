@@ -9,11 +9,11 @@ const ProductSlider = ({ products }) => {
   return (
     <div className="embla2" ref={emblaRef}>
       <div className="embla2__container">
-        {products.map((product, index) => (
+        {products.map((product) => (
           <Link
             href={`/product/${product.id}`}
             className="embla2__slide card"
-            key={index}
+            key={product.id}
           >
             <Image
               src={product.image}

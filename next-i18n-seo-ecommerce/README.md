@@ -41,7 +41,8 @@ GitHub repo + live demo link (Vercel, Netlify, etc.)
 - **Multi-language:** `next-intl` with a `src/app/[locale]/` route structure. Translations live in `messages/tr.json` and `messages/en.json`; locale routing is in `src/middleware.ts`.
 - **SEO:** The product detail page uses `generateMetadata` to produce a product-specific title and description.
 - **Performance:** API requests are cached with ISR via `revalidate`; images load through `next/image`.
-- **State:** The cart is managed with Redux Toolkit (`src/store/slices`).
+- **State:** The cart is managed with Redux Toolkit (`src/store/slices`) and saved to `localStorage`. To avoid hydration mismatches, the cart starts empty on the server and is loaded in the browser after the first render.
+- **Search:** The search box in the header sends the user to the product list with a `?search=` parameter, which pre-fills the search filter.
 - **Components:** Grouped under `src/components` as `layout`, `product`, `cart`, `categories` and `ui`.
 - Development phases and scope are described in [`PRD.md`](./PRD.md).
 

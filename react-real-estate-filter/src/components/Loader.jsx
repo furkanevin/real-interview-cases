@@ -1,8 +1,9 @@
 const Loader = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const arr = Array.from({ length: 5 }, (_, i) => i);
 
-  return arr.map(() => (
+  return arr.map((i) => (
     <div
+      key={i}
       role="status"
       className="p-10 border  rounded shadow animate-pulse  border-gray-700"
     >

@@ -14,7 +14,7 @@ const SecondTable = () => {
       <TableHead>
         <TableRow>
           {secondTableHead.map(item => (
-            <TableCell>{item}</TableCell>
+            <TableCell key={item}>{item}</TableCell>
           ))}
         </TableRow>
       </TableHead>

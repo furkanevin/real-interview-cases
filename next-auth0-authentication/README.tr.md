@@ -37,9 +37,10 @@ Kullanıcıların **Auth0** üzerinden giriş yaptığı, oturumun **JWT** ile k
 
 ## 💡 Çözüm
 
-- `src/app/api/auth/[...nextauth]` altında Auth0 provider'ı ile NextAuth yapılandırıldı. Oturum stratejisi JWT.
-- `middleware.ts` içinde `next-auth/middleware`'in `withAuth` fonksiyonu kullanılarak `/admin` rotası korundu. Giriş yapılmamışsa kullanıcı login sayfasına yönlendiriliyor.
-- `SessionProvider` ve `AuthButton` bileşenleri ayrı tutuldu. Giriş/çıkış mantığı tek yerde.
+- NextAuth, `src/lib/auth.ts` içinde Auth0 provider'ı ve **JWT** oturum stratejisiyle yapılandırıldı. Route dosyası (`src/app/api/auth/[...nextauth]/route.ts`) sadece `GET` ve `POST` export ediyor; ayarları route dosyasından export etmek Next.js 15'te `next build`'i bozuyor.
+- **Rol bazlı yetkilendirme (bonus):** `jwt` callback'i, virgülle ayrılmış `ADMIN_EMAILS` ortam değişkenine göre token'a bir `role` (`admin` veya `user`) ekliyor. `session` callback'i bunu `session.user.role` olarak sunuyor; tipi `src/types/next-auth.d.ts` içinde.
+- `middleware.ts`, `withAuth` ile giriş yapmamış kullanıcıları tüm `/admin` rotalarında giriş sayfasına yönlendiriyor. Admin sayfası rolü sunucuda tekrar kontrol ediyor ve normal kullanıcılara "yetkiniz yok" mesajı gösteriyor.
+- `SessionProvider` ve `AuthButton` bileşenleri ayrı tutuldu; giriş/çıkış mantığı tek yerde.
 - Jest + React Testing Library ile sayfa ve bileşen testleri yazıldı.
 
 ### Sayfalar
@@ -47,7 +48,7 @@ Kullanıcıların **Auth0** üzerinden giriş yaptığı, oturumun **JWT** ile k
 | Rota | Açıklama |
 |---|---|
 | `/` | Ana sayfa, giriş yapan kullanıcıyı karşılar |
-| `/admin` | Sadece giriş yapmış kullanıcıların erişebildiği korumalı sayfa |
+| `/admin` | Sadece `admin` rolündeki kullanıcılar |
 | `/api/auth/signin` | NextAuth giriş sayfası |
 
 ## 🚀 Çalıştırma

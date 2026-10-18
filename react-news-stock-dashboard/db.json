@@ -1,6 +1,7 @@
 {
     "feed": [
         {
+            "id": "1",
             "title": "Billionaires Are Buying Bitcoin: What Does It Mean for the Future Price of Bitcoin?",
             "url": "https://www.fool.com/investing/2024/03/22/billionaires-are-buying-bitcoin-what-does-it-mean/",
             "time_published": "20240322T093000",
@@ -76,6 +77,7 @@
             ]
         },
         {
+            "id": "2",
             "title": "Coinbase Is Worried About Ether ETFs and the SEC. The Push Is on in Washington.",
             "url": "https://www.barrons.com/amp/articles/coinbase-sec-ether-crypto-etf-5e41845f",
             "time_published": "20240321T202200",
@@ -149,6 +151,7 @@
             ]
         },
         {
+            "id": "3",
             "title": "'DOGE Finally Looks Ready To Rip Higher,' Says Crypto Analyst Following Period Of Consolidation",
             "url": "https://www.benzinga.com/markets/cryptocurrency/24/03/37866070/doge-finally-looks-ready-to-rip-higher-says-crypto-analyst-following-period-of-consolidati",
             "time_published": "20240321T110021",
@@ -232,6 +235,7 @@
             ]
         },
         {
+            "id": "4",
             "title": "Bitcoin ETFs make Coinbase a 'honeypot' for hackers and governments: Trezor CEO",
             "url": "https://cointelegraph.com/magazine/bitcoin-etf-coinbase-honeypot-hackers-government-trezor-ceo/",
             "time_published": "20240320T133000",
@@ -287,6 +291,7 @@
             ]
         },
         {
+            "id": "5",
             "title": "Target Gives Investors Good News",
             "url": "https://www.fool.com/investing/2024/03/16/target-gives-investors-good-news/",
             "time_published": "20240316T110000",
@@ -444,6 +449,7 @@
             ]
         },
         {
+            "id": "6",
             "title": "Celsius creditors allege 30% less compensation than promised during bankruptcy",
             "url": "https://cointelegraph.com/news/celsius-creditors-allege-compensation-reduction",
             "time_published": "20240315T140000",
@@ -507,6 +513,7 @@
             ]
         },
         {
+            "id": "7",
             "title": "'Just The Beginning'-Bitcoin 'Tipping Point' Suddenly Powers Price To Fresh All-Time High Over $70,000 Amid Ethereum And XRP ETF Speculation",
             "url": "https://www.forbes.com/sites/digital-assets/2024/03/11/just-the-beginning-bitcoin-suddenly-hits-70000-price-tipping-point-amid-ethereum-and-xrp-etf-speculation/",
             "time_published": "20240311T081700",
@@ -572,6 +579,7 @@
             ]
         },
         {
+            "id": "8",
             "title": "'Just The Beginning'-Bitcoin Suddenly Hits $70,000 Price 'Tipping Point' Amid Ethereum And XRP ETF Speculation",
             "url": "https://www.forbes.com/sites/digital-assets/2024/03/10/just-the-beginning-bitcoin-suddenly-hits-70000-price-tipping-point-amid-ethereum-and-xrp-etf-speculation/",
             "time_published": "20240310T103022",
@@ -637,6 +645,7 @@
             ]
         },
         {
+            "id": "9",
             "title": "Could Bitcoin's Recent Surge Frighten the Fed?",
             "url": "https://decrypt.co/220681/bitcoin-bull-run-delay-fed-rate-cut",
             "time_published": "20240307T230102",
@@ -690,6 +699,7 @@
             ]
         },
         {
+            "id": "10",
             "title": "Bitcoin 'Kimchi Premium' Is Back as BTC Price Spikes in South Korea",
             "url": "https://decrypt.co/220599/bitcoin-kimchi-premium-back-price-spikes-south-korea",
             "time_published": "20240307T165936",
@@ -741,6 +751,7 @@
             ]
         },
         {
+            "id": "11",
             "title": "Huge New Bitcoin Price Target Set After $2.5 Trillion Ethereum, XRP And Crypto Surge",
             "url": "https://www.forbes.com/sites/digital-assets/2024/03/06/huge-new-bitcoin-price-target-set-after-25-trillion-ethereum-xrp-and-crypto-surge/",
             "time_published": "20240306T133521",
@@ -806,6 +817,7 @@
             ]
         },
         {
+            "id": "12",
             "title": "Bitcoin passes new all-time high in euros as price reaches $65K",
             "url": "https://cointelegraph.com/news/bitcoin-new-ath-euros-price-65k",
             "time_published": "20240304T100053",
@@ -891,6 +903,7 @@
             ]
         },
         {
+            "id": "13",
             "title": "Balaji Srinivasan Calls Bitcoin A 'Political Revolution,' Says BTC Can Stop Russia's 'War Machine And Powell's Money Printer'",
             "url": "https://www.benzinga.com/analyst-ratings/analyst-color/24/03/37438179/balaji-srinivasan-calls-bitcoin-a-political-revolution-says-btc-can-stop-russias-wa",
             "time_published": "20240302T101828",
@@ -940,6 +953,7 @@
             ]
         },
         {
+            "id": "14",
             "title": "Bitcoin Price Prediction: Can Bitcoin Reach $1,000,000 by 2025?",
             "url": "https://www.forbes.com/advisor/in/investing/cryptocurrency/bitcoin-prediction/",
             "time_published": "20240301T215236",
@@ -1009,6 +1023,7 @@
             ]
         },
         {
+            "id": "15",
             "title": "Our Pick Of The Best Cryptocurrencies Of March 2024",
             "url": "https://www.forbes.com/uk/advisor/investing/cryptocurrency/top-10-cryptocurrencies-march-2024/",
             "time_published": "20240301T093316",
@@ -1100,6 +1115,7 @@
             ]
         },
         {
+            "id": "16",
             "title": "Zacks Investment Ideas feature highlights: Coinbase, Visa, MicroStrategy and BITB",
             "url": "https://www.zacks.com/stock/news/2233774/zacks-investment-ideas-feature-highlights-coinbase-visa-microstrategy-and-bitb",
             "time_published": "20240229T141000",
@@ -1169,6 +1185,7 @@
             ]
         },
         {
+            "id": "17",
             "title": "Our Pick Of The Best Cryptocurrencies Of February 2024",
             "url": "https://www.forbes.com/uk/advisor/investing/cryptocurrency/top-10-cryptocurrencies-february-2024/",
             "time_published": "20240228T193600",
@@ -1260,6 +1277,7 @@
             ]
         },
         {
+            "id": "18",
             "title": "Crypto's Ascent: The Case for Becoming the S&P's 12th Sector",
             "url": "https://www.zacks.com/commentary/2233298/cryptos-ascent-the-case-for-becoming-the-sps-12th-sector",
             "time_published": "20240228T170800",
@@ -1329,6 +1347,7 @@
             ]
         },
         {
+            "id": "19",
             "title": "Bitcoin surpasses $56,000 benchmark, uplifts crypto market in latest rally",
             "url": "https://www.cnbc.com/2024/02/27/bitcoin-surpasses-56000-benchmark-in-latest-rally.html",
             "time_published": "20240227T080937",
@@ -1406,6 +1425,7 @@
             ]
         },
         {
+            "id": "20",
             "title": "How Trump's Bitcoin Evolution Could Scramble The Electoral Map",
             "url": "https://www.forbes.com/sites/digital-assets/2024/02/25/the-story-behind-trumps-bitcoin-evolution/",
             "time_published": "20240225T114502",
@@ -1475,6 +1495,7 @@
             ]
         },
         {
+            "id": "21",
             "title": "'Face-Ripping Rally Incoming'-Why The Bitcoin, Ethereum And XRP Price Boom Could Be Just Getting Started",
             "url": "https://www.forbes.com/sites/digital-assets/2024/02/18/face-ripping-rally-incoming-why-the-bitcoin-ethereum-and-xrp-price-boom-could-be-just-getting-started/",
             "time_published": "20240218T125022",
@@ -1538,6 +1559,7 @@
             ]
         },
         {
+            "id": "22",
             "title": "Why Bitcoin, Ethereum, and Solana All Jumped Double-Digits This Week",
             "url": "https://www.fool.com/investing/2024/02/16/why-bitcoin-ethereum-and-solana-all-jumped-double/",
             "time_published": "20240216T183155",
@@ -1597,7 +1619,7 @@
             ]
         }
     ],
-    "matches":  [
+    "matches": [
         {
             "1. symbol": "TSCO.LON",
             "2. name": "Tesco PLC",
@@ -1654,5 +1676,4 @@
             "9. matchScore": "0.5455"
         }
     ]
-   
 }

@@ -75,8 +75,7 @@
   "productDetail": {
     "backToProducts": "Ürünlere geri dön",
     "description": "Açıklama",
-    "productDetails": "Ürün Detayları",
-    "addToWishlist": "Favorilere Ekle"
+    "productDetails": "Ürün Detayları"
   },
   "toast": {
     "addedToCart": "{product} sepete eklendi!"

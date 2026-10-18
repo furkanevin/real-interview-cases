@@ -1,5 +1,5 @@
 {
-  "name": "travel-app",
+  "name": "next-tailwind-travel-filter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
-    "isomorphic-dompurify": "^2.22.0",
     "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

@@ -22,15 +22,19 @@ aside{
     flex: 1;
 }
 
-ul li{
+.category-btn{
     padding: .5rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
 }
 
-ul li.active{
-    border-bottom: 3px solid black;
+.category-btn.active{
+    border-bottom-color: black;
+    font-weight: 600;
 }
 
-ul li:hover{
+.category-btn:hover{
     background-color: rgba(199, 191, 191, 0.575);
 }
 

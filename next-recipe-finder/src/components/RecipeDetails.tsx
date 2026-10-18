@@ -8,6 +8,9 @@ import {
 import Card from "@/components/ui/Card";
 import { FiClock, FiUsers, FiHeart } from "react-icons/fi";
 
+// API özetindeki HTML etiketlerini temizler
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+
 // Recipe stat display component
 const RecipeStat = ({
   icon,
@@ -132,10 +135,10 @@ export default async function RecipeDetailsComponent({ id }: { id: string }) {
 
       <div className="mb-10">
         <SectionHeader title="About this recipe" />
-        <div
-          className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300"
-          dangerouslySetInnerHTML={{ __html: recipe.summary }}
-        ></div>
+        {/* API'den gelen HTML doğrudan basılmaz (XSS riski); etiketler temizlenip düz metin gösterilir */}
+        <p className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+          {stripHtml(recipe.summary)}
+        </p>
       </div>
 
       <div className="mb-10">

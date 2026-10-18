@@ -10,7 +10,6 @@ export const UniversityProvider = ({ children }) => {
   const [maxCount, setMaxCount] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState();
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
@@ -48,7 +47,6 @@ export const UniversityProvider = ({ children }) => {
       value={{
         universities,
         filtered,
-        selectedCategory,
         error,
         isLoading,
         maxCount,

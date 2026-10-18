@@ -30,7 +30,9 @@
 - Sepet işlemlerinde `react-toastify` ile bildirim gösteriliyor.
 - Slider'lar `embla-carousel-react` ve autoplay eklentisiyle yapıldı.
 - Stiller `src/app/assets/css` altında `main`, `responsive`, `slide`, `loader` gibi parçalara bölündü.
-- `loading.jsx` ve `not-found.jsx` ile App Router'ın özel dosyaları kullanıldı.
+- `loading.jsx` ve `not-found.jsx` ile App Router'ın özel dosyaları kullanıldı. Olmayan bir ürün id'si açılınca 404 sayfası gösteriliyor (Fake Store API bilinmeyen id'ler için boş yanıt döndürüyor).
+- Kategori sayfası ürünleri 3'er 3'er gösteriyor; "Load more" butonu kategorideki tüm ürünler görünene kadar kalıyor. Kategori adları API adresinde encode ediliyor (ör. `men's clothing`).
+- Fiyatlar `Intl.NumberFormat` ile biçimlendiriliyor.
 
 ## 🚀 Çalıştırma
 

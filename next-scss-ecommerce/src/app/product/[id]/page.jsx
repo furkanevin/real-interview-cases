@@ -2,19 +2,20 @@ import { getById } from '@/app/utils/api';
 import Image from 'next/image';
 import Link from 'next/link';
 import { GoArrowLeft } from 'react-icons/go';
+import { notFound } from 'next/navigation';
 import AddButton from '../addButton';
 
 const ProductDetail = async ({ params }) => {
   const product = await getById(params.id);
 
+  if (!product) notFound();
+
   return (
     <div className="detail-page">
       <div className="container">
-        <button>
-          <Link href={'/'} className="return-btn">
-            <GoArrowLeft />
-          </Link>
-        </button>
+        <Link href={'/'} className="return-btn" aria-label="Back to home">
+          <GoArrowLeft />
+        </Link>
 
         <div className="wrapper">
           <div className="left">

@@ -22,10 +22,12 @@ Finans haberlerini ve hisse/kripto arama sonuçlarını gösteren bir haber site
 
 ## 💡 Çözüm
 
-- Ücretsiz API'nin istek limiti düşük olduğu için örnek API yanıtları `db.json` dosyasına kaydedildi ve **json-server** ile lokal bir REST API olarak sunuldu (`/feed`, `/matches`).
-- Haber listesi `react-paginate` ile sayfalandı.
-- Hisse araması, önceden çekilen liste üzerinde istemci tarafında filtreleme yapıyor.
-- Alpha Vantage'a doğrudan istek atan kod `src/constant.js` içinde yorum satırı olarak duruyor; kendi API key'inizle canlı veriye geçebilirsiniz.
+- Ücretsiz API'nin istek limiti düşük olduğu için örnek API yanıtları `db.json` dosyasına kaydedildi ve **json-server** ile lokal bir REST API olarak sunuldu (`/feed`, `/feed/:id`, `/matches`). API adresi `src/utils/api.js` içinde; `VITE_API_URL` ile değiştirilebilir.
+- **Kategoriler:** Seçili kategori URL'de tutuluyor (`?category=Technology`); sayfa yenilense de kalıyor ve paylaşılabiliyor. Her haberin bir `topics` listesi var; `matchesCategory` bunu menüdeki her öğeye karşılık gelen konularla karşılaştırıyor.
+- **Sayfalama:** `react-paginate` sayfa başına 3 haber gösteriyor ve kategori değişince ilk sayfaya dönüyor.
+- **Hisse araması:** Yazdıkça listeyi sembol veya şirket adına göre filtreliyor.
+- **Haber detayı:** Görsel, tarih, yazarlar, kaynak, özet, konular, duygu analizi ve orijinal habere giden link gösteriliyor.
+- Tüm listelerde yükleniyor, hata ve boş durumları ele alınıyor.
 
 ## 🚀 Çalıştırma
 
@@ -36,5 +38,3 @@ npm install
 npm run server   # json-server → http://localhost:3050
 npm run dev      # http://localhost:5173
 ```
-
-Canlı API kullanmak isterseniz [Alpha Vantage](https://www.alphavantage.co/support/#api-key)'dan ücretsiz key alıp `src/.env.example` dosyasını `.env` olarak kopyalayın.

@@ -37,11 +37,14 @@ Build an app for students who want to study abroad, listing university programme
 ## 💡 Solution
 
 - **json-server** is used as the backend; data lives in `db.json` (`universities`, `users`).
-- Filtering, sorting and pagination are delegated entirely to json-server query parameters: `country=`, `cost_gte=`, `cost_lte=`, `_sort=`, `_order=`, `_page=`, `_limit=`. The total count is read from the `X-Total-Count` header.
+- **Authentication:** `AuthContext` handles login, registration and logout. Login queries only the matching user (`users?email=`) instead of downloading every user, and only `id`, `name` and `email` are kept in `localStorage`; the password is never stored.
+- **Protected routes:** `/main` and `/main/:id` are wrapped in a `ProtectedRoute` component, so signed-out users are redirected to the login page. A signed-in user who opens the login page is sent straight to the list.
+- Filtering, sorting and pagination are delegated to json-server query parameters: `country=`, `cost_gte=`, `cost_lte=`, `_sort=`, `_order=`, `_page=`, `_limit=`. The total count is read from the `X-Total-Count` header.
 - All filter values are kept in the URL with `useSearchParams`. Changing a filter resets the page to 1.
-- The list data is managed with `UniversityContext`.
 - Dropdown options are built from the data with duplicates removed (`utils/removeDuplicates.js`).
 - Libraries: `react-select`, `react-range-slider-input`, `react-paginate`.
+
+> ⚠️ json-server is a demo backend: passwords are stored in plain text and checked in the browser. In a real app, passwords are hashed and verified on the server, which returns a session or token.
 
 ## 🚀 Getting started
 

@@ -65,7 +65,7 @@
 
           <div class="line">.</div>
 
-          <button class="login-btn">
+          <button type="button" class="login-btn">
             <img src="images/login.png" alt="user icon" class="login-icon" />
             <span>Sign up / Login</span>
           </button>
@@ -74,6 +74,7 @@
     </header>
 
     <!--  HERO -->
+    <main>
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-text">
@@ -98,13 +99,14 @@
           </ul>
         </div>
 
-        <div class="form-card">
+        <!-- Form sadece görsel amaçlı; gönderilmez (görevin gereği) -->
+        <form class="form-card" action="#" onsubmit="return false;" novalidate>
           <h2>Sign up to CareOnline</h2>
           <p class="form-sub">Please create your account</p>
 
           <div class="form-field">
             <label for="title">Title</label>
-            <select id="title">
+            <select id="title" name="title">
               <option>Select your title</option>
               <option>Mr</option>
               <option>Mrs</option>
@@ -116,32 +118,32 @@
 
           <div class="form-field">
             <label for="forename">Forename(s)</label>
-            <input id="forename" type="text" placeholder="Enter your Forename(s)" />
+            <input id="forename" name="forename" type="text" placeholder="Enter your Forename(s)" />
           </div>
 
           <div class="form-field">
             <label for="surname">Surname</label>
-            <input id="surname" type="text" placeholder="Enter your Surname" />
+            <input id="surname" name="surname" type="text" placeholder="Enter your Surname" />
           </div>
 
           <div class="form-field">
             <label for="email">Email address</label>
-            <input id="email" type="email" placeholder="Enter your email address" />
+            <input id="email" name="email" type="email" placeholder="Enter your email address" />
           </div>
 
           <div class="form-field">
             <label for="mobile">Mobile telephone number</label>
-            <input id="mobile" type="tel" placeholder="Enter your mobile number" />
+            <input id="mobile" name="mobile" type="tel" placeholder="Enter your mobile number" />
           </div>
 
           <div class="form-field">
             <label for="date">Date of birth</label>
-            <input id="date" type="text" placeholder="DD / MM / YYYY" />
+            <input id="date" name="date" type="text" placeholder="DD / MM / YYYY" />
           </div>
 
           <div class="form-field">
             <label for="language">Preferred language</label>
-            <select id="language">
+            <select id="language" name="language">
               <option>Select your preferred language</option>
               <option>English</option>
               <option>Cymraeg</option>
@@ -150,14 +152,15 @@
 
           <div class="form-field">
             <label for="password">Password</label>
-            <input id="password" type="password" placeholder="*********" />
+            <input id="password" name="password" type="password" placeholder="*********" />
           </div>
 
-          <button class="submit-btn">Sign up</button>
+          <button type="submit" class="submit-btn">Sign up</button>
 
           <p class="login-link">Already signed up? <a href="#">Login here</a></p>
-        </div>
+        </form>
       </div>
     </section>
+    </main>
   </body>
 </html>

@@ -1,38 +1,19 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { formatPublishedDate } from '../../utils/api';
 import './NewsFeed.css';
-import { useNavigate } from 'react-router-dom';
 
 const NewsFeed = ({ singleNews }) => {
-  const { title, time_published, authors, summary, banner_image, url } =
-    singleNews;
-
-  const navigate = useNavigate();
-  const year = parseInt(time_published.substring(0, 4));
-  const month = parseInt(time_published.substring(4, 6)) - 1; // Month is zero-based
-  const day = parseInt(time_published.substring(6, 8));
-  const hour = parseInt(time_published.substring(9, 11));
-  const minute = parseInt(time_published.substring(11, 13));
-  const second = parseInt(time_published.substring(13, 15));
-
-  const publishedDate = new Date(year, month, day, hour, minute, second);
-
-  const formattedPublishedDate =
-    publishedDate.toString() !== 'Invalid Date'
-      ? publishedDate.toLocaleString()
-      : 'Unknown Date';
+  const { id, title, time_published, authors, summary, banner_image } = singleNews;
 
   return (
-    <div
-      className="news-wrapper"
-      onClick={() => navigate(`/newsDetail/${singleNews.id}`)}
-    >
-      <img className="news-img" src={banner_image} />
+    <Link to={`/newsDetail/${id}`} className="news-wrapper">
+      {banner_image && <img className="news-img" src={banner_image} alt="" />}
       <h2 className="news-title">{title}</h2>
       <p>{summary}</p>
       <p className="news-extra">
-        <span>{formattedPublishedDate}</span> || {authors}
+        <span>{formatPublishedDate(time_published)}</span> · {authors?.join(', ')}
       </p>
-    </div>
+    </Link>
   );
 };
 

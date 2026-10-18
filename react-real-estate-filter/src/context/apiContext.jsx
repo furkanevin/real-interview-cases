@@ -6,7 +6,7 @@ export const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [filtred, setFiltred] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [locations, setLocations] = useState([]);
@@ -24,14 +24,15 @@ export const ApiProvider = ({ children }) => {
       .get(`${import.meta.env.VITE_API_BASE_URL}/list?key=${import.meta.env.VITE_API_KEY}`)
       .then((res) => {
         setData(res.data);
-        setFiltred(res.data);
+        setFiltered(res.data);
       })
       .catch((err) => setError(err))
       .finally(() => setIsLoading(false));
 
     axios
       .get(`${import.meta.env.VITE_API_BASE_URL}/locationLookup?key=${import.meta.env.VITE_API_KEY}`)
-      .then((res) => setLocations(res.data));
+      .then((res) => setLocations(res.data))
+      .catch((err) => setError(err));
   }, []);
 
   useEffect(() => {
@@ -61,11 +62,11 @@ export const ApiProvider = ({ children }) => {
       filteredData = filteredData.filter((entry) => entry.ad_status === type);
     }
 
-    setFiltred(filteredData);
+    setFiltered(filteredData);
   }, [data, locations, cityId, district, type]);
 
   return (
-    <ApiContext.Provider value={{ data, error, isLoading, filtred, locations }}>
+    <ApiContext.Provider value={{ data, error, isLoading, filtered, locations }}>
       {children}
     </ApiContext.Provider>
   );

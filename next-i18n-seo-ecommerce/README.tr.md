@@ -41,7 +41,8 @@ GitHub reposu + canlı demo linki (Vercel, Netlify vb.)
 - **Çok dil:** `next-intl` ile `src/app/[locale]/` rota yapısı kuruldu. Çeviriler `messages/tr.json` ve `messages/en.json` dosyalarında, dil yönlendirmesi `src/middleware.ts` içinde.
 - **SEO:** Ürün detay sayfasında `generateMetadata` ile ürüne özel başlık ve açıklama üretiliyor.
 - **Performans:** API istekleri `revalidate` ile ISR önbelleğine alınıyor; görseller `next/image` ile yükleniyor.
-- **State:** Sepet Redux Toolkit ile yönetiliyor (`src/store/slices`).
+- **State:** Sepet Redux Toolkit ile yönetiliyor (`src/store/slices`) ve `localStorage`'a kaydediliyor. Hydration uyuşmazlığı olmasın diye sepet sunucuda boş başlıyor, tarayıcıda ilk render'dan sonra yükleniyor.
+- **Arama:** Header'daki arama kutusu kullanıcıyı `?search=` parametresiyle ürün listesine götürüyor; arama filtresi bu değerle dolu açılıyor.
 - **Bileşenler:** `src/components` altında `layout`, `product`, `cart`, `categories` ve `ui` olarak gruplandı.
 - Geliştirme adımları ve kapsam [`PRD.md`](./PRD.md) dosyasında.
 

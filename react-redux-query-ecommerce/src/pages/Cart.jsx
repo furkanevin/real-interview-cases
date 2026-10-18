@@ -1,21 +1,23 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart, getTotals } from '../redux/slices/cartSlice';
+import { toast } from 'react-toastify';
+import { clearCart, selectCartItems, selectCartTotals } from '../redux/slices/cartSlice';
 import BasketCard from '../components/BasketCard';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cartItems = useSelector(selectCartItems);
+  const { amount } = useSelector(selectCartTotals);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getTotals());
-  }, [cart, dispatch]);
+  const handleClear = () => {
+    dispatch(clearCart());
+    toast.error('Cart cleared', { position: 'bottom-left' });
+  };
 
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
-      {cart.cartItems.length === 0 ? (
+      {cartItems.length === 0 ? (
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
           <div className="start-shopping">
@@ -46,14 +48,14 @@ const Cart = () => {
             <h3 className="total">Total</h3>
           </div>
           <div className="cart-items">
-            {cart.cartItems?.map((cartItem) => (
+            {cartItems.map((cartItem) => (
               <BasketCard key={cartItem.id} cartItem={cartItem} />
             ))}
           </div>
           <div className="cart-summary">
             <button
               className="clear-btn"
-              onClick={() => dispatch(clearCart())}
+              onClick={handleClear}
             >
               Clear Cart
             </button>
@@ -61,7 +63,7 @@ const Cart = () => {
               <div className="subtotal">
                 <span>Subtotal</span>
                 <span className="amount">
-                  ${cart.cartTotalAmount}
+                  ${amount.toFixed(2)}
                 </span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>

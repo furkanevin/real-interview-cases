@@ -65,7 +65,6 @@ class CartManagerService {
     // Try to load from URL parameter first (for cross-origin transfer)
     const urlCart = this.getCartFromURL();
     if (urlCart) {
-      console.log("CartManager: Cart loaded from URL, syncing:", urlCart);
       // Save URL cart to localStorage for persistence
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(urlCart));
       // Notify subscribers of the new cart data
@@ -98,7 +97,6 @@ class CartManagerService {
       const cartParam = urlParams.get("cart");
 
       if (cartParam) {
-        console.log("CartManager: Loading cart from URL parameter");
         const decodedCart = decodeURIComponent(cartParam);
         const cart: CartState = JSON.parse(decodedCart);
 
@@ -232,7 +230,6 @@ class CartManagerService {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.STORAGE_KEY && !this.isUpdating) {
-      console.log("CartManager: Detected storage change from another tab/app");
 
       try {
         if (event.newValue) {
@@ -332,5 +329,3 @@ class CartManagerService {
 // Export singleton instance
 export const CartManager = CartManagerService.getInstance();
 
-// Export types
-export type { CartUpdateCallback };

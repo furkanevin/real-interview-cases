@@ -17,21 +17,24 @@ const validateSearchParams = (params: {
 };
 
 interface RecipesPageProps {
-  searchParams: {
+  // Next.js 15'te searchParams bir Promise olarak gelir
+  searchParams: Promise<{
     query?: string;
     cuisine?: string;
     maxReadyTime?: string;
-  };
+  }>;
 }
 
 // Main page component
-export default function RecipesPage({ searchParams }: RecipesPageProps) {
+export default async function RecipesPage({ searchParams }: RecipesPageProps) {
+  const params = await searchParams;
+
   // If no valid search parameters are provided, return 404
-  if (!validateSearchParams(searchParams)) {
+  if (!validateSearchParams(params)) {
     return notFound();
   }
 
-  const { query, cuisine, maxReadyTime } = searchParams;
+  const { query, cuisine, maxReadyTime } = params;
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">

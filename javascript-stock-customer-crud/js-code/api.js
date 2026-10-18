@@ -34,7 +34,7 @@ export const getStocks = async () => {
   try {
     return await axios.get(stockEndpoint);
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

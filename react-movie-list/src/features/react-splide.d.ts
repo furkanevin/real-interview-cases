@@ -2,7 +2,7 @@ declare module "@splidejs/react-splide" {
   import * as React from "react";
 
   export interface SplideProps {
-    options?: Record<string, any>;
+    options?: Record<string, unknown>;
     className?: string;
     children?: React.ReactNode;
   }

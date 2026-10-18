@@ -44,6 +44,9 @@ Kod üç modüle ayrıldı:
 
 - Ekleme ve düzenleme için **tek bir modal** kullanılıyor. Hangi işlemin yapılacağı `data-mode` ve `data-editId` attribute'larıyla belirleniyor.
 - Form verisi `FormData` ile okunup nesneye çevriliyor.
+- **XSS koruması:** Satırlar HTML metni olarak oluşturulduğu için API'den gelen her değer eklenmeden önce `escapeHtml` fonksiyonundan geçiyor. Bu olmasaydı `<img src=x onerror=...>` gibi bir stok adı kod olarak çalışırdı.
+- Satır butonları tekrar eden `id`'ler yerine (`id` sayfada tekil olmalı) `data-action="edit"` / `data-action="delete"` kullanıyor; tıklamalar tablo gövdesindeki event delegation ile yakalanıyor.
+- Silmeden önce onay isteniyor.
 - API hataları `Toastify` ile kırmızı bildirim olarak gösteriliyor.
 
 ## 🚀 Çalıştırma

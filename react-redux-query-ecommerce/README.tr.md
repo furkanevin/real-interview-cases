@@ -24,8 +24,9 @@
 ## 💡 Çözüm
 
 - `src/redux/query/productsApi.js`: `createApi` ve `fetchBaseQuery` ile ürün endpoint'i tanımlandı; bileşenlerde `useGetProductsQuery` hook'u ile yükleme, hata ve veri durumları alınıyor.
-- `src/redux/slices/cartSlice.js`: Sepete ekleme, adet azaltma, silme, temizleme ve toplam hesaplama reducer'ları. Sepet her değişiklikte `localStorage`'a yazılıyor ve başlangıçta oradan okunuyor.
-- Bildirimler reducer içinden `react-toastify` ile gösteriliyor.
+- `src/redux/slices/cartSlice.js`: Sepete ekleme, adet azaltma, silme ve temizleme için **saf** reducer'lar. Toplamlar state'te tutulmuyor; memoize edilmiş `selectCartTotals` selector'ı ürün sayısını ve tutarı sepetten türetiyor.
+- `src/redux/store.js`: Store'u oluşturuyor ve sepet her değiştiğinde `store.subscribe` ile `localStorage`'a yazıyor. Uygulama açılırken sepet `localStorage`'dan okunuyor.
+- Yan etkiler reducer'ların dışında: bildirimler (toast), action'ı dispatch eden bileşenlerde gösteriliyor.
 - Arayüz React Bootstrap bileşenleriyle hazırlandı.
 
 ## 🚀 Çalıştırma

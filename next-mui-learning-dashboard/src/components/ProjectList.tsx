@@ -45,7 +45,7 @@ const ProjectList = () => {
           </TableRow>
           <TableRow sx={{ background: '#f7f7f9' }}>
             {firstTableHead.map(item => (
-              <TableCell>
+              <TableCell key={item}>
                 <Label>{item}</Label>
               </TableCell>
             ))}

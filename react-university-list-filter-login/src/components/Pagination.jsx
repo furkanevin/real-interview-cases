@@ -3,7 +3,7 @@ import { useData } from '../context/UniversityContext';
 import { useSearchParams } from 'react-router-dom';
 
 const Pagination = () => {
-  const { universities, maxCount } = useData();
+  const { maxCount } = useData();
   const [params, setParams] = useSearchParams();
 
   const handlePageClick = (e) => {

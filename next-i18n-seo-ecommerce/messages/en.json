@@ -75,8 +75,7 @@
   "productDetail": {
     "backToProducts": "Back to products",
     "description": "Description",
-    "productDetails": "Product Details",
-    "addToWishlist": "Add to Wishlist"
+    "productDetails": "Product Details"
   },
   "toast": {
     "addedToCart": "{product} added to cart!"

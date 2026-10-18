@@ -1,5 +1,5 @@
 {
-  "name": "case",
+  "name": "react-saas-admin-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.7",
-    "@mui/x-data-grid": "^6.9.2",
-    "@tanstack/react-query": "^4.29.19",
     "framer-motion": "^10.16.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

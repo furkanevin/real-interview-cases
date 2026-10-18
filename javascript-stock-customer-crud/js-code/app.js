@@ -98,7 +98,7 @@ form.addEventListener('submit', (e) => {
 });
 
 tableBody.addEventListener('click', (e) => {
-  if (e.target.id === 'editBtn') {
+  if (e.target.dataset.action === 'edit') {
     // Düzenlenecek satırın bulunduğu tr elementini seç
     const row = e.target.closest('tr');
     const editId = row.dataset.id;
@@ -121,9 +121,10 @@ tableBody.addEventListener('click', (e) => {
 
     // Modal'ı aç
     modal.classList.add('active');
-  } else if (e.target.id === 'deleteBtn') {
+  } else if (e.target.dataset.action === 'delete') {
     const row = e.target.closest('tr');
     const dataId = row.dataset.id;
+    if (!confirm('Bu stok kaydı silinsin mi?')) return;
     deleteStocks(dataId, row);
   }
 });
@@ -162,7 +163,7 @@ customerForm.addEventListener('submit', (e) => {
 });
 
 tableCustBody.addEventListener('click', (e) => {
-  if (e.target.id === 'editBtn') {
+  if (e.target.dataset.action === 'edit') {
     const editId = e.target.dataset.id;
     modalCust.dataset.mode = 'edit';
     modalCust.dataset.editId = editId;
@@ -178,11 +179,12 @@ tableCustBody.addEventListener('click', (e) => {
 
     // Modal'ı aç
     modalCust.classList.add('active');
-  } else if (e.target.id === 'deleteBtn') {
+  } else if (e.target.dataset.action === 'delete') {
     const dataId = e.target.getAttribute('data-id');
 
     const row = e.target.closest('tr');
 
+    if (!confirm('Bu müşteri kaydı silinsin mi?')) return;
     deleteCustomer(dataId, row);
   }
 });

@@ -14,8 +14,9 @@ const Startup = () => {
         <div className="flex overflow-auto w-full lg:w-fit mx-auto bg-gray-800 p-2 rounded-md text-gray-400">
           {startupData.map((text, i) => (
             <button
+              key={text}
               className={`${
-                i == 0 && 'bg-gray-700 text-white'
+                i === 0 ? 'bg-gray-700 text-white' : ''
               } rounded-md font-bold px-3 py-2 text-nowrap hover:text-dblue`}
             >
               {text}

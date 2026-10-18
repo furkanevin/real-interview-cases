@@ -2,7 +2,7 @@
 
 [🇬🇧 English](./README.md) | 🇹🇷 Türkçe
 
-> **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** React 18, Vite, TypeScript, SCSS, Material UI, MUI Data Grid, Recharts, Framer Motion, React Router
+> **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** React 18, Vite, TypeScript, SCSS, Recharts, Framer Motion, React Router
 
 ![Ekran görüntüsü](./screenshot.webp)
 
@@ -30,15 +30,16 @@ Size gönderilen bir ekran kaydında (GIF) gösterilen **SaaS müşteri paneli (
 
 ## 💡 Çözüm
 
-- **Layout:** `Navbar`, sol `Menu`, içerik alanı ve `Footer`. Rotalar `createBrowserRouter` ile tanımlandı (`/` ve `/users/:id`).
+- **Layout:** `Navbar`, sol `Menu`, içerik alanı ve `Footer`. Layout ve rotalar `App` bileşeninin dışında, `createBrowserRouter` ile bir kez tanımlandı (`/` ve `/users/:id`).
+- **Menü:** `src/data.ts` içindeki `menu` dizisinden oluşturuluyor. Case kapsamında olmayan sayfaların `url`'i yok; bu yüzden ölü link yerine pasif öğe olarak gösteriliyorlar. Aktif sayfa `NavLink` ile vurgulanıyor.
 - **Ana sayfa:** CSS Grid ile kutulara bölünmüş bir dashboard:
   - `TopBox`: son mesajlar listesi
   - `ChartBox`: toplam kullanıcı, ürün, gelir ve oran için küçük çizgi grafikler
-  - `BigChartBox`: gelir analizi (Revenue Analytics) alan grafiği
+  - `BigChartBox`: gelir analizi alan grafiği
   - `PieChartBox`: kaynaklara göre potansiyel müşteri dağılımı
   - `BarChartBox`: toplam ziyaret ve kâr grafikleri
-- Grafikler **Recharts**, tablolar **MUI Data Grid** ile yapıldı.
-- `Members` bileşeninde **Framer Motion** ile sıralı giriş animasyonları var.
+- **Kullanıcı sayfası (`/users/:id`):** `Single` bileşeni kullanıcı bilgilerini, aktivite grafiğini ve zaman çizelgesini gösteriyor.
+- Grafikler **Recharts** ile; `TopBox` ve `Members` bileşenlerindeki giriş animasyonları **Framer Motion** ile yapıldı.
 - Responsive kırılımlar `styles/responsive.scss` içinde mixin olarak tanımlandı; renkler `styles/variables.scss` içinde.
 - Örnek veriler `src/data.ts` dosyasında.
 

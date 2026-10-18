@@ -18,8 +18,6 @@ export default function CartPage() {
     return () => clearTimeout(timer);
   }, [refreshCart]);
 
-  console.log("🛒 Cart Page: Current cart items:", cart.items);
-  console.log("🛒 Cart Page: Item count:", cart.itemCount);
 
   if (cart.itemCount === 0) {
     return (

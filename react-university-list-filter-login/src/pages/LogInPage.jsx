@@ -1,33 +1,25 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { NavLink, useNavigate } from "react-router-dom";
-import api from "../utils/api";
+import { useState } from "react";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
   const navigate = useNavigate();
+  const { user, login } = useAuth();
 
-  const handleSubmit = (e) => {
+  // zaten giriş yapılmışsa listeye yönlendir
+  if (user) return <Navigate to="/main" replace />;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    api
-      .get("users")
-      .then((response) => {
-        const users = response.data;
-        const user = users.find(
-          (user) => user.email === email && user.password === password
-        );
-        if (user) {
-          navigate("/main");
-        } else {
-          setLoginError(true);
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        setLoginError(true);
-      });
+    try {
+      await login(email, password);
+      navigate("/main");
+    } catch {
+      setLoginError(true);
+    }
   };
 
   return (

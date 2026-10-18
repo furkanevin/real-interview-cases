@@ -37,11 +37,14 @@ Yurt dışında eğitim almak isteyen öğrenciler için, üniversite programlar
 ## 💡 Çözüm
 
 - Backend olarak **json-server** kullanıldı; veriler `db.json` içinde (`universities`, `users`).
-- Filtreleme, sıralama ve sayfalama işi tamamen json-server'ın sorgu parametrelerine bırakıldı: `country=`, `cost_gte=`, `cost_lte=`, `_sort=`, `_order=`, `_page=`, `_limit=`. Toplam kayıt sayısı `X-Total-Count` header'ından okunuyor.
+- **Kimlik doğrulama:** Giriş, kayıt ve çıkış `AuthContext` ile yönetiliyor. Giriş sırasında tüm kullanıcılar indirilmiyor, sadece eşleşen kullanıcı sorgulanıyor (`users?email=`). `localStorage`'a sadece `id`, `name` ve `email` yazılıyor; şifre asla saklanmıyor.
+- **Korumalı rotalar:** `/main` ve `/main/:id`, `ProtectedRoute` bileşeniyle sarıldı; giriş yapmamış kullanıcı giriş sayfasına yönlendiriliyor. Giriş yapmış kullanıcı giriş sayfasını açarsa doğrudan listeye gidiyor.
+- Filtreleme, sıralama ve sayfalama json-server'ın sorgu parametrelerine bırakıldı: `country=`, `cost_gte=`, `cost_lte=`, `_sort=`, `_order=`, `_page=`, `_limit=`. Toplam kayıt sayısı `X-Total-Count` header'ından okunuyor.
 - Tüm filtre değerleri `useSearchParams` ile URL'de tutuluyor. Filtre değişince sayfa 1'e dönülüyor.
-- Liste verisi `UniversityContext` ile yönetiliyor.
 - Açılır listelerin seçenekleri, veriden tekrar edenler temizlenerek oluşturuluyor (`utils/removeDuplicates.js`).
 - Kütüphaneler: `react-select`, `react-range-slider-input`, `react-paginate`.
+
+> ⚠️ json-server bir demo backend'idir: şifreler düz metin olarak saklanıyor ve tarayıcıda kontrol ediliyor. Gerçek bir uygulamada şifreler hash'lenir, sunucuda doğrulanır ve sunucu bir oturum/token döndürür.
 
 ## 🚀 Çalıştırma
 

@@ -43,7 +43,7 @@ const LessonCards = () => {
         }}
       >
         {lessons.map(lesson => (
-          <LessonBox style={lesson.styles}>
+          <LessonBox key={lesson.title} style={lesson.styles}>
             <Typography color={'#6c6d7f'}>{lesson.title}</Typography>
             <Avatar src={lesson.img}></Avatar>
           </LessonBox>

@@ -24,8 +24,9 @@ Build an e-commerce app that lists products from the [Fake Store API](https://fa
 ## 💡 Solution
 
 - `src/redux/query/productsApi.js`: The products endpoint is defined with `createApi` and `fetchBaseQuery`; components get loading, error and data states from the `useGetProductsQuery` hook.
-- `src/redux/slices/cartSlice.js`: Reducers for adding, decreasing, removing, clearing and computing totals. The cart is written to `localStorage` on every change and read from it on startup.
-- Notifications are shown from inside the reducers with `react-toastify`.
+- `src/redux/slices/cartSlice.js`: **Pure** reducers for adding, decreasing, removing and clearing. Totals are not stored in state; the memoized `selectCartTotals` selector derives the item count and amount from the cart.
+- `src/redux/store.js`: Creates the store and saves the cart to `localStorage` with `store.subscribe` whenever it changes. The cart is read from `localStorage` on startup.
+- Side effects stay out of reducers: toast notifications are shown by the components that dispatch the actions.
 - The UI is built with React Bootstrap components.
 
 ## 🚀 Getting started

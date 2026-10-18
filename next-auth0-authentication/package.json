@@ -1,5 +1,5 @@
 {
-  "name": "next-auth-app",
+  "name": "next-auth0-authentication",
   "version": "0.1.0",
   "private": true,
   "scripts": {

@@ -20,11 +20,12 @@
 ## 💡 Çözüm
 
 - Tüm API istekleri `src/features/movieApi.ts` içinde **RTK Query** ile tanımlandı. Önbellekleme ve yükleme durumları RTK Query tarafından yönetiliyor.
-- Favoriler `favoritesSlice` ile Redux'ta tutuluyor ve `localStorage`'a yazılıyor; sayfa yenilense de kaybolmuyor.
+- Favoriler `favoritesSlice` ile Redux'ta tutuluyor. Reducer'lar saf (aynı film iki kez eklenmiyor); `store.ts`, listeyi `store.subscribe` ile `localStorage`'a yazıyor, böylece sayfa yenilense de favoriler kaybolmuyor.
 - Film listeleri `react-splide` ile slider olarak gösteriliyor.
 - Fragmanlar `react-player` ile oynatılıyor; oy sayıları gibi büyük rakamlar `millify` ile kısaltılıyor.
 - Yükleme durumları için `src/pages/loading` altında skeleton bileşenleri var.
 - Görsel URL'leri ve boyutları `src/constant.ts` içinde merkezi olarak tutuluyor.
+- `npm run build`, `vite build`'den önce `tsc` çalıştırıyor; tip hataları build'i durduruyor.
 
 ### Sayfalar
 

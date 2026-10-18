@@ -8,10 +8,12 @@ const SearchBox = () => {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if (!e.target[0].value.trim()) {
-      toast.info('Please enter valid country');
+    const country = e.target.country.value.trim();
+
+    if (!country) {
+      toast.info('Please enter a country name');
     } else {
-      navigate(`/detail?country=${e.target[0].value}`);
+      navigate(`/detail?country=${encodeURIComponent(country)}`);
     }
 
     e.target.reset();
@@ -20,7 +22,9 @@ const SearchBox = () => {
   return (
     <form onSubmit={handleSearch} className="flex items-center justify-center">
       <input
+        name="country"
         type="text"
+        aria-label="Country name"
         placeholder="Search By Country Name"
         className="w-64 px-3 py-2 border-none bg-transparent focus:outline-none text-white shadow-md"
       />

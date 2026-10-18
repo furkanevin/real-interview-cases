@@ -54,6 +54,9 @@ Build a **Next.js** app where users search recipes with filters, see the results
 
 - The result list is wrapped in `Suspense`, showing a skeleton until data arrives.
 - The cache duration is set to 1 minute with `export const revalidate = 60`.
+- In Next.js 15, `params` and `searchParams` are Promises, so the pages `await` them.
+- The API key is only used on the server, so it is stored as `SPOONACULAR_API_KEY` without the `NEXT_PUBLIC_` prefix and never ends up in the browser bundle.
+- The recipe summary from the API contains HTML. Instead of rendering it with `dangerouslySetInnerHTML` (an XSS risk), the tags are stripped and the text is shown as plain text.
 - The form computes the "Next" button state from the filled fields and carries the values as URL parameters.
 
 ## 🚀 Getting started

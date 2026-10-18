@@ -45,6 +45,10 @@ const cartSlice = createSlice({
         }
       }
     },
+    // localStorage'dan okunan sepeti store'a yükler (sadece tarayıcıda, ilk yüklemede)
+    hydrateCart: (state, action: PayloadAction<CartItem[]>) => {
+      state.items = action.payload;
+    },
     clearCart: (state) => {
       state.items = [];
     },
@@ -57,7 +61,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart, toggleCart, setCartOpen } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateQuantity, hydrateCart, clearCart, toggleCart, setCartOpen } =
+  cartSlice.actions;
 
 // Selectors
 export const selectCartItems = (state: { cart: CartState }) => state.cart.items;

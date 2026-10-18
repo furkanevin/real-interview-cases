@@ -8,8 +8,9 @@ export async function handleApiResponse<T>(response: Response): Promise<T> {
   return await response.json();
 }
 
+// Sadece sunucuda kullanılır; NEXT_PUBLIC_ öneki olmadığı için tarayıcı paketine girmez
 export function getApiKey(): string {
-  const apiKey = process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY;
+  const apiKey = process.env.SPOONACULAR_API_KEY;
   if (!apiKey) {
     throw new Error("API key is not configured");
   }

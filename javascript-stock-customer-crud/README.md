@@ -44,6 +44,9 @@ The code is split into three modules:
 
 - A **single modal** is used for both creating and editing. The current action is tracked with the `data-mode` and `data-editId` attributes.
 - Form data is read with `FormData` and converted to an object.
+- **XSS protection:** Rows are built as HTML strings, so every value coming from the API goes through an `escapeHtml` helper before being inserted. Without it, a stock name like `<img src=x onerror=...>` would run as code.
+- Row buttons use `data-action="edit"` / `data-action="delete"` instead of repeated `id`s (an `id` must be unique on the page), and event delegation on the table body handles the clicks.
+- Deleting asks for confirmation first.
 - API errors are shown as red notifications with `Toastify`.
 
 ## 🚀 Getting started

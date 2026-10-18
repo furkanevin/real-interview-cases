@@ -1,3 +1,12 @@
+// API'den gelen metinler HTML olarak yorumlanmasın diye escape edilir (XSS koruması)
+const escapeHtml = (value) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 const passiveIcon = '<i class="fa-regular fa-circle-xmark"></i>';
 const activeIcon =
   '<span class="material-symbols-outlined"> task_alt </span>';
@@ -20,17 +29,17 @@ export const renderStocks = (data) => {
   const tbody = document.querySelector('.stocks table tbody');
   tbody.innerHTML = data
     .map(
-      (stock) => `<tr data-id="${stock.ID}" >
-              <td><span>${stock.Name}</span></td>
-              <td><span>${stock.SellerCode}</span></td>
-              <td><span>${stock.UnitName}</span></td>
-              <td><span>${stock.Price}</span></td>
-              <td><span>${stock.TaxPercent}</span></td>
+      (stock) => `<tr data-id="${escapeHtml(stock.ID)}" >
+              <td><span>${escapeHtml(stock.Name)}</span></td>
+              <td><span>${escapeHtml(stock.SellerCode)}</span></td>
+              <td><span>${escapeHtml(stock.UnitName)}</span></td>
+              <td><span>${escapeHtml(stock.Price)}</span></td>
+              <td><span>${escapeHtml(stock.TaxPercent)}</span></td>
               <td>${stock.IsActive ? activeIcon : passiveIcon}</td>
               <td>
                 <div class="btn">
-                <button id="deleteBtn">SİL</button>
-                <button id="editBtn">DÜZENLE</button>
+                <button data-action="delete">SİL</button>
+                <button data-action="edit">DÜZENLE</button>
                 </div>
               </td>
             </tr>
@@ -49,11 +58,11 @@ export const renderNewStocks = (data) => {
   tbody.insertAdjacentHTML(
     'afterbegin',
     `<tr>
-  <td><span>${data.Name}</span></td>
-  <td><span>${data.SellerCode}</span></td>
-  <td><span>${data.UnitName}</span></td>
-  <td><span>${data.Price} ₺</span></td>
-  <td><span>${data.TaxPercent}</span></td>
+  <td><span>${escapeHtml(data.Name)}</span></td>
+  <td><span>${escapeHtml(data.SellerCode)}</span></td>
+  <td><span>${escapeHtml(data.UnitName)}</span></td>
+  <td><span>${escapeHtml(data.Price)} ₺</span></td>
+  <td><span>${escapeHtml(data.TaxPercent)}</span></td>
   <td>${data.IsActive ? activeIcon : passiveIcon}</td>
   <td>
   <div class="btn">
@@ -67,22 +76,22 @@ export const renderNewStocks = (data) => {
 
 export const renderEditStocks = (data) => {
   const existingRow = document.querySelector(
-    `tr[data-id="${data.ID}"]`
+    `tr[data-id="${escapeHtml(data.ID)}"]`
   );
 
   if (existingRow) {
     // Satır zaten varsa güncelle
     existingRow.innerHTML = `
-      <td><span>${data.Name}</span></td>
-      <td><span>${data.SellerCode}</span></td>
-      <td><span>${data.UnitName}</span></td>
-      <td><span>${data.Price}</span></td>
-      <td><span>${data.TaxPercent}</span></td>
+      <td><span>${escapeHtml(data.Name)}</span></td>
+      <td><span>${escapeHtml(data.SellerCode)}</span></td>
+      <td><span>${escapeHtml(data.UnitName)}</span></td>
+      <td><span>${escapeHtml(data.Price)}</span></td>
+      <td><span>${escapeHtml(data.TaxPercent)}</span></td>
       <td>${data.IsActive ? activeIcon : passiveIcon}</td>
       <td>
        <div class="btn">
-       <button id="deleteBtn">SİL</button>
-       <button id="editBtn">DÜZENLE</button>
+       <button data-action="delete">SİL</button>
+       <button data-action="edit">DÜZENLE</button>
      </div>
      </td>
     `;
@@ -95,35 +104,27 @@ export const renderCustomers = (data) => {
   tbody.innerHTML = data
     .map(
       (customer) => `
-       <tr data-id="${customer.ID}">
-        <td><span id="Name" >${customer.Name}</span></td>
-        <td><span id="TaxNumber">${customer.TaxNumber}</span></td>
-        <td><span id="TaxDepartment">${
-          customer.TaxDepartment
-        }</span></td>
-        <td><span id="Email">${
-          customer.Email ? customer.Email : 'İçerik Bulunamadı'
-        }</span></td>
+       <tr data-id="${escapeHtml(customer.ID)}">
+        <td><span class="Name">${escapeHtml(customer.Name)}</span></td>
+        <td><span class="TaxNumber">${escapeHtml(customer.TaxNumber)}</span></td>
+        <td><span class="TaxDepartment">${escapeHtml(customer.TaxDepartment)}</span></td>
+        <td><span class="Email">${escapeHtml(customer.Email ? customer.Email : 'İçerik Bulunamadı')}</span></td>
         <td>
           <div class="location">
             <div>
               <i class="fa-solid fa-city"></i>
-              <span id="City">${customer.City}</span>
+              <span class="City">${escapeHtml(customer.City)}</span>
             </div>
             <div>
               <i class="fa-solid fa-map-location-dot"></i>
-              <span id="Country">${customer.Country}</span>
+              <span class="Country">${escapeHtml(customer.Country)}</span>
             </div>
           </div>
         </td>
         <td>
           <div class="btn">
-            <button id="deleteBtn" data-id="${
-              customer.ID
-            }">SİL</button>
-            <button id="editBtn" data-id="${
-              customer.ID
-            }">DÜZENLE</button>
+            <button data-action="delete" data-id="${escapeHtml(customer.ID)}">SİL</button>
+            <button data-action="edit" data-id="${escapeHtml(customer.ID)}">DÜZENLE</button>
           </div>
         </td>
       </tr>`
@@ -141,19 +142,19 @@ export const renderNewCustomers = (data) => {
   tbody.insertAdjacentHTML(
     'afterbegin',
     `<tr>
-         <td><span>${data.Name}</span></td>
-         <td><span>${data.TaxNumber}</span></td>
-         <td><span>${data.TaxDepartment}</span></td>
-         <td><span>${customer.Email}</span></td>
+         <td><span>${escapeHtml(data.Name)}</span></td>
+         <td><span>${escapeHtml(data.TaxNumber)}</span></td>
+         <td><span>${escapeHtml(data.TaxDepartment)}</span></td>
+         <td><span>${escapeHtml(customer.Email)}</span></td>
          <td>
            <div class="location">
              <div>
                <i class="fa-solid fa-city"></i>
-               <p>${customer.City}</p>
+               <p>${escapeHtml(customer.City)}</p>
              </div>
              <div>
                <i class="fa-solid fa-map-location-dot"></i>
-               <p>${customer.Country}</p>
+               <p>${escapeHtml(customer.Country)}</p>
              </div>
            </div>
          </td>
@@ -168,31 +169,31 @@ export const renderNewCustomers = (data) => {
 
 export const renderEditCustomers = (data) => {
   const existingRow = document.querySelector(
-    `tr[data-id="${data.ID}"]`
+    `tr[data-id="${escapeHtml(data.ID)}"]`
   );
 
   if (existingRow) {
     existingRow.innerHTML = `
-         <td><span>${data.Name}</span></td>
-         <td><span>${data.TaxNumber}</span></td>
-         <td><span>${data.TaxDepartment}</span></td>
-         <td><span>${data.Email}</span></td>
+         <td><span>${escapeHtml(data.Name)}</span></td>
+         <td><span>${escapeHtml(data.TaxNumber)}</span></td>
+         <td><span>${escapeHtml(data.TaxDepartment)}</span></td>
+         <td><span>${escapeHtml(data.Email)}</span></td>
          <td>
            <div class="location">
              <div>
                <i class="fa-solid fa-city"></i>
-               <p>${data.City}</p>
+               <p>${escapeHtml(data.City)}</p>
              </div>
              <div>
                <i class="fa-solid fa-map-location-dot"></i>
-               <p>${data.Country}</p>
+               <p>${escapeHtml(data.Country)}</p>
              </div>
            </div>
          </td>
          <td>
           <div class="btn">
-            <button id="deleteBtn" data-id="${data.ID}">SİL</button>
-            <button id="editBtn" data-id="${data.ID}">DÜZENLE</button>
+            <button data-action="delete" data-id="${escapeHtml(data.ID)}">SİL</button>
+            <button data-action="edit" data-id="${escapeHtml(data.ID)}">DÜZENLE</button>
           </div>
          </td>
     `;

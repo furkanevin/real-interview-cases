@@ -20,11 +20,12 @@ Build a movie guide app using the [The Movie Database (TMDB)](https://developer.
 ## 💡 Solution
 
 - All API requests are defined with **RTK Query** in `src/features/movieApi.ts`. Caching and loading states are handled by RTK Query.
-- Favorites are kept in Redux with `favoritesSlice` and written to `localStorage`, so they survive page reloads.
+- Favorites are kept in Redux with `favoritesSlice`. The reducers are pure (adding the same movie twice is ignored); `store.ts` writes the list to `localStorage` with `store.subscribe`, so favorites survive page reloads.
 - Movie lists are shown as sliders with `react-splide`.
 - Trailers play with `react-player`; large numbers such as vote counts are shortened with `millify`.
 - Skeleton components for loading states live under `src/pages/loading`.
 - Image URLs and sizes are centralized in `src/constant.ts`.
+- `npm run build` runs `tsc` before `vite build`, so type errors stop the build.
 
 ### Pages
 

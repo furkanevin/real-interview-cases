@@ -16,7 +16,7 @@
 
 - **Ana sayfa:** Tıklanabilir bir dünya haritası. Bir ülkeye tıklanınca o ülkenin detay sayfasına gidilmeli.
 - **Arama:** Navbar'daki arama kutusuna ülke adı yazılarak da detay sayfasına gidilebilmeli.
-- **Detay sayfası (`/detail?country=`):** Ülkenin bayrağı ve onaylanmış vaka, ölüm, iyileşen, aktif vaka gibi istatistikler.
+- **Detay sayfası (`/detail?country=`):** Ülkenin onaylanmış vaka, ölüm, iyileşen, aktif vaka gibi istatistikleri.
 - Veri çekme işlemleri **Redux-Saga** ile yönetilmeli.
 - Yükleme ve hata durumları kullanıcıya gösterilmeli.
 - Büyük sayılar okunabilir şekilde kısaltılmalı (ör. `1.2M`).
@@ -24,13 +24,16 @@
 
 ### API'ler
 
-- İstatistikler: [Covid-19 Statistics (RapidAPI)](https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics), `GET /reports?q={ülke}`
-- Bayraklar: [REST Countries](https://restcountries.com/), `GET /v3.1/name/{ülke}`
+- [Covid-19 Statistics (RapidAPI)](https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics): `GET /regions` (ülkeler ve ISO kodları) ve `GET /reports?iso={ISO}`
+
+> İlk çözümde ülke bayrağı da REST Countries v3.1 API'si ile gösteriliyordu; bu API daha sonra kapatıldı.
 
 ## 💡 Çözüm
 
-- Harita için `@react-map/world` kullanıldı; `onSelect` ile seçilen ülke URL parametresi olarak detay sayfasına taşınıyor.
-- `redux/sagas/statisticsSaga.js`, istatistik ve bayrak isteklerini tek bir akışta yapıp sonucu reducer'a gönderiyor.
+- Harita için `@react-map/world` kullanıldı; seçilen ülke `onSelect` ile, `encodeURIComponent` ile kodlanmış URL parametresi olarak detay sayfasına taşınıyor.
+- **Doğru ülkeyi bulmak:** API'nin `q` parametresi bulanık eşleşme yapıyor ("United States" araması ilk sırada Birleşik Arap Emirlikleri'ni döndürüyor). Bu yüzden servis önce `/regions` listesinden ülkenin ISO kodunu buluyor (liste ilk istekten sonra önbellekte tutuluyor; harita ile API arasında farklı olan isimler için eşleme var, ör. "South Korea" → "Korea, South"), ardından `/reports?iso=` isteğini atıyor.
+- **Bölgelere ayrılmış ülkeler:** ABD gibi ülkelerde (59 bölge) API her bölge için ayrı satır döndürüyor. Servis bunları toplayarak ülke geneli değerleri hesaplıyor; ölüm oranı da toplamlardan hesaplanıyor.
+- `redux/sagas/statisticsSaga.js` isteği çalıştırıp başarı, "veri yok" veya hata action'larını gönderiyor. Ağ hataları yutulmuyor, saga'ya iletiliyor; kullanıcı gerçek hatayı görüyor.
 - API istekleri `src/service` ve `src/utils/api.js` içinde. RapidAPI anahtarı ortam değişkeninden okunuyor.
 - `DetailPage.test.jsx` içinde `redux-mock-store` ile store taklit edilerek yükleniyor, hata ve başarılı veri durumları test ediliyor.
 

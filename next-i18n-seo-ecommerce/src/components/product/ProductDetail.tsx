@@ -111,18 +111,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <Button size="lg" className="w-full" onClick={handleAddToCart}>
               {tCommon("addToCart")}
             </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full"
-              onClick={() => {
-                // TODO: Add to wishlist functionality
-                console.log("Add to wishlist:", product.id);
-              }}
-            >
-              {t("addToWishlist")}
-            </Button>
           </div>
 
           {/* Product Details */}

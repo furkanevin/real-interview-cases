@@ -1,70 +1,69 @@
-import React, { useEffect, useState } from "react";
-import "./Stocks.css";
+import { useEffect, useState } from 'react';
+import { api } from '../../utils/api';
+import './Stocks.css';
 
 const Stocks = () => {
-  const [coins, setCoins] = useState([]);
-
-  const [search, setSearch] = useState("");
-  const [searchList, setSearchList] = useState("");
+  const [stocks, setStocks] = useState([]);
+  const [search, setSearch] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3050/matches`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCoins(data);
-      })
-      .catch((error) => {
-        // Handle any errors that occur during the request
-        console.error("Error:", error);
-      });
+    api
+      .get('/matches')
+      .then((res) => setStocks(res.data))
+      .catch(() => setError('Stocks could not be loaded.'));
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setSearchList(search);
-
-    e.target.reset();
-  };
+  // sembol veya şirket adına göre, yazdıkça filtrele
+  const query = search.trim().toLowerCase();
+  const filteredStocks = stocks.filter(
+    (stock) =>
+      stock['1. symbol'].toLowerCase().includes(query) ||
+      stock['2. name'].toLowerCase().includes(query)
+  );
 
   return (
     <div className="p-2">
       <h1>Stock Market</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="d-flex gap-3 mb-2 justify-content-center"
-      >
-        <input
-          className="rounded border-none bg-secondary-subtle "
-          type="text"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button className="btn btn-dark" type="submit">
-          Search
-        </button>
-      </form>
+
+      <input
+        className="form-control mb-3"
+        type="search"
+        placeholder="Search by symbol or name"
+        aria-label="Search stocks"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {error && <p className="text-danger">{error}</p>}
+
       <table className="table table-striped table-dark table-responsive">
-        <thead className="thead-dark">
+        <thead>
           <tr>
-            <th>#</th>
+            <th scope="col">#</th>
             <th scope="col">Symbol</th>
-            <th scope="col">Type</th>
+            <th scope="col">Name</th>
             <th scope="col">Currency</th>
-            <th scope="col">Match Score</th>
+            <th scope="col">Match</th>
           </tr>
         </thead>
         <tbody>
-          {coins?.map((coin, i) => (
-            <>
-              <tr key={i}>
-                <th></th>
-                <td>{coin["1. symbol"]}</td>
-                <td>{coin["3. type"]}</td>
-                <td>{coin["8. currency"]}</td>
-                <td>{coin["9. matchScore"]}</td>
-              </tr>
-            </>
+          {filteredStocks.map((stock, i) => (
+            <tr key={stock['1. symbol']}>
+              <th scope="row">{i + 1}</th>
+              <td>{stock['1. symbol']}</td>
+              <td>{stock['2. name']}</td>
+              <td>{stock['8. currency']}</td>
+              <td>{stock['9. matchScore']}</td>
+            </tr>
           ))}
+          {filteredStocks.length === 0 && !error && (
+            <tr>
+              <td colSpan={5} className="text-center">
+                No results
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

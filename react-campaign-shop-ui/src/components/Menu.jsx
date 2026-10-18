@@ -9,7 +9,9 @@ const Menu = () => {
         <GiHamburgerMenu className="cursor-pointer" />
       </li>
       {menuData.map((text) => (
-        <li className="border p-2 rounded my-1 text-center  transition hover:bg-gray-200 cursor-pointer">
+        <li
+          key={text}
+          className="border p-2 rounded my-1 text-center  transition hover:bg-gray-200 cursor-pointer">
           {text}
         </li>
       ))}

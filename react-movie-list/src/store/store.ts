@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { movieApi } from '../features/movieApi';
-import favoritesReducer from '../features/favoritesSlice';
+import favoritesReducer, { FAVORITES_STORAGE_KEY } from '../features/favoritesSlice';
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +9,16 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(movieApi.middleware),
+});
+
+// Favoriler değiştikçe localStorage'a yazılır
+let previousFavorites = store.getState().favorites.movies;
+store.subscribe(() => {
+  const { movies } = store.getState().favorites;
+  if (movies !== previousFavorites) {
+    previousFavorites = movies;
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(movies));
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

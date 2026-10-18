@@ -33,7 +33,9 @@ Bir e-ticaret sitesini **microfrontend mimarisiyle** iki bağımsız Next.js uyg
 
 - **Yönlendirme:** Home uygulamasındaki `next.config.js`, `/cart/*` isteklerini `rewrites` ile Cart uygulamasına (3001) yönlendiriyor. Böylece kullanıcı tek bir adres üzerinden iki uygulamayı da kullanıyor.
 - **Paylaşılan kod:** `shared/` klasöründe ortak tipler (`types`) ve sepet servisi (`services/CartManager.ts`) bulunuyor.
-- **Sepet senkronizasyonu:** `CartManager`, sepeti `localStorage`'da (`e-commerce-cart` anahtarı) tutuyor ve tarayıcının `storage` event'ini dinliyor. Bir uygulamada yapılan değişiklik diğerine anında yansıyor; Redux, BroadcastChannel veya URL parametresine gerek kalmıyor.
+- **Sepet senkronizasyonu:** `CartManager`, sepeti `localStorage`'da (`e-commerce-cart` anahtarı) tutuyor ve tarayıcının `storage` event'ini dinliyor. İki uygulama farklı portlarda (farklı origin) çalıştığı için `localStorage`'ı paylaşamıyor; kullanıcı uygulamalar arasında geçerken sepet `?cart=` URL parametresiyle taşınıp diğer tarafta kaydediliyor.
+
+> 💡 **Geliştirilebilecek nokta:** Cart uygulaması Home'un adresi altında sunulsaydı (ör. `basePath: '/cart'` + `rewrites`), iki uygulama aynı origin'de olur ve `localStorage`'ı URL parametresine gerek kalmadan paylaşabilirdi. Uygulama adresleri de `localhost` olarak sabit yazılmış; gerçek bir yayında ortam değişkenine taşınması gerekir.
 - **Hata toleransı:** Yükleme durumları, hata ekranları ve `localStorage`'a erişilemediğinde güvenli varsayılanlar mevcut.
 
 ## 🚀 Çalıştırma

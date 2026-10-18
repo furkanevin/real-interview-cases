@@ -3,9 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Badge } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { selectCartTotals } from '../redux/slices/cartSlice';
 
 const NavBar = () => {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { quantity } = useSelector(selectCartTotals);
 
   return (
     <Navbar className="navbar-dark bg-black">
@@ -25,7 +26,7 @@ const NavBar = () => {
               className="text-decoration-none text-light"
               to={'/cart'}
             >
-              Sepet <Badge>{cartTotalQuantity}</Badge>
+              Sepet <Badge>{quantity}</Badge>
             </Link>
           </Navbar.Text>
         </Navbar.Collapse>

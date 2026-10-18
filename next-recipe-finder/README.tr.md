@@ -54,6 +54,9 @@ Kullanıcıların filtrelerle tarif arayabildiği, sonuçları ayrı bir sayfada
 
 - Sonuç listesi `Suspense` ile sarıldı; veri gelene kadar skeleton gösteriliyor.
 - Önbellek süresi `export const revalidate = 60` ile 1 dakikaya ayarlandı.
+- Next.js 15'te `params` ve `searchParams` birer Promise olduğu için sayfalarda `await` ile okunuyor.
+- API key sadece sunucuda kullanıldığı için `NEXT_PUBLIC_` öneki olmadan `SPOONACULAR_API_KEY` adıyla tutuluyor; böylece tarayıcı paketine hiç girmiyor.
+- API'den gelen tarif özeti HTML içeriyor. `dangerouslySetInnerHTML` ile basmak yerine (XSS riski) etiketler temizlenip düz metin olarak gösteriliyor.
 - Form, "Next" butonunun durumunu alanların doluluğuna göre hesaplıyor ve değerleri URL parametresi olarak taşıyor.
 
 ## 🚀 Çalıştırma

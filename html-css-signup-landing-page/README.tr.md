@@ -27,10 +27,11 @@ Ağırlıklı olarak HTML/CSS kalitesi, responsive davranış ve detaylara göst
 
 ## 💡 Çözüm
 
+- **Semantik yapı:** Üst alan için `header` ve `nav`, içerik için `main` ve `section`, ve `label` + `input` eşleşmeleri olan gerçek bir `<form>` (her input'un `id` ve `name` değeri var).
 - Yerleşim için **CSS Grid** ve **Flexbox** kullanıldı.
 - Mobil, tablet ve masaüstü kırılımlarında boşluk ve yerleşim ayarlandı. Mobilde menü ikonları gizleniyor, form tam genişliğe geçiyor.
 - Gibson bulunmadığında Arial'a düşen bir font tanımı yapıldı.
-- İkonlar için Font Awesome ve küçük PNG/SVG görseller kullanıldı.
+- Görevde istendiği gibi form sadece görsel amaçlı; gönderildiğinde hiçbir şey yapmıyor.
 
 ## 🚀 Çalıştırma
 

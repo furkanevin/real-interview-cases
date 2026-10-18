@@ -30,6 +30,19 @@
         background-color: $soft-bg;
       }
 
+      &.active {
+        background-color: $soft-bg;
+      }
+
+      &.disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+
       .listItemTitle{
         @include lg{
           display: none;

@@ -36,7 +36,7 @@ interface FilterContextType {
   resetFilters: () => void;
 }
 
-const initialFilters: FilterState = {
+export const initialFilters: FilterState = {
   category: null,
   location: '',
   theme: [],

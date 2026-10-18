@@ -16,7 +16,10 @@ function* fetchData(action) {
       });
     }
   } catch (e) {
-    yield put({ type: 'DATA_FETCH_FAILED', payload: e.message });
+    yield put({
+      type: 'DATA_FETCH_FAILED',
+      payload: e.message || 'Something went wrong. Please try again.',
+    });
   }
 }
 

@@ -24,11 +24,16 @@ export default function ProductFilters({ products, onFilteredProducts }: Product
   // Get unique categories from products
   const categories = Array.from(new Set(products.map((product) => product.category)));
 
-  // Set initial category from URL params
+  // Set initial category and search term from URL params
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     if (categoryParam) {
       setSelectedCategory(categoryParam);
+    }
+
+    const searchParam = searchParams.get("search");
+    if (searchParam !== null) {
+      setSearchTerm(searchParam);
     }
   }, [searchParams]);
 

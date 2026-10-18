@@ -1,9 +1,10 @@
 const Loader = () => {
-  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const array = Array.from({ length: 8 }, (_, i) => i);
   return (
     <>
-      {array.map(() => (
+      {array.map((i) => (
         <div
+          key={i}
           data-testid="loader"
           className="bg-gray-200 p-4 rounded-lg shadow-md animate-pulse"
         >

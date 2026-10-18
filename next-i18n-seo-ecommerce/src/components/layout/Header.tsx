@@ -3,6 +3,7 @@
 import { ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import CartButton from "@/components/cart/CartButton";
 import LanguageSwitch from "@/components/ui/LanguageSwitch";
@@ -11,11 +12,18 @@ export default function Header() {
   const locale = useLocale();
   const t = useTranslations("navigation");
   const tCommon = useTranslations("common");
+  const router = useRouter();
 
   // Create localized URLs
   const homeUrl = locale === "tr" ? "/tr" : "/en";
   const productsUrl = locale === "tr" ? "/tr/urunler" : "/en/products";
   const categoriesUrl = locale === "tr" ? "/tr/kategoriler" : "/en/categories";
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const query = new FormData(e.currentTarget).get("search")?.toString().trim();
+    router.push(query ? `${productsUrl}?search=${encodeURIComponent(query)}` : productsUrl);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -44,15 +52,16 @@ export default function Header() {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
-            {/* Search - for future implementation */}
-            <div className="hidden lg:flex">
+            {/* Search: ürün listesine ?search= parametresiyle gider */}
+            <form className="hidden lg:flex" role="search" onSubmit={handleSearch}>
               <input
                 type="search"
+                name="search"
                 placeholder={tCommon("search")}
                 aria-label={tCommon("search")}
                 className="w-64 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               />
-            </div>
+            </form>
 
             {/* Language Switch */}
             <LanguageSwitch />

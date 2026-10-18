@@ -25,8 +25,9 @@ interface ReviewResponse {
 
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
+// Key yoksa uygulamayı tamamen çökertmek yerine uyarı verilir; istekler 401 döner ve sayfalar hata mesajı gösterir
 if (!TMDB_API_KEY) {
-  throw new Error('TMDB API key is not defined in environment variables');
+  console.error('VITE_TMDB_API_KEY is not defined. Copy .env.example to .env and add your TMDB token.');
 }
 
 export const movieApi = createApi({
