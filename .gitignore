@@ -1,0 +1,27 @@
+# Bağımlılıklar
+node_modules/
+.pnp
+.pnp.js
+
+# Build ve cache çıktıları
+.next/
+out/
+dist/
+dist-ssr/
+build/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Ortam değişkenleri (örnekler hariç)
+.env
+.env.*
+!.env.example
+
+# Editör / işletim sistemi
+.DS_Store
+Thumbs.db
+.history/
+.idea/
+*.log
+!**/src/dist/
