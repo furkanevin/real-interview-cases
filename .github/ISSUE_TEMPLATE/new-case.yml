@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for sharing! Please **do not** include the company name, logo, links, emails or the original task document.
-        Describe the task in your own words. See the [contributing guide](https://github.com/furkanevin/cases/blob/master/CONTRIBUTING.md).
+        Describe the task in your own words. See the [contributing guide](https://github.com/furkanevin/real-interview-cases/blob/master/CONTRIBUTING.md).
   - type: input
     id: title
     attributes:

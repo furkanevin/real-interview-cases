@@ -17,13 +17,13 @@ const FooterContent = () => {
           ❤️
         </Box>
         {` by `}
-        <Link target='_blank' href='https://github.com/furkanevin/cases'>
+        <Link target='_blank' href='https://github.com/furkanevin/real-interview-cases'>
           cases
         </Link>
       </Typography>
       {hidden ? null : (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', '& :not(:last-child)': { mr: 4 } }}>
-          <Link target='_blank' href='https://github.com/furkanevin/cases'>
+          <Link target='_blank' href='https://github.com/furkanevin/real-interview-cases'>
             Support
           </Link>
         </Box>
