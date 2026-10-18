@@ -4,6 +4,8 @@
 
 > **Seviye:** Başlangıç–Orta · **Tahmini süre:** 1–2 gün · **Teknolojiler:** React 18, Vite, Redux Toolkit, RTK Query, React Router, React Bootstrap, React Toastify, Fake Store API
 
+![Ekran görüntüsü](./screenshot.webp)
+
 > ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
 
 ## 📋 Görev

@@ -4,6 +4,8 @@
 
 > **Level:** Beginner · **Estimated time:** 1 day · **Tech:** HTML5, CSS3 (Flexbox, Grid)
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build a single, static **sign-up page** from the provided Figma design. The page has an accessibility bar at the top, a header with a logo and navigation, and a hero section with an intro text on the left and a sign-up form on the right.

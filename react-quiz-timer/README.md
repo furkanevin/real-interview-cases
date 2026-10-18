@@ -4,6 +4,8 @@
 
 > **Level:** Beginner · **Estimated time:** 1 day · **Tech:** React 18, Vite, Tailwind CSS, Axios
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

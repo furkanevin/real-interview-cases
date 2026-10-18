@@ -18,13 +18,13 @@ const Header = async () => {
     <header>
       <div className="container">
         <Link href={'/'} className="logo">
-          <h1>İsa Kursun</h1>
-          <p>github adı</p>
+          <h1>SCSS Store</h1>
+          <p>Next.js e-commerce</p>
         </Link>
 
         <nav>
           {categories?.map((item) => (
-            <Link href={`/category/${item}`}>{item}</Link>
+            <Link key={item} href={`/category/${item}`}>{item}</Link>
           ))}
         </nav>
 

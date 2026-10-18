@@ -1,6 +1,12 @@
+<p align="center">
+  <img src="./.github/assets/banner.webp" alt="Real Interview Case Studies" width="100%">
+</p>
+
 # Real Job Application Case Studies
 
 🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) ![Cases](https://img.shields.io/badge/cases-25-6366f1) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-34d399.svg)](./CONTRIBUTING.md)
 
 This repo contains **real technical take-home assignments** that companies sent to job applicants, together with their solutions. The goal is to help you see the kinds of tasks you may face in a hiring process and practise them in advance.
 
@@ -72,6 +78,10 @@ Every case README follows the same template:
 - **📋 Task:** Everything the company asked for
 - **💡 Solution:** How it was built and the key decisions
 - **🚀 Getting started:** Setup commands
+
+## 🤝 Contributing
+
+Have a take-home assignment you'd like to share? Contributions are welcome! Read the [contributing guide](./CONTRIBUTING.md) to learn how to anonymize a case, check it for malware and add it to the repo. You can also [suggest a case](../../issues/new/choose) by opening an issue.
 
 ## 📄 License
 

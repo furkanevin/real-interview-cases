@@ -4,6 +4,8 @@
 
 > **Seviye:** Başlangıç · **Tahmini süre:** 1 gün · **Teknolojiler:** HTML5, CSS3 (Flexbox, Grid)
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Verilen Figma tasarımına göre tek sayfalık, statik bir **kayıt sayfası** geliştirin. Sayfa; üstte bir erişilebilirlik çubuğu, logo ve menü içeren bir header, solda tanıtım metni, sağda kayıt formu bulunan bir hero alanından oluşuyor.

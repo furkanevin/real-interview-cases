@@ -4,6 +4,8 @@
 
 > **Level:** Advanced · **Estimated time:** 5–7 days · **Tech:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Docker, Docker Compose, Fake Store API
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

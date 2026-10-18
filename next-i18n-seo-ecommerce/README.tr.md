@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta–İleri · **Tahmini süre:** 7 gün · **Teknolojiler:** Next.js 15 (App Router), TypeScript, Tailwind CSS, next-intl, Redux Toolkit, ISR/SSG, Fake Store API
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 [Fake Store API](https://fakestoreapi.com/) üzerinden ürünleri listeleyen, kategoriye göre filtreleyebilen, **Türkçe/İngilizce** destekli ve **SEO dostu** bir e-ticaret frontend'i geliştirin. Yüksek performans, temiz bileşen yapısı ve profesyonel bir UI/UX bekleniyor.

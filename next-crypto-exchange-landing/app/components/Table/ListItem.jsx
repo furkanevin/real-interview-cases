@@ -10,7 +10,7 @@ const ListItem = ({ item }) => {
         <Image
           width={32}
           height={32}
-          src="https://picsum.photos/51"
+          src={item.image}
           alt="logo"
           className="w-8 h-8 rounded-full"
         />

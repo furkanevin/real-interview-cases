@@ -8,15 +8,32 @@ import { SlArrowRight } from 'react-icons/sl';
 import Title from '../Title';
 
 const Table = async () => {
+  // CoinGecko public API (no key needed). Cached for 60s to stay under the rate limit.
   async function getData() {
-    const res = await fetch('https:api.coincap.io/v2/assets?limit=6');
+    try {
+      const res = await fetch(
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1',
+        { next: { revalidate: 60 } }
+      );
 
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data');
+      if (!res.ok) return { data: [] };
+
+      const coins = await res.json();
+
+      return {
+        data: coins.map((coin) => ({
+          id: coin.id,
+          symbol: coin.symbol.toUpperCase(),
+          name: coin.name,
+          image: coin.image,
+          priceUsd: coin.current_price,
+          volumeUsd24Hr: coin.total_volume,
+          changePercent24Hr: coin.price_change_percentage_24h,
+        })),
+      };
+    } catch {
+      return { data: [] };
     }
-
-    return res.json();
   }
 
   const res = await getData();
@@ -78,9 +95,16 @@ const Table = async () => {
               </tr>
             </thead>
             <tbody>
-              {res?.data?.map((item) => (
+              {res.data.map((item) => (
                 <TableRow key={item.id} item={item} />
               ))}
+              {res.data.length === 0 && (
+                <tr>
+                  <td colSpan={5} className="text-center text-gray-500 py-8">
+                    Market data is currently unavailable.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
 
@@ -102,7 +126,7 @@ const Table = async () => {
             <button className="font-bold px-3">Top Gainer</button>
           </div>
 
-          {res?.data?.map((item) => (
+          {res.data.map((item) => (
             <ListItem key={item.id} item={item} />
           ))}
 

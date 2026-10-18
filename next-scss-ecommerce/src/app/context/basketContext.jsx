@@ -1,12 +1,28 @@
 'use client';
-import { useLocalStorage } from '@uidotdev/usehooks';
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 const BasketContext = createContext();
 
 export function BasketProvider({ children }) {
-  const [basket, setBasket] = useLocalStorage('basket', []);
+  // localStorage only exists in the browser, so the basket starts empty on the
+  // server and is loaded from localStorage after the component mounts.
+  const [basket, setBasket] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('basket'));
+      if (Array.isArray(saved)) setBasket(saved);
+    } catch {
+      // ignore corrupt data and start with an empty basket
+    }
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) localStorage.setItem('basket', JSON.stringify(basket));
+  }, [basket, isLoaded]);
 
   const addToBasket = (newProduct) => {
     const found = basket.find((i) => i.id === newProduct.id);

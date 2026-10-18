@@ -76,7 +76,7 @@ const Hero = () => {
         <div className="lg:col-span-1 flex max-lg:hidden">
           <img
             className="w-[573px] h-[616px] object-contain"
-            src="/slide_1.png"
+            src="/slide_1.svg"
             alt=""
           />
 
@@ -98,7 +98,7 @@ const Hero = () => {
 
         <div className="w-full flex gap-4">
           <p className="flex-1 line-clamp-1">
-            CryptoX Live Live Mining Program - Bonuses Distribution Announcement
+            CryptoX Live Mining Program - Bonuses Distribution Announcement
             (March 4-March 10）
           </p>
           |

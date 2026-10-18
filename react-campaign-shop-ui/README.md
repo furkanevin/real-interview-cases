@@ -4,6 +4,8 @@
 
 > **Level:** Beginner · **Estimated time:** 1–2 days · **Tech:** React 18, Vite, React Router, Tailwind CSS, React Icons
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original design image contained company logos and is not included. The task below was reconstructed from the design and the solution code.
 
 ## 📋 Task
@@ -14,7 +16,7 @@ Code the **3-page interface** of a sales campaign site based on the provided wir
 
 - A horizontal row of round, Instagram-style **story** icons at the top
 - A grid of **placeholder boxes** of different sizes in the middle
-- A **menu** card on the right with a title and buttons (Forms, Useful Links, Surveys, etc.) and a placeholder below it
+- A **menu** card on the right with a title and buttons (Settings, Privacy, Security, Profile, Campaigns, Orders) and a placeholder below it
 
 ### Page 2: Campaign products (`/page-two`)
 

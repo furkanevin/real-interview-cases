@@ -1,0 +1,74 @@
+name: 💼 Suggest a new case
+description: Share a take-home assignment you received in a hiring process.
+title: "[New case] "
+labels: ["new case"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing! Please **do not** include the company name, logo, links, emails or the original task document.
+        Describe the task in your own words. See the [contributing guide](https://github.com/furkanevin/cases/blob/master/CONTRIBUTING.md).
+  - type: input
+    id: title
+    attributes:
+      label: Short title
+      placeholder: e.g. Weather dashboard with React
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Frontend
+        - Backend
+        - Full-stack
+        - Mobile
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Level
+      options:
+        - 🟢 Beginner
+        - 🟡 Beginner–Intermediate
+        - 🟠 Intermediate
+        - 🔴 Intermediate–Advanced / Advanced
+    validations:
+      required: true
+  - type: input
+    id: tech
+    attributes:
+      label: Required technologies
+      placeholder: e.g. React, TypeScript, Tailwind CSS
+  - type: input
+    id: time
+    attributes:
+      label: Time limit given
+      placeholder: e.g. 3 days
+  - type: textarea
+    id: task
+    attributes:
+      label: Task description (in your own words)
+      description: What were you asked to build? List the requirements.
+    validations:
+      required: true
+  - type: dropdown
+    id: solution
+    attributes:
+      label: Do you have a solution you can share?
+      options:
+        - Yes, I will open a pull request
+        - Yes, but I need help preparing it
+        - No, only the task
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I removed the company name and every detail that identifies the company.
+          required: true
+        - label: I checked the provided code for malicious patterns (eval, new Function, unknown remote URLs, install scripts).
+          required: true

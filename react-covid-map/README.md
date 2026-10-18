@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate · **Estimated time:** 2–3 days · **Tech:** React 18, Vite, Redux, Redux-Saga, React Router, Tailwind CSS, Vitest, React Testing Library
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

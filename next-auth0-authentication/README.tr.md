@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** Next.js 14+ (App Router), NextAuth.js, Auth0, JWT, TypeScript, Tailwind CSS, Jest
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Kullanıcıların **Auth0** üzerinden giriş yaptığı, oturumun **JWT** ile kontrol edildiği ve sayfa erişiminin **Next.js Middleware** ile kısıtlandığı bir kimlik doğrulama sistemi geliştirin. Proje **SOLID** prensiplerine ve **12 Factor App** ilkelerine uygun olmalı.

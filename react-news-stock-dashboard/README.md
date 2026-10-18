@@ -4,6 +4,8 @@
 
 > **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** React 18, Vite, React Router, Bootstrap, Axios, json-server, React Paginate
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate · **Estimated time:** 3–4 days · **Tech:** React 18, Vite, React Router, Context API, Tailwind CSS, Axios, json-server
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

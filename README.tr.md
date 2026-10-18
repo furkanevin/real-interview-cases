@@ -1,6 +1,12 @@
+<p align="center">
+  <img src="./.github/assets/banner.webp" alt="Real Interview Case Studies" width="100%">
+</p>
+
 # Gerçek İş Başvurusu Case'leri
 
 [🇬🇧 English](./README.md) | 🇹🇷 Türkçe
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) ![Cases](https://img.shields.io/badge/cases-25-6366f1) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-34d399.svg)](./CONTRIBUTING.md)
 
 Bu repo, iş başvurularında şirketlerden gelen **gerçek teknik case'leri** ve çözümlerini içeriyor. Amaç, mülakat sürecinde karşınıza çıkabilecek görev türlerini önceden görmeniz ve pratik yapmanız.
 
@@ -72,6 +78,10 @@ Tüm case'lerin README dosyası aynı şablonu takip ediyor:
 - **📋 Görev:** Şirketin istediği her şey
 - **💡 Çözüm:** Nasıl yapıldığı ve önemli kararlar
 - **🚀 Çalıştırma:** Kurulum komutları
+
+## 🤝 Katkıda bulunma
+
+Paylaşmak istediğiniz bir case mi var? Katkılarınızı bekliyoruz! Bir case'i nasıl anonimleştireceğinizi, zararlı koda karşı nasıl kontrol edeceğinizi ve repoya nasıl ekleyeceğinizi öğrenmek için [katkı rehberini](./CONTRIBUTING.tr.md) okuyun. İsterseniz bir issue açarak [case önerebilirsiniz](../../issues/new/choose).
 
 ## 📄 Lisans
 

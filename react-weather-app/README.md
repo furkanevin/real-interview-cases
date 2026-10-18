@@ -4,6 +4,8 @@
 
 > **Level:** Beginner · **Estimated time:** 1–2 days · **Tech:** React 18, Vite, SCSS, Swiper
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

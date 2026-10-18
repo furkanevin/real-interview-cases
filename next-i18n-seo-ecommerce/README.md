@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate–Advanced · **Estimated time:** 7 days · **Tech:** Next.js 15 (App Router), TypeScript, Tailwind CSS, next-intl, Redux Toolkit, ISR/SSG, Fake Store API
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build an e-commerce frontend that lists products from the [Fake Store API](https://fakestoreapi.com/), filters them by category, supports **Turkish and English**, and is **SEO-friendly**. High performance, a clean component structure and a professional UI/UX are expected.

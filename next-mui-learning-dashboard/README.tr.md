@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** Next.js (Pages Router), React, TypeScript, Material UI (MUI), Jest, React Testing Library, Cypress
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Bir sınav hazırlık / eğitim platformu için verilen **Figma tasarımına benzer** bir web uygulaması geliştirin. Şirket, başlangıç noktası olarak içinde Next.js, MUI, ESLint, Prettier, Jest ve Cypress kurulu hazır bir **template repo** veriyor. Tasarım referans niteliğinde; küçük değişiklikler ve ek özellikler serbest, ama temel özellikler aynı olmalı.

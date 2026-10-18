@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate · **Estimated time:** 3–5 days · **Tech:** Next.js 14+ (App Router), NextAuth.js, Auth0, JWT, TypeScript, Tailwind CSS, Jest
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build an authentication system where users log in with **Auth0**, sessions are checked with **JWT**, and page access is restricted with **Next.js Middleware**. The project must follow **SOLID** principles and the **12 Factor App** methodology.

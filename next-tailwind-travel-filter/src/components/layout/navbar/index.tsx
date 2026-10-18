@@ -33,7 +33,7 @@ const Navbar = () => {
             </svg>
           </button>
           <Link href="/" className="flex items-center space-x-2">
-            <div className="font-bold text-lg text-gray-800">Traveller's local market</div>
+            <div className="font-bold text-lg text-gray-800">TravelHub</div>
           </Link>
         </div>
 

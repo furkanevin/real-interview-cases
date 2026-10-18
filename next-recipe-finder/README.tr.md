@@ -4,6 +4,8 @@
 
 > **Seviye:** Başlangıç–Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4, Spoonacular API
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Kullanıcıların filtrelerle tarif arayabildiği, sonuçları ayrı bir sayfada görebildiği ve her tarifin detayına bakabildiği bir **Next.js** uygulaması geliştirin.

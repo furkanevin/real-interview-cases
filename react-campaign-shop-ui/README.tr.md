@@ -4,6 +4,8 @@
 
 > **Seviye:** Başlangıç · **Tahmini süre:** 1–2 gün · **Teknolojiler:** React 18, Vite, React Router, Tailwind CSS, React Icons
 
+![Ekran görüntüsü](./screenshot.webp)
+
 > ℹ️ Orijinal tasarım görseli şirket logoları içerdiği için repoya eklenmemiştir. Görev tanımı tasarım ve çözüm kodu incelenerek yeniden yazılmıştır.
 
 ## 📋 Görev
@@ -14,7 +16,7 @@ Bir satış kampanyası sitesinin **3 sayfalık arayüzünü** verilen wireframe
 
 - En üstte yatayda dizilmiş, Instagram tarzı yuvarlak **story** ikonları
 - Ortada farklı boyutlarda **placeholder kutularından** oluşan bir grid
-- Sağda başlığı ve butonları olan bir **menü** kartı (Formlar, Faydalı Linkler, Anketler vb.) ve altında bir placeholder
+- Sağda başlığı ve butonları olan bir **menü** kartı (Ayarlar, Gizlilik, Güvenlik, Profil, Kampanyalar, Siparişler) ve altında bir placeholder
 
 ### Sayfa 2: Kampanya ürünleri (`/page-two`)
 

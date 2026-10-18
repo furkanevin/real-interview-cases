@@ -4,6 +4,8 @@
 
 > **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4, Spoonacular API
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build a **Next.js** app where users search recipes with filters, see the results on a separate page and view the details of each recipe.

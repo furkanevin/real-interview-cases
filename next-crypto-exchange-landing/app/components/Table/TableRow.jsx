@@ -12,7 +12,7 @@ const TableRow = ({ item }) => {
           width={32}
           height={32}
           className="rounded-full w-8 h-8"
-          src="https://picsum.photos/50"
+          src={item.image}
           alt="logo"
         />
         <div className="flex flex-col">

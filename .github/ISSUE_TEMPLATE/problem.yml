@@ -1,0 +1,23 @@
+name: 🐞 Report a problem
+description: A case doesn't run, a link is broken, or a description is wrong.
+labels: ["bug"]
+body:
+  - type: input
+    id: case
+    attributes:
+      label: Which case?
+      placeholder: e.g. react-covid-map
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the commands you ran and the error output.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: e.g. Windows 11, Node 22.20, npm 10

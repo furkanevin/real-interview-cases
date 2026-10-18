@@ -4,6 +4,8 @@
 
 > **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** Next.js 14 (App Router), SCSS, Context API, Embla Carousel, React Toastify, Fake Store API
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task
@@ -24,7 +26,7 @@ Build an e-commerce site with data from the [Fake Store API](https://fakestoreap
 ## 💡 Solution
 
 - Data fetching lives in `src/app/utils/api.js`. Pages are **Server Components**, so data is fetched on the server.
-- The cart is managed with the **Context API** in `context/basketContext.jsx`. Thanks to the `useLocalStorage` hook from `@uidotdev/usehooks`, the cart persists in `localStorage`.
+- The cart is managed with the **Context API** in `context/basketContext.jsx` and persisted in `localStorage`. Because `localStorage` only exists in the browser, the cart starts empty on the server and is loaded inside a `useEffect` after the page mounts. (The original solution used `useLocalStorage` from `@uidotdev/usehooks`, which crashed during server-side rendering.)
 - Cart actions show notifications with `react-toastify`.
 - Sliders are built with `embla-carousel-react` and its autoplay plugin.
 - Styles are split into `main`, `responsive`, `slide`, `loader` and other partials under `src/app/assets/css`.

@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate · **Estimated time:** 3–5 days · **Tech:** React 18, Vite, TypeScript, SCSS, Material UI, MUI Data Grid, Recharts, Framer Motion, React Router
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Replicate, **as precisely as possible**, the UI and interactions of a **SaaS client dashboard** shown in a screen recording (GIF) sent to you.

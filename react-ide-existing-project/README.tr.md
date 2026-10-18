@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta–İleri · **Tahmini süre:** 2–4 gün · **Teknolojiler:** React 18, Vite, Material UI, Monaco Editor, React Flow, Jest, Cypress
 
+![Ekran görüntüsü](./screenshot.webp)
+
 > ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
 
 ## 📋 Görev

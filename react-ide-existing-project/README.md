@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate–Advanced · **Estimated time:** 2–4 days · **Tech:** React 18, Vite, Material UI, Monaco Editor, React Flow, Jest, Cypress
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

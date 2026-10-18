@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta · **Tahmini süre:** 3–4 gün · **Teknolojiler:** Next.js 15 (App Router), TypeScript, Tailwind CSS, Context API
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Turlar, biletler, araç kiralama ve transfer hizmetlerinin listelendiği bir seyahat sitesi için **kategori bazlı filtreleme** arayüzü geliştirin. Verilen Figma tasarımı referans niteliğinde; birebir aynı olması gerekmiyor, görsel olarak geliştirebilirsiniz. Sayfa **responsive** olmalı.

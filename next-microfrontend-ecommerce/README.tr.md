@@ -4,6 +4,8 @@
 
 > **Seviye:** İleri · **Tahmini süre:** 5–7 gün · **Teknolojiler:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Docker, Docker Compose, Fake Store API
 
+![Ekran görüntüsü](./screenshot.webp)
+
 > ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
 
 ## 📋 Görev

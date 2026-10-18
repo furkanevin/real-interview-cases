@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** React 18, Vite, Redux, Redux-Saga, React Router, Tailwind CSS, Vitest, React Testing Library
 
+![Ekran görüntüsü](./screenshot.webp)
+
 > ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
 
 ## 📋 Görev

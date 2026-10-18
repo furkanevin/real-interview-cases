@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate · **Estimated time:** 3–4 days · **Tech:** Next.js 15 (App Router), TypeScript, Tailwind CSS, Context API
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build a **category-based filtering** UI for a travel site that lists tours, tickets, car rentals and transfers. The provided Figma design is a reference; it doesn't have to match exactly and you are free to improve it visually. The page must be **responsive**.

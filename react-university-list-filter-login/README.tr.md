@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta · **Tahmini süre:** 3–4 gün · **Teknolojiler:** React 18, Vite, React Router, Context API, Tailwind CSS, Axios, json-server
 
+![Ekran görüntüsü](./screenshot.webp)
+
 > ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
 
 ## 📋 Görev

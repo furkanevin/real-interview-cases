@@ -4,6 +4,8 @@
 
 > **Level:** Beginner–Intermediate · **Estimated time:** 1–2 days · **Tech:** React 18, Vite, Redux Toolkit, RTK Query, React Router, React Bootstrap, React Toastify, Fake Store API
 
+![Screenshot](./screenshot.webp)
+
 > ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
 ## 📋 Task

@@ -4,6 +4,8 @@
 
 > **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** React 18, Vite, TypeScript, SCSS, Material UI, MUI Data Grid, Recharts, Framer Motion, React Router
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Size gönderilen bir ekran kaydında (GIF) gösterilen **SaaS müşteri paneli (dashboard)** arayüzünü ve etkileşimlerini, **olabildiğince birebir** kopyalayın.

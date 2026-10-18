@@ -4,6 +4,8 @@
 
 > **Level:** Beginner · **Estimated time:** 3–4 hours · **Tech:** React 18 (Create React App), CSS Flexbox, Axios
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build a single-page React app that transforms and sorts the data in a JSON file and displays it on a page laid out with **Flexbox**.

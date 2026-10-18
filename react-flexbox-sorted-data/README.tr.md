@@ -4,6 +4,8 @@
 
 > **Seviye:** Başlangıç · **Tahmini süre:** 3–4 saat · **Teknolojiler:** React 18 (Create React App), CSS Flexbox, Axios
 
+![Ekran görüntüsü](./screenshot.webp)
+
 ## 📋 Görev
 
 Bir JSON dosyasındaki veriyi dönüştürüp sıralayan ve **Flexbox** ile hazırlanmış bir sayfada gösteren tek sayfalık bir React uygulaması geliştirin.

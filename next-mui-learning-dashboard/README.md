@@ -4,6 +4,8 @@
 
 > **Level:** Intermediate · **Estimated time:** 3–5 days · **Tech:** Next.js (Pages Router), React, TypeScript, Material UI (MUI), Jest, React Testing Library, Cypress
 
+![Screenshot](./screenshot.webp)
+
 ## 📋 Task
 
 Build a web app **similar to the provided Figma design** for an exam-prep / learning platform. As a starting point, the company provides a **template repo** with Next.js, MUI, ESLint, Prettier, Jest and Cypress already set up. The design is a reference: small changes and extra features are fine, but the core features must stay the same.

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1175" viewBox="0 0 1024 1175" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="coin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde047"/>
+      <stop offset="1" stop-color="#eab308"/>
+    </linearGradient>
+  </defs>
+  <text x="40" y="110" font-size="62" font-weight="700" fill="#111">Proof of Reserves</text>
+  <text x="40" y="190" font-size="62" font-weight="700" fill="#111">Monthly Report</text>
+  <circle cx="512" cy="680" r="400" fill="#14141f"/>
+  <text x="512" y="610" text-anchor="middle" font-size="150" font-weight="800" fill="#fff">$6.1B</text>
+  <text x="512" y="700" text-anchor="middle" font-size="58" fill="#3b82f6">in Assets <tspan fill="#fff">+40%</tspan></text>
+  <circle cx="660" cy="860" r="85" fill="url(#coin)"/>
+  <text x="660" y="878" text-anchor="middle" font-size="46" font-weight="800" fill="#064e3b">100%</text>
+  <circle cx="420" cy="860" r="60" fill="url(#gold)"/>
+  <rect x="400" y="845" width="40" height="34" rx="6" fill="#713f12"/>
+  <path d="M407 845v-12a13 13 0 0 1 26 0v12" fill="none" stroke="#713f12" stroke-width="7"/>
+  <circle cx="300" cy="790" r="40" fill="#8b5cf6"/>
+  <text x="300" y="802" text-anchor="middle" font-size="28" font-weight="800" fill="#fff">%</text>
+</svg>
