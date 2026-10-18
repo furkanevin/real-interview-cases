@@ -1,58 +1,62 @@
-# Okul Yönetim Sistemi (Full-Stack Skill Test)
+# School Management System (Full-Stack Skill Test)
 
-> **Seviye:** Orta–İleri · **Teknolojiler:** React 18, TypeScript, MUI, Redux Toolkit, Node.js, Express, PostgreSQL
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
+
+> **Level:** Intermediate–Advanced · **Tech:** React 18, TypeScript, MUI, Redux Toolkit, Node.js, Express, PostgreSQL
 
 > [!CAUTION]
-> **Bu case zararlı yazılım içeriyordu.** Lütfen önce [Güvenlik uyarısı](#️-güvenlik-uyarısı-sahte-mülakat-saldırısı) bölümünü okuyun.
+> **This case contained malware.** Please read the [Security warning](#security-warning) section first.
 
-## 📋 Görev
+## 📋 Task
 
-Öğrenci, personel, sınıf, duyuru ve izin işlemlerini yöneten hazır bir full-stack uygulama veriliyor. Adaydan pozisyonuna göre aşağıdaki problemlerden birini çözmesi isteniyor.
+The candidate receives a ready-made full-stack application that manages students, staff, classes, notices and leave requests. Depending on the position, the candidate is asked to solve one of the following problems.
 
 ### Problem 1: Frontend
-**"Yeni Duyuru Ekle" sayfasını düzeltin** (`/app/notices/add`)
-- "Kaydet" butonuna basıldığında `description` alanı kaydedilmiyor.
-- Alanın forma doğru bağlanıp API'ye gönderilmesi sağlanmalı.
-- Ölçülen beceriler: React, form yönetimi, state, API entegrasyonu.
+**Fix the "Add New Notice" page** (`/app/notices/add`)
+- When "Save" is clicked, the `description` field is not saved.
+- The field must be bound to the form correctly and sent to the API.
+- Skills tested: React, form handling, state, API integration.
 
 ### Problem 2: Backend
-**Öğrenci CRUD işlemlerini tamamlayın** (`backend/src/modules/students/students-controller.js`)
-- Controller fonksiyonları boş. Listeleme, ekleme, detay, güncelleme ve durum değiştirme işlemleri yazılmalı.
-- Servis katmanı (`students-service.js`) hazır; controller'dan doğru şekilde çağrılmalı.
-- Ölçülen beceriler: Node.js, Express, PostgreSQL, API tasarımı, hata yönetimi.
+**Complete the student CRUD operations** (`backend/src/modules/students/students-controller.js`)
+- The controller functions are empty. Listing, creating, detail, updating and status changes must be implemented.
+- The service layer (`students-service.js`) is ready and must be called correctly from the controller.
+- Skills tested: Node.js, Express, PostgreSQL, API design, error handling.
 
 ### Problem 3: Blockchain
-**Sertifika doğrulama sistemi**
-- Öğrenci başarı sertifikaları için akıllı sözleşme yazılmalı.
-- Frontend'e Web3 cüzdan bağlantısı eklenmeli.
-- Sertifika metadata'sı IPFS'te tutulmalı.
+**Certificate verification system**
+- Write a smart contract for student achievement certificates.
+- Add a Web3 wallet connection to the frontend.
+- Store certificate metadata on IPFS.
 
-## 🛡️ Güvenlik uyarısı: sahte mülakat saldırısı
+<a id="security-warning"></a>
 
-Bu proje, son yıllarda yazılımcıları hedef alan **"sahte iş mülakatı"** saldırılarının tipik bir örneği. Orijinal kodda şu yapı vardı:
+## 🛡️ Security warning: fake interview attack
 
-1. `backend/src/modules/departments/department-module.js` dosyası, sunucu **başlar başlamaz** (`require` edildiği anda) uzak bir adrese istek atıyordu.
-2. Sunucu bilerek **hata** döndürüyor ve hata mesajının içine JavaScript kodu koyuyordu.
-3. `backend/src/utils/apiErrorHandler.js` adlı, "hata yönetimi" gibi görünen dosya bu metni `new Function.constructor("require", kod)` ile **çalıştırıyordu**.
+This project is a typical example of the **"fake job interview"** attacks that have targeted developers in recent years. The original code contained the following:
 
-Sonuç: Sadece `npm start` yazmak, saldırgana bilgisayarınızda tam yetkiyle (`require` → dosya sistemi, ağ, `child_process`) kod çalıştırma imkânı veriyordu. Bu tür kodlar genellikle tarayıcıdaki kripto cüzdanlarını, kayıtlı şifreleri ve SSH anahtarlarını çalar.
+1. `backend/src/modules/departments/department-module.js` sent a request to a remote address **as soon as the server started** (the moment the file was `require`d).
+2. The remote server deliberately returned an **error**, with JavaScript code hidden in the error message.
+3. `backend/src/utils/apiErrorHandler.js`, a file that looked like an "error handler", **executed** that text with `new Function.constructor("require", code)`.
 
-**Bu repodaki versiyonda zararlı kod kaldırılmıştır.** Uygulamanın geri kalanı aynı şekilde çalışır.
+Result: simply typing `npm start` gave the attacker full code execution on your machine (`require` → file system, network, `child_process`). Code like this usually steals browser crypto wallets, saved passwords and SSH keys.
 
-### Kendinizi nasıl korursunuz?
+**The malicious code has been removed from the version in this repo.** The rest of the application works as before.
 
-- Size gönderilen projeyi **çalıştırmadan önce** okuyun. Özellikle `eval`, `new Function`, `Function.constructor`, `child_process` ve `require` anında çalışan kodlara bakın.
-- `package.json` içindeki `preinstall`/`postinstall` script'lerini kontrol edin.
-- Kodda sabit yazılmış (hard-coded) ve konusuyla alakasız URL'ler (ör. `*.vercel.app`) ve "secret" header'lar şüphelidir.
-- Mümkünse case'leri bir **sanal makine veya container** içinde çalıştırın.
-- "Kripto", "blockchain", "Web3" konulu ve aceleye getiren mülakat süreçlerinde ekstra dikkatli olun.
+### How to protect yourself
 
-## 🚀 Çalıştırma
+- **Read** any project you are sent **before running it**. Look especially for `eval`, `new Function`, `Function.constructor`, `child_process`, and code that runs at `require` time.
+- Check the `preinstall` / `postinstall` scripts in `package.json`.
+- Hard-coded URLs unrelated to the project (e.g. `*.vercel.app`) and "secret" headers are red flags.
+- If possible, run take-home projects inside a **virtual machine or container**.
+- Be extra careful with rushed interview processes about "crypto", "blockchain" or "Web3".
 
-Gereksinimler: Node.js 16+, PostgreSQL 12+
+## 🚀 Getting started
+
+Requirements: Node.js 16+, PostgreSQL 12+
 
 ```bash
-# Veritabanı
+# Database
 createdb school_mgmt
 psql -d school_mgmt -f seed_db/tables.sql
 psql -d school_mgmt -f seed_db/seed-db.sql
@@ -70,18 +74,18 @@ cp .env.example .env
 npm run dev
 ```
 
-Demo giriş bilgileri: `admin@school-admin.com` / `3OU4zn3q6Zh9`
+Demo login: `admin@school-admin.com` / `3OU4zn3q6Zh9`
 
-## 📁 Klasör yapısı
+## 📁 Folder structure
 
 ```
 ├── frontend/   # React + TypeScript + MUI + Redux Toolkit (RTK Query)
 ├── backend/    # Node.js + Express + PostgreSQL (JWT, CSRF, Argon2)
-└── seed_db/    # Veritabanı şeması ve örnek veriler
+└── seed_db/    # Database schema and seed data
 ```
 
-Detaylı dokümantasyon: [`frontend/README.md`](./frontend/README.md), [`backend/README.md`](./backend/README.md), [`seed_db/README.md`](./seed_db/README.md)
+Detailed docs: [`frontend/README.md`](./frontend/README.md), [`backend/README.md`](./backend/README.md), [`seed_db/README.md`](./seed_db/README.md)
 
-## 💡 Çözüm
+## 💡 Solution
 
-Bu klasörde case'in **verilen hâli** bulunuyor. Problemler henüz çözülmedi, alıştırma olarak kullanılabilir.
+This folder contains the case **as it was given**. The problems have not been solved yet, so you can use it as an exercise.

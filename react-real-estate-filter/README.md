@@ -1,44 +1,46 @@
-# Emlak İlanı Filtreleme
+# Real Estate Listing Filter
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 1–2 gün · **Teknolojiler:** React 18, Vite, React Router, Context API, Tailwind CSS, Axios
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner–Intermediate · **Estimated time:** 1–2 days · **Tech:** React 18, Vite, React Router, Context API, Tailwind CSS, Axios
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Bir emlak firmasının API'sinden gelen ilanları listeleyen ve **ilan tipi** ile **konuma** göre filtreleyen bir arayüz geliştirin.
+## 📋 Task
 
-### Gereksinimler
+Build an interface that lists listings from a real estate company's API and filters them by **listing type** and **location**.
 
-- İlanlar ve konum bilgileri (il/ilçe) API'den çekilmeli.
-- Filtre paneli iki sekmeden oluşmalı:
-  - **Sekme 1:** İlan tipi (Satılık / Kiralık)
-  - **Sekme 2:** İl ve ilçe seçimi. İlçe listesi seçilen ile göre değişmeli.
-- Filtreler **URL parametrelerinde** tutulmalı (`?tip=&il=&ilçe=`). Böylece sayfa yenilense veya link paylaşılsa da filtreler korunmalı.
-- İlan kartlarında başlık ve kısaltılmış açıklama gösterilmeli.
-- Yükleme ve hata durumları gösterilmeli.
-- Aynı bileşenleri kullanan iki farklı yerleşim olmalı:
-  - `/` → filtre solda, ilanlar sağda
-  - `/page-two` → ilanlar solda, filtre sağda
+### Requirements
 
-## 💡 Çözüm
+- Listings and location data (province/district) are fetched from the API.
+- The filter panel has two tabs:
+  - **Tab 1:** Listing type (For sale / For rent)
+  - **Tab 2:** Province and district selection. The district list depends on the selected province.
+- Filters are kept in **URL parameters** (`?tip=&il=&ilçe=`), so they survive page reloads and shared links.
+- Listing cards show the title and a shortened description.
+- Loading and error states are shown.
+- Two different layouts using the same components:
+  - `/` → filter on the left, listings on the right
+  - `/page-two` → listings on the left, filter on the right
 
-- Veri çekme ve filtreleme `src/context/apiContext.jsx` içinde **Context API** ile yapılıyor. Filtre değerleri `useSearchParams` ile URL'den okunuyor; URL değiştikçe liste yeniden filtreleniyor.
-- Filtre formu `FormData` ile okunup değerler `searchParams`'a yazılıyor.
-- İl listesindeki tekrar eden kayıtlar `utils/getUnique.js` ile temizleniyor.
-- `Filter` ve `Content` bileşenleri iki sayfada da yeniden kullanılıyor; sadece sıraları değişiyor.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- Fetching and filtering happen in `src/context/apiContext.jsx` with the **Context API**. Filter values are read from the URL with `useSearchParams`, and the list is re-filtered whenever the URL changes.
+- The filter form is read with `FormData` and the values are written to `searchParams`.
+- Duplicate provinces are removed with `utils/getUnique.js`.
+- The `Filter` and `Content` components are reused on both pages; only their order changes.
+
+## 🚀 Getting started
 
 ```bash
 npm install
-cp .env.example .env   # API adresini ve key'i girin
+cp .env.example .env   # set the API URL and key
 npm run dev            # http://localhost:5173
 ```
 
 ### API
 
-| Endpoint | Açıklama |
+| Endpoint | Description |
 |---|---|
-| `GET {VITE_API_BASE_URL}/list?key={VITE_API_KEY}` | İlan listesi |
-| `GET {VITE_API_BASE_URL}/locationLookup?key={VITE_API_KEY}` | İl / ilçe listesi |
+| `GET {VITE_API_BASE_URL}/list?key={VITE_API_KEY}` | Listings |
+| `GET {VITE_API_BASE_URL}/locationLookup?key={VITE_API_KEY}` | Provinces / districts |

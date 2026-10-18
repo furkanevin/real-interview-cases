@@ -1,72 +1,78 @@
-# Gerçek İş Başvurusu Case'leri
+# Real Job Application Case Studies
 
-Bu repo, iş başvurularında şirketlerden gelen **gerçek teknik case'leri** ve çözümlerini içeriyor. Amaç, mülakat sürecinde karşınıza çıkabilecek görev türlerini önceden görmeniz ve pratik yapmanız.
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> Şirket isimleri, logoları ve iletişim bilgileri gizlilik nedeniyle kaldırılmıştır. Görev metinleri orijinallerinden yola çıkılarak yeniden yazılmıştır.
+This repo contains **real technical take-home assignments** that companies sent to job applicants, together with their solutions. The goal is to help you see the kinds of tasks you may face in a hiring process and practise them in advance.
 
-## 📚 Case listesi
+> Company names, logos and contact details have been removed for privacy. Task descriptions were rewritten based on the originals.
 
-### 🟢 Başlangıç
+## 📚 Cases
 
-| Case                                                           | Konu                                           | Teknolojiler    |
-| -------------------------------------------------------------- | ---------------------------------------------- | --------------- |
-| [html-css-signup-landing-page](./html-css-signup-landing-page) | Figma tasarımından kayıt sayfası               | HTML, CSS       |
-| [react-flexbox-sorted-data](./react-flexbox-sorted-data)       | JSON veriyi sıralayıp Flexbox ile gösterme     | React, CSS      |
-| [react-quiz-timer](./react-quiz-timer)                         | Süreli quiz ve sonuç tablosu                   | React, Tailwind |
-| [react-campaign-shop-ui](./react-campaign-shop-ui)             | 3 sayfalık kampanya / puanlı alışveriş arayüzü | React, Tailwind |
-| [react-weather-app](./react-weather-app)                       | Hava durumu paneli arayüzü                     | React, SCSS     |
+### 🟢 Beginner
 
-### 🟡 Başlangıç–Orta
+| Case | Topic | Tech |
+| --- | --- | --- |
+| [html-css-signup-landing-page](./html-css-signup-landing-page) | Sign-up page from a Figma design | HTML, CSS |
+| [react-flexbox-sorted-data](./react-flexbox-sorted-data) | Sorting JSON data and displaying it with Flexbox | React, CSS |
+| [react-quiz-timer](./react-quiz-timer) | Timed quiz with a results table | React, Tailwind |
+| [react-campaign-shop-ui](./react-campaign-shop-ui) | 3-page campaign / points-based shopping UI | React, Tailwind |
+| [react-weather-app](./react-weather-app) | Weather dashboard UI | React, SCSS |
 
-| Case                                                               | Konu                                      | Teknolojiler       |
-| ------------------------------------------------------------------ | ----------------------------------------- | ------------------ |
-| [javascript-stock-customer-crud](./javascript-stock-customer-crud) | Stok ve müşteri CRUD işlemleri            | Vanilla JS, Axios  |
-| [react-real-estate-filter](./react-real-estate-filter)             | URL parametreleriyle emlak filtreleme     | React, Context API |
-| [react-redux-query-ecommerce](./react-redux-query-ecommerce)       | Ürün listesi ve sepet                     | React, RTK Query   |
-| [react-news-stock-dashboard](./react-news-stock-dashboard)         | Finans haberleri ve hisse arama           | React, json-server |
-| [next-scss-ecommerce](./next-scss-ecommerce)                       | Kategori, ürün detay ve sepet             | Next.js, SCSS      |
-| [next-crypto-exchange-landing](./next-crypto-exchange-landing)     | Kripto borsası ana sayfa klonu            | Next.js, Tailwind  |
-| [next-recipe-finder](./next-recipe-finder)                         | SSR, önbellek ve Suspense ile tarif arama | Next.js, Tailwind  |
+### 🟡 Beginner–Intermediate
 
-### 🟠 Orta
+| Case | Topic | Tech |
+| --- | --- | --- |
+| [javascript-stock-customer-crud](./javascript-stock-customer-crud) | Stock and customer CRUD | Vanilla JS, Axios |
+| [react-real-estate-filter](./react-real-estate-filter) | Real estate filtering with URL parameters | React, Context API |
+| [react-redux-query-ecommerce](./react-redux-query-ecommerce) | Product list and cart | React, RTK Query |
+| [react-news-stock-dashboard](./react-news-stock-dashboard) | Financial news and stock search | React, json-server |
+| [next-scss-ecommerce](./next-scss-ecommerce) | Categories, product details and cart | Next.js, SCSS |
+| [next-crypto-exchange-landing](./next-crypto-exchange-landing) | Crypto exchange home page clone | Next.js, Tailwind |
+| [next-recipe-finder](./next-recipe-finder) | Recipe search with SSR, caching and Suspense | Next.js, Tailwind |
 
-| Case                                                                       | Konu                                     | Teknolojiler                     |
-| -------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------- |
-| [react-covid-map](./react-covid-map)                                       | Dünya haritası, Redux-Saga ve testler    | React, Redux-Saga, Vitest        |
-| [react-movie-list](./react-movie-list)                                     | Film rehberi ve favoriler                | React, TypeScript, RTK Query     |
-| [react-university-list-filter-login](./react-university-list-filter-login) | Filtreleme, sıralama, sayfalama ve giriş | React, json-server               |
-| [react-saas-admin-dashboard](./react-saas-admin-dashboard)                 | Animasyonlu admin paneli                 | React, TypeScript, MUI, Recharts |
-| [next-tailwind-travel-filter](./next-tailwind-travel-filter)               | Kategori bazlı filtre popup'ı            | Next.js, TypeScript, Tailwind    |
-| [next-mui-learning-dashboard](./next-mui-learning-dashboard)               | Template repo üzerinden dashboard        | Next.js, MUI, Jest, Cypress      |
-| [next-auth0-authentication](./next-auth0-authentication)                   | OAuth, JWT ve middleware ile koruma      | Next.js, NextAuth, Auth0         |
+### 🟠 Intermediate
 
-### 🔴 Orta–İleri / İleri
+| Case | Topic | Tech |
+| --- | --- | --- |
+| [react-covid-map](./react-covid-map) | World map, Redux-Saga and tests | React, Redux-Saga, Vitest |
+| [react-movie-list](./react-movie-list) | Movie guide with favorites | React, TypeScript, RTK Query |
+| [react-university-list-filter-login](./react-university-list-filter-login) | Filtering, sorting, pagination and login | React, json-server |
+| [react-saas-admin-dashboard](./react-saas-admin-dashboard) | Animated admin dashboard | React, TypeScript, MUI, Recharts |
+| [next-tailwind-travel-filter](./next-tailwind-travel-filter) | Category-based filter popup | Next.js, TypeScript, Tailwind |
+| [next-mui-learning-dashboard](./next-mui-learning-dashboard) | Dashboard built on a template repo | Next.js, MUI, Jest, Cypress |
+| [next-auth0-authentication](./next-auth0-authentication) | OAuth, JWT and middleware protection | Next.js, NextAuth, Auth0 |
 
-| Case                                                                   | Konu                                       | Teknolojiler                  |
-| ---------------------------------------------------------------------- | ------------------------------------------ | ----------------------------- |
-| [next-i18n-seo-ecommerce](./next-i18n-seo-ecommerce)                   | Çok dilli, SEO ve performans odaklı mağaza | Next.js, next-intl, RTK       |
-| [react-ide-existing-project](./react-ide-existing-project)             | Büyük bir açık kaynak projede geliştirme   | React, MUI, Jest              |
-| [fullstack-school-management](./fullstack-school-management)           | Hazır projede bug fix ve CRUD ⚠️           | React, Node.js, PostgreSQL    |
-| [next-microfrontend-ecommerce](./next-microfrontend-ecommerce)         | İki ayrı uygulama, ortak sepet             | Next.js, Docker               |
-| [backend-airport-stand-allocation](./backend-airport-stand-allocation) | Domain kuralları, bug fix ve yeni endpoint | Bun, TypeScript, PostgreSQL   |
-| [react-native-article-feed](./react-native-article-feed)               | Biyometrik kilit, offline kayıt, CI/CD     | React Native, TypeScript, RTK |
+### 🔴 Intermediate–Advanced / Advanced
 
-## 🧭 Nasıl çalışmalı?
+| Case | Topic | Tech |
+| --- | --- | --- |
+| [next-i18n-seo-ecommerce](./next-i18n-seo-ecommerce) | Multilingual, SEO and performance-focused store | Next.js, next-intl, RTK |
+| [react-ide-existing-project](./react-ide-existing-project) | Contributing to a large open-source project | React, MUI, Jest |
+| [fullstack-school-management](./fullstack-school-management) | Bug fix and CRUD in an existing project ⚠️ | React, Node.js, PostgreSQL |
+| [next-microfrontend-ecommerce](./next-microfrontend-ecommerce) | Two separate apps with a shared cart | Next.js, Docker |
+| [backend-airport-stand-allocation](./backend-airport-stand-allocation) | Domain rules, bug fix and a new endpoint | Bun, TypeScript, PostgreSQL |
+| [react-native-article-feed](./react-native-article-feed) | Biometric lock, offline saving, CI/CD | React Native, TypeScript, RTK |
 
-1. Case'in klasörüne girip **README.md**'deki **Görev** bölümünü okuyun.
-2. Çözüme bakmadan önce kendiniz yapmayı deneyin. Süreyi tutun; README'deki tahmini süre fikir verir.
-3. Takıldığınızda veya bitirdiğinizde **Çözüm** bölümüne ve koda bakarak kendi çözümünüzle karşılaştırın.
-4. Her README'de projeyi çalıştırma adımları var. API key gereken projelerde `.env.example` dosyasını kopyalayıp kendi key'inizi girin.
+## 🧭 How to use this repo
 
-## ⚠️ Güvenlik uyarısı
+1. Open a case folder and read the **Task** section of its **README.md**.
+2. Try to solve it yourself before looking at the solution. Time yourself; the estimated time in the README gives you an idea.
+3. When you get stuck or finish, compare your work with the **Solution** section and the code.
+4. Every README includes setup steps. For projects that need an API key, copy `.env.example` and add your own key.
 
-Size gönderilen hazır projeleri **çalıştırmadan önce mutlaka okuyun.** [fullstack-school-management](./fullstack-school-management) case'i, adayın bilgisayarında uzaktan kod çalıştıran bir zararlı yazılım içeriyordu (bu repoda temizlendi). Nasıl fark edileceği o klasörün README'sinde anlatılıyor.
+## ⚠️ Security warning
 
-## 📁 Her case'in yapısı
+**Always read a project you are sent before running it.** The [fullstack-school-management](./fullstack-school-management) case contained malware that ran remote code on the candidate's machine (it has been removed in this repo). That folder's README explains how to spot it.
 
-Tüm case'lerin README dosyası aynı şablonu takip ediyor:
+## 📁 Structure of each case
 
-- **Seviye / süre / teknolojiler** özeti
-- **📋 Görev:** Şirketin istediği her şey
-- **💡 Çözüm:** Nasıl yapıldığı ve önemli kararlar
-- **🚀 Çalıştırma:** Kurulum komutları
+Every case README follows the same template:
+
+- **Level / time / tech** summary
+- **📋 Task:** Everything the company asked for
+- **💡 Solution:** How it was built and the key decisions
+- **🚀 Getting started:** Setup commands
+
+## 📄 License
+
+The code in this repo is released under the [MIT License](./LICENSE). The only exception is [react-ide-existing-project](./react-ide-existing-project): it contains code from an open-source project and is covered by its original [Apache 2.0](./react-ide-existing-project/LICENSE) license.

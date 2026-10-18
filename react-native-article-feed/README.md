@@ -1,121 +1,123 @@
-# React Native Makale Okuyucu (Biyometrik Kilitli)
+# React Native Article Reader (Biometric Lock)
 
-> **Seviye:** İleri · **Süre:** 72 saat · **Teknolojiler:** React Native CLI, TypeScript, Redux Toolkit, React Navigation v6, AsyncStorage, Keychain/Keystore, Jest, GitHub Actions
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Advanced · **Time limit:** 72 hours · **Tech:** React Native CLI, TypeScript, Redux Toolkit, React Navigation v6, AsyncStorage, Keychain/Keystore, Jest, GitHub Actions
 
-Görev, toplam **100 puan** değerinde üç modülden oluşuyor ve **72 saat** içinde teslim edilmesi gerekiyor.
+## 📋 Task
 
-### Modül 1: Makale akışı (35 puan)
+The task has three modules worth **100 points** in total and must be submitted within **72 hours**.
 
-GeeksForGeeks RSS akışından (`https://www.geeksforgeeks.org/feed/`) en son makaleleri çeken, kaydırılabilir bir liste.
+### Module 1: Article feed (35 pts)
 
-- RSS'i parse edip her makale için başlık, kategori etiketi ve tahmini okuma süresi içeren kartlar gösterin.
-- **Sonsuz kaydırma** (infinite scroll) ve **skeleton loader** kullanın.
-- Her karta AsyncStorage ile çalışan bir **"çevrimdışı kaydet"** düğmesi ekleyin.
-- Karta dokunulunca makale, özel bir araç çubuğu (geri, paylaş, tarayıcıda aç) olan **native WebView** içinde açılsın.
+A scrollable feed that fetches the latest articles from the GeeksForGeeks RSS feed (`https://www.geeksforgeeks.org/feed/`).
 
-### Modül 2: Biyometrik kilit (30 puan)
+- Parse the RSS feed and show article cards with the title, a category tag and the estimated reading time.
+- Implement **infinite scroll** with **skeleton loaders**.
+- Add a **"save offline"** toggle to each card using AsyncStorage.
+- On tap, open the article in a **native WebView** with a custom in-app toolbar (back, share, open in browser).
 
-"Kaydedilen Makaleler" sekmesini native biyometrik doğrulamanın (Face ID / parmak izi) arkasına alın.
+### Module 2: Biometric gate (30 pts)
 
-- `react-native-biometrics` veya benzeri bir native modül kullanın.
-- Biyometri yoksa **PIN ekranına** düşün.
-- PIN'i **iOS Keychain / Android Keystore** ile güvenli şekilde saklayın.
-- Akışın iki platformda da çalıştığını gösteren ekran kaydı veya ekran görüntüleri ekleyin.
+Protect the "Saved Articles" tab with native biometric authentication (Face ID / fingerprint).
 
-### Modül 3: CI/CD ve mağazaya hazırlık (35 puan)
+- Use `react-native-biometrics` or an equivalent native module.
+- Gracefully fall back to a **PIN screen** if biometrics are unavailable.
+- Store the PIN securely in the **iOS Keychain / Android Keystore**.
+- Provide a screen recording or screenshots showing the flow working on both platforms.
 
-- Lint, test ve imzalı **APK + IPA** üreten bir **GitHub Actions** (veya Bitrise) workflow'u yazın.
-- Feed reducer'ı ve çevrimdışı mantığı kapsayan en az **3 anlamlı Jest testi** yazın.
-- İmzalama sertifikalarının nasıl ayarlanacağını ve iki mağazaya nasıl gönderim yapılacağını anlatan bir **`DEPLOYMENT.md`** hazırlayın.
+### Module 3: CI/CD and store readiness (35 pts)
 
-### Teknik gereksinimler
+- Write a **GitHub Actions** (or Bitrise) workflow that lints, runs tests and produces a signed **APK + IPA**.
+- Write at least **3 meaningful Jest tests** covering the feed reducer and the offline logic.
+- Write a **`DEPLOYMENT.md`** explaining how to configure signing certificates and submit to both stores.
 
-- Tüm kod **TypeScript** olmalı; açıklaması olmayan `any` kullanılmamalı.
-- **React Native CLI** kullanılmalı (Expo değil).
-- Hedef: iOS 15+ ve Android API 31+
-- State yönetimi: **Redux Toolkit veya Zustand** (seçimi gerekçelendirmeye hazır olun).
-- Navigasyon: tipli rotalarla **React Navigation v6**
-- README, değerlendiren kişinin projeyi **5 dakikadan kısa sürede** çalıştırmasını sağlamalı.
+### Technical requirements
 
-### Değerlendirme
+- All code must be **TypeScript**; no `any` without a comment explaining why.
+- Use **React Native CLI** (not Expo).
+- Target iOS 15+ and Android API 31+.
+- State management: **Redux Toolkit or Zustand** (be ready to justify your choice).
+- Navigation: **React Navigation v6** with typed routes.
+- The README must let a reviewer run the project in **under 5 minutes**.
 
-Sadece çalışan koda değil, **production kalitesinde düşünmeye** bakılıyor: uç durumlar, hata yönetimi ve platform farkları. `DEPLOYMENT.md` dosyası, adayın gerçekten iki mağazaya uygulama yayınlayıp yayınlamadığının doğrudan göstergesi olarak değerlendiriliyor. Kısa liste eşiği 70/100, güçlü aday sinyali 85+.
+### Evaluation
 
-## 💡 Çözüm
+The focus is on **production-quality thinking**, not just working code: edge cases, error handling and platform differences. `DEPLOYMENT.md` is treated as a direct signal of whether the candidate has actually shipped apps to both stores. Shortlist threshold is 70/100; 85+ is a strong hire signal.
 
-### Özellikler
+## 💡 Solution
 
-- Sonsuz kaydırma, pull-to-refresh ve skeleton loader içeren makale akışı
-- Her kartta AsyncStorage'a kaydedilen "çevrimdışı kaydet" düğmesi
-- Geri / paylaş / tarayıcıda aç araç çubuğu olan WebView
-- Face ID / Touch ID / parmak izi ile korunan, yedek olarak Keychain/Keystore'da saklanan 4 haneli PIN'e düşen "Kaydedilenler" sekmesi
-- Lint, typecheck, Jest ve imzalı APK + IPA üreten GitHub Actions workflow'u. Mağaza gönderim notları [`DEPLOYMENT.md`](./DEPLOYMENT.md) dosyasında.
+### Features
 
-### Klasör yapısı
+- Article feed with infinite scroll, pull-to-refresh and skeleton loaders
+- A "save offline" toggle on each card, persisted to AsyncStorage
+- WebView with a back / share / open-in-browser toolbar
+- A "Saved" tab protected by Face ID / Touch ID / fingerprint, falling back to a 4-digit PIN stored in the Keychain/Keystore
+- A GitHub Actions workflow that runs lint, typecheck and Jest and produces signed APK + IPA artifacts. Store submission notes are in [`DEPLOYMENT.md`](./DEPLOYMENT.md).
+
+### Folder structure
 
 ```
 src/
 ├─ components/    ArticleCard, SkeletonCard, BiometricGate, PinPad
-├─ navigation/    RootNavigator + tipli parametre listeleri
+├─ navigation/    RootNavigator + typed param lists
 ├─ screens/       Feed, SavedTab, ArticleWebView
 ├─ services/      rssParser, rssService, storage, secureStorage, biometric
-├─ store/         feedSlice, savedSlice, authSlice içeren RTK store
+├─ store/         RTK store with feedSlice, savedSlice, authSlice
 ├─ types/         Article
 └─ utils/         readTime / stripHtml
 ```
 
-### Teknik kararlar
+### Technical decisions
 
-- **Neden Redux Toolkit?** Üç asenkron akış var (ilk yükleme, yenileme, sayfalı çekme) ve hepsi pending/fulfilled/rejected durumlarına ve id bazlı tekrar engellemeye ihtiyaç duyuyor. `createAsyncThunk` bunları hazır veriyor; Zustand'da bu durumları elle yazmak gerekirdi.
-- **Navigasyon:** Kök stack'te iki rota var (`Tabs`, `ArticleWebView`). WebView iki sekmenin de üstünü kaplıyor. `CompositeScreenProps` ile sekme içindeki ekranlar da kök navigasyona tipli erişebiliyor.
-- **RSS parse:** Kaynak site `/feed/` adresinde artık XML yerine bir Next.js sayfası döndürüyor. Parser iki durumu da destekliyor: yanıt XML gibi görünüyorsa RSS item'larını, değilse sayfadaki `__NEXT_DATA__` JSON'unu okuyor. Ek bağımlılık yok, yaklaşık 50 satır.
-- **Çevrimdışı kaydetme:** `savedSlice.toggleSaved` aynı dispatch içinde hem state'i güncelliyor hem AsyncStorage'a yazıyor. Uygulama açılışında veri bir kez `App.tsx`'ten yükleniyor.
+- **Why Redux Toolkit?** There are three async flows (initial load, refresh, paged fetch), and all of them need explicit pending/fulfilled/rejected handling and id-based de-duplication. `createAsyncThunk` provides that out of the box; with Zustand these states would be hand-rolled.
+- **Navigation:** The root stack has two routes (`Tabs`, `ArticleWebView`), so the WebView covers both tabs. `CompositeScreenProps` gives screens inside the tabs typed access to root navigation.
+- **RSS parsing:** The source site now serves a Next.js page at `/feed/` instead of XML. The parser handles both: RSS items if the response looks like XML, otherwise the page's `__NEXT_DATA__` JSON. No extra dependency, about 50 lines.
+- **Offline saving:** `savedSlice.toggleSaved` updates state and writes to AsyncStorage in the same dispatch. Data is hydrated once from `App.tsx` on startup.
 
-### Biyometrik kilit akışı
+### Biometric gate flow
 
-1. PIN yoksa → önce PIN oluşturma ve onaylama. PIN olmazsa biyometri başarısız olduğunda kurtarma yolu kalmaz.
-2. Biyometri varsa → biyometrik doğrulama istenir; iptal veya hata durumunda PIN ekranına düşülür.
-3. Biyometri yoksa → doğrudan PIN.
-4. 5 hatalı PIN denemesi, uygulama yeniden başlatılana kadar kilidi kapatır.
-5. Kilit durumu saklanmaz; uygulama arka plana geçince `AppState` dinleyicisi tekrar kilitler.
-6. PIN, Keychain'e yazılmadan önce FNV-1a ile hash'lenir. 4 haneli bir PIN'i düz metin olarak saklamamak için ek bir önlem.
+1. No PIN set → PIN setup and confirmation first. Without a PIN there is no recovery path if biometrics fail.
+2. Biometrics available → biometric prompt; cancel or failure falls back to PIN entry.
+3. No biometrics → straight to PIN.
+4. 5 wrong PIN attempts lock the gate until the app is restarted.
+5. The unlocked state is not persisted; when the app goes to the background, an `AppState` listener locks it again.
+6. The PIN is hashed with FNV-1a before being written to the Keychain, as an extra measure against storing a 4-digit PIN in plain text.
 
-### Ele alınan uç durumlar
+### Edge cases handled
 
-- **Sayfalar arası tekrar eden id'ler:** `feedSlice.seenIds` aynı makalenin iki kez listelenmesini engelliyor.
-- **Akışın sonu:** Sayfalı istek sadece daha önce görülmüş makaleler döndürürse yeni sayfa istenmiyor.
-- **Pull-to-refresh:** Liste değiştirilmiyor, yeni makaleler başa ekleniyor; kaydırma konumu korunuyor.
-- **Bozuk AsyncStorage verisi:** Uygulamayı çökertmek yerine yok sayılıyor.
-- **WebView geçmişi:** Geri butonu önce web geçmişinde geri gidiyor, sonra navigasyon stack'ine dönüyor.
-- **Android'de paylaşım:** `Share.share({ url })` Android'de çalışmadığı için URL mesaj metnine ekleniyor.
-- **Uygulama değiştirici önizlemesi:** Uygulama ön plandan çıktığı anda kilitleniyor.
-- **Tekrar doğrulama toleransı:** Sadece 60 saniyeden uzun arka planda kalınırsa tekrar doğrulama isteniyor.
+- **Duplicate ids across pages:** `feedSlice.seenIds` prevents the same article from appearing twice.
+- **End of feed:** If a paged request returns only already-seen articles, no more pages are requested.
+- **Pull-to-refresh:** New articles are prepended instead of replacing the list, so the scroll position is kept.
+- **Corrupt AsyncStorage data:** Ignored instead of crashing the app.
+- **WebView history:** The back button first navigates web history, then falls back to the navigation stack.
+- **Sharing on Android:** `Share.share({ url })` does nothing on Android, so the URL is added to the message body.
+- **App switcher preview:** The app locks as soon as it leaves the foreground.
+- **Re-auth tolerance:** Re-authentication is only requested after more than 60 seconds in the background.
 
-### Kapsam dışı
+### Out of scope
 
-- Splash / onboarding ekranı yok.
-- Analytics veya Sentry yok (`DEPLOYMENT.md` nereye ekleneceğini anlatıyor).
-- E2E test yok. Brief en az 3 unit test istiyordu; feed reducer, çevrimdışı kayıt, RSS parser ve güvenli depolama için toplam **21 test** var.
+- No splash / onboarding screen.
+- No analytics or Sentry (`DEPLOYMENT.md` explains where they would plug in).
+- No E2E tests. The brief asked for at least 3 unit tests; there are **21 tests** covering the feed reducer, offline saving, the RSS parser and secure storage.
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
-Gereksinimler:
+Requirements:
 
 - Node 22.x
-- Ruby 3.2+ (rbenv ile; sistem Ruby'si `pod install`'u bozar)
-- iOS için Xcode 16.1+, Android için Android Studio + JDK 17
+- Ruby 3.2+ (via rbenv; the system Ruby breaks `pod install`)
+- Xcode 16.1+ for iOS, Android Studio + JDK 17 for Android
 
 ```bash
 npm install
 cd ios && bundle install && bundle exec pod install && cd ..
-npm run ios       # veya: npm run android
+npm run ios       # or: npm run android
 ```
 
-Metro, `run-ios` / `run-android` ile otomatik başlar. Ayrıca çalıştırmak için `npm start` kullanabilirsiniz.
+Metro starts automatically with `run-ios` / `run-android`. Use `npm start` to run it separately.
 
-Sadece kodun derlendiğini kontrol etmek için (CI'daki kontrollerin aynısı):
+To just check that the code compiles (the same checks CI runs):
 
 ```bash
 npm run lint
@@ -123,4 +125,4 @@ npm run typecheck
 npm test
 ```
 
-**Hazır APK:** CI, `main` branch'ine yapılan her push'ta imzalı bir release APK üretir. Son çalışmanın Artifacts bölümünden `app-release-apk` dosyasını indirip `adb install` ile kurabilirsiniz.
+**Pre-built APK:** CI produces a signed release APK on every push to `main`. Download `app-release-apk` from the latest run's Artifacts and install it with `adb install`.

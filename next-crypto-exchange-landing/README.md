@@ -1,34 +1,36 @@
-# Kripto Borsası Landing Page Klonu
+# Crypto Exchange Landing Page Clone
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** Next.js 14 (App Router), Tailwind CSS, Swiper, CoinCap API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** Next.js 14 (App Router), Tailwind CSS, Swiper, CoinCap API
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Popüler bir kripto para borsasının ana sayfasının **birebir klonunu** Next.js ve Tailwind CSS ile hazırlayın. Kripto fiyat tablosu gerçek bir API'den beslenmeli.
+## 📋 Task
 
-### Gereksinimler
+Build a **pixel-perfect clone** of a popular crypto exchange's home page with Next.js and Tailwind CSS. The market table must be fed by a real API.
 
-- **Header:** Logo, menü linkleri ve giriş/kayıt butonları. Sayfa kaydırılırken sabit (sticky) kalmalı.
-- **Hero:** Başlık, kayıt alanı ve duyuru listesi.
-- **Piyasa tablosu:** En popüler kripto paraların adı, fiyatı, 24 saatlik değişimi ve hacmi. Veriler bir kripto API'sinden çekilmeli.
-- **Etkinlikler:** Kaydırılabilir kartlardan oluşan bir slider.
-- **Startup / airdrop bölümü:** Yeni projelerin listelendiği kartlar.
-- **Footer:** Çok sütunlu link listesi.
-- Sayfa tamamen **responsive** olmalı.
+### Requirements
 
-## 💡 Çözüm
+- **Header:** Logo, menu links and log in / sign up buttons. It must stay fixed (sticky) while scrolling.
+- **Hero:** Headline, sign-up area and an announcements list.
+- **Market table:** Name, price, 24h change and volume of the most popular cryptocurrencies, fetched from a crypto API.
+- **Events:** A slider of scrollable cards.
+- **Startup / airdrop section:** Cards listing new projects.
+- **Footer:** Multi-column link list.
+- The page must be fully **responsive**.
 
-- Her bölüm `app/components` altında ayrı bir bileşen olarak yazıldı (`Header`, `Hero`, `Table`, `Activities`, `Startup`, `GetStarted`, `Footer`).
-- Piyasa tablosu bir **Server Component**. Veriler [CoinCap API](https://docs.coincap.io/)'den sunucu tarafında çekiliyor.
-- Büyük sayılar `millify` ile kısaltılıyor (ör. `1.2B`).
-- Etkinlik slider'ı için `swiper` kullanıldı.
-- Menü ve footer linkleri `app/constants` altında dizi olarak tutuluyor ve `map` ile render ediliyor.
+## 💡 Solution
 
-> Marka adı ve logosu, telif hakları nedeniyle uydurma bir isimle ("CryptoX") değiştirilmiştir.
+- Each section is its own component under `app/components` (`Header`, `Hero`, `Table`, `Activities`, `Startup`, `GetStarted`, `Footer`).
+- The market table is a **Server Component**; data is fetched from the [CoinCap API](https://docs.coincap.io/) on the server.
+- Large numbers are shortened with `millify` (e.g. `1.2B`).
+- The events slider uses `swiper`.
+- Menu and footer links are kept as arrays in `app/constants` and rendered with `map`.
 
-## 🚀 Çalıştırma
+> The brand name and logo were replaced with a made-up name ("CryptoX") for copyright reasons.
+
+## 🚀 Getting started
 
 ```bash
 npm install

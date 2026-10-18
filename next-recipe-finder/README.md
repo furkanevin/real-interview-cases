@@ -1,64 +1,66 @@
-# Tarif Bulucu (Recipe Finder)
+# Recipe Finder
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4, Spoonacular API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4, Spoonacular API
 
-Kullanıcıların filtrelerle tarif arayabildiği, sonuçları ayrı bir sayfada görebildiği ve her tarifin detayına bakabildiği bir **Next.js** uygulaması geliştirin.
+## 📋 Task
 
-### 1. Arama sayfası (ana sayfa)
+Build a **Next.js** app where users search recipes with filters, see the results on a separate page and view the details of each recipe.
 
-- Tailwind CSS ile tasarlanmalı; tasarım serbest.
-- Form alanları:
-  - Tarif araması için metin alanı (**query**, ör. "pasta")
-  - Mutfak seçimi için açılır liste (**cuisine**: Italian, Mexican, Chinese vb., en az üç seçenek)
-  - Maksimum **hazırlama süresi** (dakika) için sayı alanı
-- **"Next"** butonu başta pasif olmalı; üç alandan en az biri doldurulunca aktifleşmeli.
-- Butona basılınca seçilen değerler query parametresi olarak `recipes` sayfasına gönderilmeli.
+### 1. Search page (home page)
 
-### 2. Tarifler sayfası (`/recipes`)
+- Styled with Tailwind CSS; the design is up to you.
+- Form fields:
+  - A text input for the recipe **query** (e.g. "pasta")
+  - A dropdown for **cuisine** (Italian, Mexican, Chinese, etc., at least three options)
+  - A number input for the maximum **preparation time** in minutes
+- The **"Next"** button starts disabled and becomes enabled once at least one of the three fields is filled in.
+- Clicking it navigates to the `recipes` page with the values passed as query parameters.
 
-- Veriler **sunucu tarafında (SSR)** çekilmeli:
+### 2. Recipes page (`/recipes`)
+
+- Fetch data **on the server (SSR)**:
   `https://api.spoonacular.com/recipes/complexSearch?query=&cuisine=&maxReadyTime=&apiKey=`
-- API yanıtı **1 dakika** önbelleğe alınmalı.
-- Her tarifin başlığı ve görseli listelenmeli; tıklanınca `recipes/[id]` sayfasına gidilmeli.
-- Veri çekme hataları yönetilmeli.
+- Cache the API response for **1 minute**.
+- Show each recipe's title and image; clicking one navigates to `recipes/[id]`.
+- Handle data-fetching errors.
 
-### 3. Tarif detay sayfası (`/recipes/[id]`)
+### 3. Recipe details page (`/recipes/[id]`)
 
-- `https://api.spoonacular.com/recipes/{id}/information?apiKey=` endpoint'i kullanılmalı.
-- **Tarif başlığı** ve **malzeme listesi** gösterilmeli. Hazırlama süresi, porsiyon, özet gibi ek bilgiler opsiyonel.
+- Use the `https://api.spoonacular.com/recipes/{id}/information?apiKey=` endpoint.
+- Show the **recipe title** and the **list of ingredients**. Extra info such as preparation time, servings or a summary is optional.
 
-### 4. Diğer gereksinimler
+### 4. Other requirements
 
-- Yükleme durumları için React **`Suspense`** kullanılmalı.
-- Tüm arayüz Tailwind CSS ile, responsive ve erişilebilir olmalı.
-- API key ortam değişkeninde tutulmalı.
-- **ESLint** ve **Prettier** kurulmalı.
-- README'de kurulum, özellikler ve mimari anlatılmalı.
+- Use React **`Suspense`** for loading states.
+- The whole UI must use Tailwind CSS and be responsive and accessible.
+- Keep the API key in an environment variable.
+- Set up **ESLint** and **Prettier**.
+- The README must cover setup, features and architecture.
 
-## 💡 Çözüm
+## 💡 Solution
 
-| Dosya | Açıklama |
+| File | Description |
 |---|---|
-| `src/app/page.tsx` | Arama formunun bulunduğu ana sayfa |
-| `src/app/recipes/page.tsx` | Arama sonuçları (SSR, `revalidate = 60`) |
-| `src/app/recipes/[id]/page.tsx` | Tarif detay sayfası |
-| `src/services/recipe.service.ts` | Spoonacular API istekleri |
-| `src/components/skeletons/` | `Suspense` fallback'leri için skeleton bileşenleri |
-| `src/app/error.tsx`, `loading.tsx` | Global hata ve yükleme ekranları |
+| `src/app/page.tsx` | Home page with the search form |
+| `src/app/recipes/page.tsx` | Search results (SSR, `revalidate = 60`) |
+| `src/app/recipes/[id]/page.tsx` | Recipe details page |
+| `src/services/recipe.service.ts` | Spoonacular API requests |
+| `src/components/skeletons/` | Skeleton components used as `Suspense` fallbacks |
+| `src/app/error.tsx`, `loading.tsx` | Global error and loading screens |
 
-- Sonuç listesi `Suspense` ile sarıldı; veri gelene kadar skeleton gösteriliyor.
-- Önbellek süresi `export const revalidate = 60` ile 1 dakikaya ayarlandı.
-- Form, "Next" butonunun durumunu alanların doluluğuna göre hesaplıyor ve değerleri URL parametresi olarak taşıyor.
+- The result list is wrapped in `Suspense`, showing a skeleton until data arrives.
+- The cache duration is set to 1 minute with `export const revalidate = 60`.
+- The form computes the "Next" button state from the filled fields and carries the values as URL parameters.
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
-Gereksinimler: Node.js 18.17+ ve ücretsiz bir [Spoonacular API key](https://spoonacular.com/food-api)
+Requirements: Node.js 18.17+ and a free [Spoonacular API key](https://spoonacular.com/food-api)
 
 ```bash
 npm install
-cp .env.example .env.local   # API key'inizi girin
+cp .env.example .env.local   # add your API key
 npm run dev                  # http://localhost:3000
 ```
 

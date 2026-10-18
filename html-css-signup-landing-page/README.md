@@ -1,43 +1,45 @@
-# HTML & CSS Kayıt (Sign-up) Sayfası
+# HTML & CSS Sign-up Page
 
-> **Seviye:** Başlangıç · **Tahmini süre:** 1 gün · **Teknolojiler:** HTML5, CSS3 (Flexbox, Grid)
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Beginner · **Estimated time:** 1 day · **Tech:** HTML5, CSS3 (Flexbox, Grid)
 
-Verilen Figma tasarımına göre tek sayfalık, statik bir **kayıt sayfası** geliştirin. Sayfa; üstte bir erişilebilirlik çubuğu, logo ve menü içeren bir header, solda tanıtım metni, sağda kayıt formu bulunan bir hero alanından oluşuyor.
+## 📋 Task
 
-### Gereksinimler
+Build a single, static **sign-up page** from the provided Figma design. The page has an accessibility bar at the top, a header with a logo and navigation, and a hero section with an intro text on the left and a sign-up form on the right.
 
-- Sayfa **responsive** olmalı ve farklı ekran boyutlarına uyum sağlamalı.
-- **Temiz ve semantik HTML** yazılmalı (`header`, `nav`, `section`, `label` + `input` eşleşmeleri vb.).
-- Tasarıma **olabildiğince sadık** kalınmalı: renkler, boşluklar ve yerleşim.
-- Font olarak **Gibson** (Book, Regular, Medium, SemiBold) kullanılmalı; yoksa **Arial** kabul ediliyor.
-- Form sadece görsel amaçlı: gönderme veya validasyon **gerekmiyor**.
-- Repoda yaklaşımınızı, varsayımlarınızı ve teknoloji seçimlerinizi anlatan kısa bir README olmalı.
+### Requirements
 
-### Değerlendirme
+- The page must be **responsive** and adapt to different screen sizes.
+- Write **clean, semantic HTML** (`header`, `nav`, `section`, matching `label` + `input`, etc.).
+- Stay **as faithful to the design as possible**: colours, spacing and layout.
+- Use the **Gibson** typeface (Book, Regular, Medium, SemiBold); **Arial** is accepted as a fallback.
+- The form is presentational only: **no** submission or validation is needed.
+- Include a short README explaining your approach, assumptions and tech choices.
 
-Ağırlıklı olarak HTML/CSS kalitesi, responsive davranış ve detaylara gösterilen özen değerlendiriliyor.
+### Evaluation
 
-> ℹ️ Orijinal tasarım dosyası şirkete ait olduğu için repoya eklenmemiştir. Çözüm kodu tasarımın birebir uygulamasıdır; referans olarak kullanılabilir.
+Mainly HTML/CSS quality, responsive behaviour and attention to detail.
 
-## 💡 Çözüm
+> ℹ️ The original design file belongs to the company and is not included. The solution code is a faithful implementation of the design and can be used as a reference.
 
-- Yerleşim için **CSS Grid** ve **Flexbox** kullanıldı.
-- Mobil, tablet ve masaüstü kırılımlarında boşluk ve yerleşim ayarlandı. Mobilde menü ikonları gizleniyor, form tam genişliğe geçiyor.
-- Gibson bulunmadığında Arial'a düşen bir font tanımı yapıldı.
-- İkonlar için Font Awesome ve küçük PNG/SVG görseller kullanıldı.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- **CSS Grid** and **Flexbox** are used for layout.
+- Spacing and layout are adjusted for mobile, tablet and desktop breakpoints. On mobile the menu icons are hidden and the form goes full width.
+- The font stack falls back to Arial when Gibson is not available.
+- Font Awesome and small PNG/SVG images are used for icons.
 
-Herhangi bir kurulum gerekmez. `index.html` dosyasını tarayıcıda açmanız yeterli.
+## 🚀 Getting started
 
-VS Code kullanıyorsanız **Live Server** eklentisiyle de açabilirsiniz.
+No installation needed. Just open `index.html` in your browser.
 
-## 📁 Klasör yapısı
+If you use VS Code, you can also open it with the **Live Server** extension.
+
+## 📁 Folder structure
 
 ```
 ├── index.html
 ├── style.css
-└── images/     # ikonlar ve logo
+└── images/     # icons and logo
 ```

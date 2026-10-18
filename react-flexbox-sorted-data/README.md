@@ -1,42 +1,44 @@
-# React + Flexbox ile Sıralı Veri Gösterimi
+# Displaying Sorted Data with React + Flexbox
 
-> **Seviye:** Başlangıç · **Tahmini süre:** 3–4 saat · **Teknolojiler:** React 18 (Create React App), CSS Flexbox, Axios
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Beginner · **Estimated time:** 3–4 hours · **Tech:** React 18 (Create React App), CSS Flexbox, Axios
 
-Bir JSON dosyasındaki veriyi dönüştürüp sıralayan ve **Flexbox** ile hazırlanmış bir sayfada gösteren tek sayfalık bir React uygulaması geliştirin.
+## 📋 Task
 
-Verilen dosyalar [`case/`](./case) klasöründe:
+Build a single-page React app that transforms and sorts the data in a JSON file and displays it on a page laid out with **Flexbox**.
 
-| Dosya | Açıklama |
+The provided files are in the [`case/`](./case) folder:
+
+| File | Description |
 |---|---|
-| [`testData.json`](./case/testData.json) | Spor dalı ve market bilgilerini içeren veri |
-| [`mockup.png`](./case/mockup.png) | Sayfa yerleşimi: 1 = header, 2 = sol menü, 3 = veri kutuları |
-| [`melon.svg`](./case/melon.svg) | Header'a eklenecek SVG görsel |
+| [`testData.json`](./case/testData.json) | Data with sport and market information |
+| [`mockup.png`](./case/mockup.png) | Page layout: 1 = header, 2 = left menu, 3 = data boxes |
+| [`melon.svg`](./case/melon.svg) | SVG image to add to the header |
 
-### Gereksinimler
+### Requirements
 
-1. `npx create-react-app` ile bir proje oluşturun.
-2. `testData.json` verisini dönüştürün:
-   - `sportName` değerlerini **küçük harfe** çevirin.
-   - Diziyi `marketId` değerine göre **büyükten küçüğe** sıralayın.
-3. `mockup.png`'deki yerleşimi arka plan renkleriyle birlikte **Flexbox** kullanarak kodlayın.
-4. Sıralanmış veriyi "3" numaralı kutularda, tasarımı size kalmış şekilde gösterin.
-5. **375px** genişlikten başlayan bir mobil görünüm hazırlayın:
-   - Mobilde "3" numaralı kutuların sırası **sadece CSS ile** tersine dönmeli (`marketId` küçükten büyüğe).
-   - Soldaki (2 numaralı) bölüm mobilde gizlenmeli.
-6. Sayfanın herhangi bir yerinde en az bir **pseudo-element** (`::before` / `::after`) ve bir **pseudo-class** (`:hover` vb.) kullanın.
-7. SVG görseli header'a ekleyin ve tüm **çekirdeklerin rengini maviye** çevirin.
+1. Create a project with `npx create-react-app`.
+2. Transform the `testData.json` data:
+   - Convert the `sportName` values to **lower case**.
+   - Sort the array by `marketId` from **highest to lowest**.
+3. Build the layout in `mockup.png`, including its background colours, using **Flexbox**.
+4. Show the sorted data in the boxes numbered "3", in a design of your choice.
+5. Create a mobile layout starting at **375px** width:
+   - On mobile, the order of the "3" boxes must be reversed **using only CSS** (`marketId` lowest to highest).
+   - The left section (number 2) must be hidden on mobile.
+6. Use at least one **pseudo-element** (`::before` / `::after`) and one **pseudo-class** (`:hover`, etc.) anywhere in the layout.
+7. Add the SVG to the header and change the colour of all the **seeds to blue**.
 
-## 💡 Çözüm
+## 💡 Solution
 
-- Veri `public/testData.json`'dan `axios` ile çekiliyor, `map` ile düzleştirilip `sportName` küçük harfe çevriliyor ve `sort` ile `marketId`'ye göre azalan sıralanıyor.
-- Mobilde ters sıralama için JavaScript kullanılmadı; `main` alanında `flex-direction: column-reverse` uygulandı.
-- Pseudo-element olarak `::selection`, pseudo-class olarak `:nth-child(odd/even)` kullanıldı (kutuların sırayla renklenmesi için).
-- SVG, CRA'nın `ReactComponent` import'u ile bileşen olarak eklendi; böylece çekirdeklerin rengi CSS'teki `fill: blue` ile değiştirilebiliyor.
-- Veri yüklenirken bir loading animasyonu gösteriliyor.
+- The data is fetched from `public/testData.json` with `axios`, flattened with `map`, `sportName` is lower-cased, and the array is sorted by `marketId` in descending order with `sort`.
+- No JavaScript is used for the reversed mobile order; `flex-direction: column-reverse` is applied to `main`.
+- `::selection` is used as the pseudo-element and `:nth-child(odd/even)` as the pseudo-class (to colour the boxes alternately).
+- The SVG is imported as a component with CRA's `ReactComponent` import, so the seed colour can be changed with `fill: blue` in CSS.
+- A loading animation is shown while the data loads.
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
 ```bash
 npm install

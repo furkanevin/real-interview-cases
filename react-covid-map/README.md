@@ -1,42 +1,44 @@
-# Covid-19 Dünya Haritası
+# Covid-19 World Map
 
-> **Seviye:** Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** React 18, Vite, Redux, Redux-Saga, React Router, Tailwind CSS, Vitest, React Testing Library
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Intermediate · **Estimated time:** 2–3 days · **Tech:** React 18, Vite, Redux, Redux-Saga, React Router, Tailwind CSS, Vitest, React Testing Library
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Ülkelerin Covid-19 istatistiklerini interaktif bir **dünya haritası** üzerinden gösteren bir uygulama geliştirin. State yönetimi için **Redux + Redux-Saga** kullanılmalı ve uygulama **test** edilmeli.
+## 📋 Task
 
-### Gereksinimler
+Build an app that shows each country's Covid-19 statistics through an interactive **world map**. State must be managed with **Redux + Redux-Saga**, and the app must be **tested**.
 
-- **Ana sayfa:** Tıklanabilir bir dünya haritası. Bir ülkeye tıklanınca o ülkenin detay sayfasına gidilmeli.
-- **Arama:** Navbar'daki arama kutusuna ülke adı yazılarak da detay sayfasına gidilebilmeli.
-- **Detay sayfası (`/detail?country=`):** Ülkenin bayrağı ve onaylanmış vaka, ölüm, iyileşen, aktif vaka gibi istatistikler.
-- Veri çekme işlemleri **Redux-Saga** ile yönetilmeli.
-- Yükleme ve hata durumları kullanıcıya gösterilmeli.
-- Büyük sayılar okunabilir şekilde kısaltılmalı (ör. `1.2M`).
-- Detay sayfası için **Vitest + React Testing Library** ile testler yazılmalı (yükleniyor, hata ve veri durumları).
+### Requirements
 
-### API'ler
+- **Home page:** A clickable world map. Clicking a country navigates to that country's detail page.
+- **Search:** Typing a country name into the search box in the navbar also navigates to the detail page.
+- **Detail page (`/detail?country=`):** The country's flag and statistics such as confirmed cases, deaths, recoveries and active cases.
+- Data fetching must be handled with **Redux-Saga**.
+- Loading and error states must be shown to the user.
+- Large numbers must be shortened for readability (e.g. `1.2M`).
+- Write tests for the detail page with **Vitest + React Testing Library** (loading, error and data states).
 
-- İstatistikler: [Covid-19 Statistics (RapidAPI)](https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics), `GET /reports?q={ülke}`
-- Bayraklar: [REST Countries](https://restcountries.com/), `GET /v3.1/name/{ülke}`
+### APIs
 
-## 💡 Çözüm
+- Statistics: [Covid-19 Statistics (RapidAPI)](https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics), `GET /reports?q={country}`
+- Flags: [REST Countries](https://restcountries.com/), `GET /v3.1/name/{country}`
 
-- Harita için `@react-map/world` kullanıldı; `onSelect` ile seçilen ülke URL parametresi olarak detay sayfasına taşınıyor.
-- `redux/sagas/statisticsSaga.js`, istatistik ve bayrak isteklerini tek bir akışta yapıp sonucu reducer'a gönderiyor.
-- API istekleri `src/service` ve `src/utils/api.js` içinde. RapidAPI anahtarı ortam değişkeninden okunuyor.
-- `DetailPage.test.jsx` içinde `redux-mock-store` ile store taklit edilerek yükleniyor, hata ve başarılı veri durumları test ediliyor.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- The map uses `@react-map/world`; the selected country is passed to the detail page as a URL parameter via `onSelect`.
+- `redux/sagas/statisticsSaga.js` fetches the statistics and the flag in one flow and dispatches the result to the reducer.
+- API requests live in `src/service` and `src/utils/api.js`. The RapidAPI key is read from an environment variable.
+- `DetailPage.test.jsx` mocks the store with `redux-mock-store` and tests the loading, error and success states.
 
-Gereksinim: ücretsiz bir [RapidAPI](https://rapidapi.com/) hesabı ve Covid-19 Statistics API aboneliği
+## 🚀 Getting started
+
+Requirements: a free [RapidAPI](https://rapidapi.com/) account subscribed to the Covid-19 Statistics API
 
 ```bash
 npm install
-cp .env.example .env   # VITE_RAPIDAPI_KEY değerini girin
+cp .env.example .env   # set VITE_RAPIDAPI_KEY
 npm run dev            # http://localhost:5173
 npm test               # Vitest
 ```

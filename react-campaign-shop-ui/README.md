@@ -1,40 +1,42 @@
-# Kampanya & Puanlı Alışveriş Arayüzü
+# Campaign & Points-Based Shopping UI
 
-> **Seviye:** Başlangıç · **Tahmini süre:** 1–2 gün · **Teknolojiler:** React 18, Vite, React Router, Tailwind CSS, React Icons
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Orijinal tasarım görseli şirket logoları içerdiği için repoya eklenmemiştir. Görev tanımı tasarım ve çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner · **Estimated time:** 1–2 days · **Tech:** React 18, Vite, React Router, Tailwind CSS, React Icons
 
-## 📋 Görev
+> ℹ️ The original design image contained company logos and is not included. The task below was reconstructed from the design and the solution code.
 
-Bir satış kampanyası sitesinin **3 sayfalık arayüzünü** verilen wireframe'e göre kodlayın. Görsellerin yerinde placeholder'lar kullanılabilir. Sadece arayüz (UI) isteniyor; backend ya da gerçek sepet mantığı gerekmiyor.
+## 📋 Task
 
-### Sayfa 1: Ana sayfa (`/`)
+Code the **3-page interface** of a sales campaign site based on the provided wireframe. Placeholders may be used instead of images. Only the UI is required; no backend or real cart logic.
 
-- En üstte yatayda dizilmiş, Instagram tarzı yuvarlak **story** ikonları
-- Ortada farklı boyutlarda **placeholder kutularından** oluşan bir grid
-- Sağda başlığı ve butonları olan bir **menü** kartı (Formlar, Faydalı Linkler, Anketler vb.) ve altında bir placeholder
+### Page 1: Home (`/`)
 
-### Sayfa 2: Kampanya ürünleri (`/page-two`)
+- A horizontal row of round, Instagram-style **story** icons at the top
+- A grid of **placeholder boxes** of different sizes in the middle
+- A **menu** card on the right with a title and buttons (Forms, Useful Links, Surveys, etc.) and a placeholder below it
 
-- Kampanya başlığı (logo) ve **"Ana Ekrana Dön"** butonu
-- Kampanyaya dahil ürünlerin **kart** listesi: görsel, ürün adı, model ve kampanyada verilecek ürün adedi
-- En altta kampanya koşullarını anlatan küçük puntolu bir yasal metin kutusu
+### Page 2: Campaign products (`/page-two`)
 
-### Sayfa 3: Puanla alışveriş (`/page-three`)
+- Campaign title (logo) and a **"Back to Home"** button
+- A list of product **cards** in the campaign: image, product name, model and how many will be given away
+- A small-print legal text box at the bottom describing the campaign terms
 
-- "Ana Ekrana Dön" butonu ve **arama** kutusu
-- Ürün kartları: görsel, ad, paket içeriği, **puan** değeri ve `−` / `+` adet butonları
-- Sağ kolonda kullanıcının **puan bakiyesi**, **sepet özeti** (toplam puan) ve **"Siparişi Tamamla"** butonu
-- Mobilde sağ kolon ürünlerin üstüne geçmeli.
+### Page 3: Shop with points (`/page-three`)
 
-## 💡 Çözüm
+- "Back to Home" button and a **search** box
+- Product cards: image, name, package contents, **points** value and `−` / `+` quantity buttons
+- A right column with the user's **points balance**, a **cart summary** (total points) and a **"Complete Order"** button
+- On mobile, the right column moves above the products.
 
-- Üç sayfa `src/pages` altında, ortak parçalar `src/components` altında: `Header`, `Stories`, `Menu`, `Card`, `BackButton`.
-- Ürün verileri `src/constants` içinde sabit bir dizi olarak tutuluyor ve `Card` bileşeniyle render ediliyor.
-- `Card` bileşeni `isPointMode` prop'u ile hem 2. sayfadaki kampanya kartı hem de 3. sayfadaki puanlı kart olarak kullanılıyor.
-- Responsive grid için Tailwind breakpoint'leri (`sm`, `md`, `lg`, `xl`) kullanıldı. Mobilde sepet kolonu `flex-col-reverse` ile üste alınıyor.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- The three pages live in `src/pages`; shared parts are in `src/components`: `Header`, `Stories`, `Menu`, `Card`, `BackButton`.
+- Product data is a constant array in `src/constants`, rendered with the `Card` component.
+- The `Card` component uses an `isPointMode` prop to serve as both the campaign card on page 2 and the points card on page 3.
+- The responsive grid uses Tailwind breakpoints (`sm`, `md`, `lg`, `xl`). On mobile the cart column is moved to the top with `flex-col-reverse`.
+
+## 🚀 Getting started
 
 ```bash
 npm install

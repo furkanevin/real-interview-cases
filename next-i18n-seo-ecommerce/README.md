@@ -1,49 +1,51 @@
-# Çok Dilli, SEO Uyumlu E-Ticaret (Next.js)
+# Multilingual, SEO-Friendly E-Commerce (Next.js)
 
-> **Seviye:** Orta–İleri · **Tahmini süre:** 7 gün · **Teknolojiler:** Next.js 15 (App Router), TypeScript, Tailwind CSS, next-intl, Redux Toolkit, ISR/SSG, Fake Store API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Intermediate–Advanced · **Estimated time:** 7 days · **Tech:** Next.js 15 (App Router), TypeScript, Tailwind CSS, next-intl, Redux Toolkit, ISR/SSG, Fake Store API
 
-[Fake Store API](https://fakestoreapi.com/) üzerinden ürünleri listeleyen, kategoriye göre filtreleyebilen, **Türkçe/İngilizce** destekli ve **SEO dostu** bir e-ticaret frontend'i geliştirin. Yüksek performans, temiz bileşen yapısı ve profesyonel bir UI/UX bekleniyor.
+## 📋 Task
+
+Build an e-commerce frontend that lists products from the [Fake Store API](https://fakestoreapi.com/), filters them by category, supports **Turkish and English**, and is **SEO-friendly**. High performance, a clean component structure and a professional UI/UX are expected.
 
 ### API
 
-- Ürün listesi: `GET /products`
-- Ürün detayı: `GET /products/:id`
+- Product list: `GET /products`
+- Product detail: `GET /products/:id`
 
-### Fonksiyonel gereksinimler
+### Functional requirements
 
-1. **Ana sayfa:** Öne çıkan ürünler (ilk 4 ürün)
-2. **Ürün listesi:** Grid yerleşim, fiyat aralığı ve kategori filtresi, fiyata göre artan/azalan sıralama
-3. **Ürün detayı:** Büyük görsel, fiyat, açıklama, kategori ve "Sepete Ekle" butonu
-4. **Sepet:** Ürünleri listeleme, adet değiştirme ve silme
-5. **Çok dil:** Türkçe ve İngilizce (`next-intl` veya `next-i18next`)
-6. **SEO:** SSR/ISR ile sayfa üretimi, ürün adına göre dinamik `title` ve `description`
-7. **Performans:** `next/image` ile lazy loading, ISR ile önbellekleme, gereksiz render'ların önlenmesi
-8. **UI/UX:** Tailwind ile responsive tasarım; `Card`, `Button`, `Layout`, `Header`, `Footer` gibi tekrar kullanılabilir bileşenler; toast/modal gibi görsel geri bildirimler
+1. **Home page:** Featured products (the first 4)
+2. **Product list:** Grid layout, price range and category filters, sorting by price (ascending/descending)
+3. **Product detail:** Large image, price, description, category and an "Add to cart" button
+4. **Cart:** List items, change quantities and remove items
+5. **Multi-language:** Turkish and English (`next-intl` or `next-i18next`)
+6. **SEO:** Pages generated with SSR/ISR, dynamic `title` and `description` based on the product name
+7. **Performance:** Lazy-loaded images with `next/image`, ISR caching, avoiding unnecessary re-renders
+8. **UI/UX:** Responsive Tailwind design; reusable components such as `Card`, `Button`, `Layout`, `Header`, `Footer`; visual feedback such as toasts or modals
 
-### Ekstra değerlendirme kriterleri
+### Extra evaluation criteria
 
-- Lighthouse skorları 90+ (Performance, SEO, Accessibility)
-- Modüler ve okunabilir kod, bileşen ve layout ayrımı
-- Günlük ve anlamlı commit'ler
+- Lighthouse scores of 90+ (Performance, SEO, Accessibility)
+- Modular, readable code with separated components and layouts
+- Daily, meaningful commits
 
-### Teslim
+### Delivery
 
-GitHub reposu + canlı demo linki (Vercel, Netlify vb.)
+GitHub repo + live demo link (Vercel, Netlify, etc.)
 
-## 💡 Çözüm
+## 💡 Solution
 
-- **Çok dil:** `next-intl` ile `src/app/[locale]/` rota yapısı kuruldu. Çeviriler `messages/tr.json` ve `messages/en.json` dosyalarında, dil yönlendirmesi `src/middleware.ts` içinde.
-- **SEO:** Ürün detay sayfasında `generateMetadata` ile ürüne özel başlık ve açıklama üretiliyor.
-- **Performans:** API istekleri `revalidate` ile ISR önbelleğine alınıyor; görseller `next/image` ile yükleniyor.
-- **State:** Sepet Redux Toolkit ile yönetiliyor (`src/store/slices`).
-- **Bileşenler:** `src/components` altında `layout`, `product`, `cart`, `categories` ve `ui` olarak gruplandı.
-- Geliştirme adımları ve kapsam [`PRD.md`](./PRD.md) dosyasında.
+- **Multi-language:** `next-intl` with a `src/app/[locale]/` route structure. Translations live in `messages/tr.json` and `messages/en.json`; locale routing is in `src/middleware.ts`.
+- **SEO:** The product detail page uses `generateMetadata` to produce a product-specific title and description.
+- **Performance:** API requests are cached with ISR via `revalidate`; images load through `next/image`.
+- **State:** The cart is managed with Redux Toolkit (`src/store/slices`).
+- **Components:** Grouped under `src/components` as `layout`, `product`, `cart`, `categories` and `ui`.
+- Development phases and scope are described in [`PRD.md`](./PRD.md).
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
 ```bash
 npm install
-npm run dev   # http://localhost:3000  (/tr veya /en)
+npm run dev   # http://localhost:3000  (/tr or /en)
 ```

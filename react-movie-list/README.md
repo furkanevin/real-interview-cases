@@ -1,45 +1,47 @@
-# Film Rehberi (TMDB)
+# Movie Guide (TMDB)
 
-> **Seviye:** Orta · **Tahmini süre:** 7 gün · **Teknolojiler:** React 18, Vite, TypeScript, Redux Toolkit, RTK Query, Tailwind CSS, React Router, TMDB API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Intermediate · **Estimated time:** 7 days · **Tech:** React 18, Vite, TypeScript, Redux Toolkit, RTK Query, Tailwind CSS, React Router, TMDB API
 
-[The Movie Database (TMDB)](https://developer.themoviedb.org/) API'sini kullanarak bir film rehberi uygulaması geliştirin.
+## 📋 Task
 
-### Gereksinimler
+Build a movie guide app using the [The Movie Database (TMDB)](https://developer.themoviedb.org/) API.
 
-- **Ana sayfa:** **Top Rated**, **Popular** ve **Trending** film kategorileri listelenmeli.
-- **Detay sayfası:** Her filmin kendine ait bir detay sayfası olmalı.
-- **Favoriler sayfası:** Kullanıcı filmleri favorilere ekleyip çıkarabilmeli ve favorilerini görebilmeli.
-- **TypeScript**, **Redux Toolkit Query** ve **Tailwind CSS** kullanılmalı.
-- Kod yapısı düzenli olmalı ve best practice'lere uymalı.
-- Teslim süresi: **1 hafta**
+### Requirements
 
-## 💡 Çözüm
+- **Home page:** Show the **Top Rated**, **Popular** and **Trending** movie categories.
+- **Detail page:** Each movie has its own detail page.
+- **Favorites page:** Users can add/remove movies to/from favorites and view their favorites.
+- Use **TypeScript**, **Redux Toolkit Query** and **Tailwind CSS**.
+- The codebase must be well structured and follow best practices.
+- Deadline: **1 week**
 
-- Tüm API istekleri `src/features/movieApi.ts` içinde **RTK Query** ile tanımlandı. Önbellekleme ve yükleme durumları RTK Query tarafından yönetiliyor.
-- Favoriler `favoritesSlice` ile Redux'ta tutuluyor ve `localStorage`'a yazılıyor; sayfa yenilense de kaybolmuyor.
-- Film listeleri `react-splide` ile slider olarak gösteriliyor.
-- Fragmanlar `react-player` ile oynatılıyor; oy sayıları gibi büyük rakamlar `millify` ile kısaltılıyor.
-- Yükleme durumları için `src/pages/loading` altında skeleton bileşenleri var.
-- Görsel URL'leri ve boyutları `src/constant.ts` içinde merkezi olarak tutuluyor.
+## 💡 Solution
 
-### Sayfalar
+- All API requests are defined with **RTK Query** in `src/features/movieApi.ts`. Caching and loading states are handled by RTK Query.
+- Favorites are kept in Redux with `favoritesSlice` and written to `localStorage`, so they survive page reloads.
+- Movie lists are shown as sliders with `react-splide`.
+- Trailers play with `react-player`; large numbers such as vote counts are shortened with `millify`.
+- Skeleton components for loading states live under `src/pages/loading`.
+- Image URLs and sizes are centralized in `src/constant.ts`.
 
-| Rota | Sayfa |
+### Pages
+
+| Route | Page |
 |---|---|
-| `/` | Top Rated, Popular ve Trending listeleri |
-| `/movie/:id` | Film detayı: oyuncular, yorumlar, fragman |
-| `/favorites` | Favori filmler |
+| `/` | Top Rated, Popular and Trending lists |
+| `/movie/:id` | Movie details: cast, reviews, trailer |
+| `/favorites` | Favorite movies |
 
-![Uygulama görseli](./public/gorsel.gif)
+![App preview](./public/gorsel.gif)
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
-Gereksinim: ücretsiz bir [TMDB](https://www.themoviedb.org/) hesabı ve **API Read Access Token**
+Requirements: a free [TMDB](https://www.themoviedb.org/) account and an **API Read Access Token**
 
 ```bash
 npm install
-cp .env.example .env   # VITE_TMDB_API_KEY değerini girin
+cp .env.example .env   # set VITE_TMDB_API_KEY
 npm run dev            # http://localhost:5173
 ```

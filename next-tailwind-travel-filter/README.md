@@ -1,51 +1,53 @@
-# Seyahat & Tur Filtreleme Arayüzü
+# Travel & Tour Filtering UI
 
-> **Seviye:** Orta · **Tahmini süre:** 3–4 gün · **Teknolojiler:** Next.js 15 (App Router), TypeScript, Tailwind CSS, Context API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Intermediate · **Estimated time:** 3–4 days · **Tech:** Next.js 15 (App Router), TypeScript, Tailwind CSS, Context API
 
-Turlar, biletler, araç kiralama ve transfer hizmetlerinin listelendiği bir seyahat sitesi için **kategori bazlı filtreleme** arayüzü geliştirin. Verilen Figma tasarımı referans niteliğinde; birebir aynı olması gerekmiyor, görsel olarak geliştirebilirsiniz. Sayfa **responsive** olmalı.
+## 📋 Task
+
+Build a **category-based filtering** UI for a travel site that lists tours, tickets, car rentals and transfers. The provided Figma design is a reference; it doesn't have to match exactly and you are free to improve it visually. The page must be **responsive**.
 
 ### Navbar
 
-- Sitenin genel tasarımına uygun bir navbar olmalı.
-- Sağ üstte **Favorites**, **Cart** ve **Login** (veya kullanıcı profili) bulunmalı.
-- Sol üstteki **burger menüye** tıklanınca filtrelerin bulunduğu bir **popup** açılmalı.
+- A navbar that fits the overall design of the site.
+- **Favorites**, **Cart** and **Login** (or user profile) in the top right.
+- Clicking the **burger menu** in the top left opens a **popup** with the filters.
 
-### Filtre popup'ı
+### Filter popup
 
-- Popup'ın sol üst köşesinde kategoriler olmalı: **Tours, Tickets, Rent, Transfer**.
-- Kullanıcı önce kategori seçmeli; seçilen kategoriye özel filtre seçenekleri altında görünmeli.
-- Farklı bir kategori seçilince o kategorinin filtreleri görünmeli. **Aynı anda iki kategoride arama yapılamaz.**
-- Tüm kategoriler için aynı veya benzer filtre alanları kullanılabilir.
+- Categories in the top-left corner of the popup: **Tours, Tickets, Rent, Transfer**.
+- The user picks a category first; that category's filter options appear below it.
+- Choosing another category shows that category's filters. **Searching two categories at the same time is not allowed.**
+- All categories may use the same or similar filter fields.
 
-### Liste
+### List
 
-- Sayfa açıldığında **tur kartları** listelenmeli.
-- Popup'ta seçilen filtrelere göre uygun kartlar listelenmeli.
-- Veriler için sahte (mock) veri oluşturulabilir.
+- **Tour cards** are listed when the page loads.
+- Cards matching the filters chosen in the popup are listed.
+- Mock data may be used.
 
-### Renkler
+### Colours
 
-| Token | Değer |
+| Token | Value |
 |---|---|
 | `primary-400` | `#F2A945` |
 | `primary-500` | `#F78410` |
 | `primary-600` | `#E07516` |
 
-### Teslim
+### Delivery
 
-Proje **Vercel**'e deploy edilmeli.
+The project must be deployed to **Vercel**.
 
-## 💡 Çözüm
+## 💡 Solution
 
-- Mock veriler ve tipler ayrı dosyalarda: `src/data/mock-data.ts`, `src/types/index.ts`.
-- Seçili kategori ve filtre değerleri `src/context/filter-context.tsx` içinde **Context API** ile tutuluyor. Popup ve kart listesi aynı state'i paylaşıyor.
-- Kategori değişince önceki kategorinin filtreleri sıfırlanıyor; böylece iki kategoride aynı anda arama yapılamıyor.
-- Bileşenler `layout` (navbar vb.), `filters` (popup ve filtre alanları) ve `cards` olarak gruplandı.
-- Marka renkleri Tailwind config'e `primary` paleti olarak eklendi.
+- Mock data and types live in separate files: `src/data/mock-data.ts`, `src/types/index.ts`.
+- The selected category and filter values are kept with the **Context API** in `src/context/filter-context.tsx`, so the popup and the card list share the same state.
+- Switching categories resets the previous category's filters, which prevents searching two categories at once.
+- Components are grouped into `layout` (navbar etc.), `filters` (popup and filter fields) and `cards`.
+- The brand colours are added to the Tailwind config as a `primary` palette.
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
 ```bash
 npm install

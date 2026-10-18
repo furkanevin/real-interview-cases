@@ -1,34 +1,36 @@
-# Next.js + SCSS E-Ticaret
+# Next.js + SCSS E-Commerce
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** Next.js 14 (App Router), SCSS, Context API, Embla Carousel, React Toastify, Fake Store API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** Next.js 14 (App Router), SCSS, Context API, Embla Carousel, React Toastify, Fake Store API
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-[Fake Store API](https://fakestoreapi.com/) verileriyle, stil için **SCSS** kullanan bir e-ticaret sitesi geliştirin. Tailwind veya hazır UI kütüphanesi kullanılmayacak.
+## 📋 Task
 
-### Gereksinimler
+Build an e-commerce site with data from the [Fake Store API](https://fakestoreapi.com/), styled with **SCSS**. No Tailwind or UI component libraries.
 
-- **Ana sayfa:** Üstte bir slider (otomatik geçişli), altında kategorilere göre gruplanmış ürün listeleri / ürün slider'ları.
-- **Kategori sayfası (`/category/[id]`):** Seçilen kategorideki tüm ürünler.
-- **Ürün detay sayfası (`/product/[id]`):** Ürün görseli, açıklaması, fiyatı ve "Sepete ekle" butonu.
-- **Sepet sayfası (`/cart`):** Sepetteki ürünler, adet değiştirme, silme ve toplam tutar.
-- Header'da sepetteki ürün sayısını gösteren bir buton olmalı.
-- Sepet sayfa yenilense de **kalıcı** olmalı.
-- Yükleme ve "sayfa bulunamadı" ekranları olmalı.
-- Responsive tasarım.
+### Requirements
 
-## 💡 Çözüm
+- **Home page:** An auto-playing slider at the top, followed by product lists / product sliders grouped by category.
+- **Category page (`/category/[id]`):** All products in the selected category.
+- **Product detail page (`/product/[id]`):** Product image, description, price and an "Add to cart" button.
+- **Cart page (`/cart`):** Items in the cart, quantity changes, removal and the total price.
+- A header button showing the number of items in the cart.
+- The cart must **persist** across page reloads.
+- Loading and "page not found" screens.
+- Responsive design.
 
-- Veri çekme işlemleri `src/app/utils/api.js` içinde. Sayfalar **Server Component** olduğu için veriler sunucuda çekiliyor.
-- Sepet `context/basketContext.jsx` içinde **Context API** ile yönetiliyor. `@uidotdev/usehooks`'un `useLocalStorage` hook'u sayesinde sepet `localStorage`'da kalıcı.
-- Sepet işlemlerinde `react-toastify` ile bildirim gösteriliyor.
-- Slider'lar `embla-carousel-react` ve autoplay eklentisiyle yapıldı.
-- Stiller `src/app/assets/css` altında `main`, `responsive`, `slide`, `loader` gibi parçalara bölündü.
-- `loading.jsx` ve `not-found.jsx` ile App Router'ın özel dosyaları kullanıldı.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- Data fetching lives in `src/app/utils/api.js`. Pages are **Server Components**, so data is fetched on the server.
+- The cart is managed with the **Context API** in `context/basketContext.jsx`. Thanks to the `useLocalStorage` hook from `@uidotdev/usehooks`, the cart persists in `localStorage`.
+- Cart actions show notifications with `react-toastify`.
+- Sliders are built with `embla-carousel-react` and its autoplay plugin.
+- Styles are split into `main`, `responsive`, `slide`, `loader` and other partials under `src/app/assets/css`.
+- The App Router special files `loading.jsx` and `not-found.jsx` are used.
+
+## 🚀 Getting started
 
 ```bash
 npm install

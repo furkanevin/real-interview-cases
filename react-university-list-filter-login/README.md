@@ -1,47 +1,49 @@
-# Üniversite Listesi: Filtreleme, Sayfalama ve Giriş
+# University List: Filtering, Pagination and Login
 
-> **Seviye:** Orta · **Tahmini süre:** 3–4 gün · **Teknolojiler:** React 18, Vite, React Router, Context API, Tailwind CSS, Axios, json-server
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Intermediate · **Estimated time:** 3–4 days · **Tech:** React 18, Vite, React Router, Context API, Tailwind CSS, Axios, json-server
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Yurt dışında eğitim almak isteyen öğrenciler için, üniversite programlarının listelendiği ve detaylı filtrelenebildiği bir uygulama geliştirin. Uygulamaya sadece kayıtlı kullanıcılar girebilmeli.
+## 📋 Task
 
-### Gereksinimler
+Build an app for students who want to study abroad, listing university programmes with detailed filtering. Only registered users can enter the app.
 
-**Kimlik doğrulama**
-- **Kayıt sayfası (`/register`):** Ad, e-posta ve şifre ile kayıt. Aynı e-posta ile ikinci kez kayıt olunamamalı.
-- **Giriş sayfası (`/`):** E-posta ve şifre kontrolü; başarılı girişte listeye yönlendirme.
+### Requirements
 
-**Liste (`/main`)**
-- Üniversite kartları: logo, ad, ülke, süre, dil ve ücret.
-- Yan panelde filtreler:
-  - Üniversite, ülke, süre ve dil için açılır listeler
-  - Ücret için **aralık (range) slider**
-  - Sıralama seçenekleri (ör. ücrete göre artan/azalan)
-  - "Filtreleri temizle" butonu
-- **Sayfalama** (pagination)
-- Filtre, sıralama ve sayfa bilgisi **URL'de** tutulmalı.
+**Authentication**
+- **Register page (`/register`):** Sign up with name, email and password. The same email cannot be registered twice.
+- **Login page (`/`):** Email and password check; on success, redirect to the list.
 
-**Detay (`/main/:id`)**
-- Seçilen üniversitenin tüm bilgileri.
+**List (`/main`)**
+- University cards: logo, name, country, duration, language and fee.
+- Filters in a side panel:
+  - Dropdowns for university, country, duration and language
+  - A **range slider** for the fee
+  - Sorting options (e.g. fee ascending/descending)
+  - A "Clear filters" button
+- **Pagination**
+- Filters, sorting and the current page are kept **in the URL**.
 
-**Diğer**
-- Yükleme, hata ve 404 sayfaları.
+**Detail (`/main/:id`)**
+- All information about the selected university.
 
-## 💡 Çözüm
+**Other**
+- Loading, error and 404 pages.
 
-- Backend olarak **json-server** kullanıldı; veriler `db.json` içinde (`universities`, `users`).
-- Filtreleme, sıralama ve sayfalama işi tamamen json-server'ın sorgu parametrelerine bırakıldı: `country=`, `cost_gte=`, `cost_lte=`, `_sort=`, `_order=`, `_page=`, `_limit=`. Toplam kayıt sayısı `X-Total-Count` header'ından okunuyor.
-- Tüm filtre değerleri `useSearchParams` ile URL'de tutuluyor. Filtre değişince sayfa 1'e dönülüyor.
-- Liste verisi `UniversityContext` ile yönetiliyor.
-- Açılır listelerin seçenekleri, veriden tekrar edenler temizlenerek oluşturuluyor (`utils/removeDuplicates.js`).
-- Kütüphaneler: `react-select`, `react-range-slider-input`, `react-paginate`.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- **json-server** is used as the backend; data lives in `db.json` (`universities`, `users`).
+- Filtering, sorting and pagination are delegated entirely to json-server query parameters: `country=`, `cost_gte=`, `cost_lte=`, `_sort=`, `_order=`, `_page=`, `_limit=`. The total count is read from the `X-Total-Count` header.
+- All filter values are kept in the URL with `useSearchParams`. Changing a filter resets the page to 1.
+- The list data is managed with `UniversityContext`.
+- Dropdown options are built from the data with duplicates removed (`utils/removeDuplicates.js`).
+- Libraries: `react-select`, `react-range-slider-input`, `react-paginate`.
 
-İki ayrı terminalde:
+## 🚀 Getting started
+
+In two separate terminals:
 
 ```bash
 npm install
@@ -49,4 +51,4 @@ npm run server   # json-server → http://localhost:3000
 npm run dev      # http://localhost:5173
 ```
 
-Demo giriş bilgileri: `demo@example.com` / `password1`
+Demo login: `demo@example.com` / `password1`

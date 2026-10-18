@@ -1,66 +1,68 @@
-# Microfrontend E-Ticaret (Next.js + Docker)
+# Microfrontend E-Commerce (Next.js + Docker)
 
-> **Seviye:** İleri · **Tahmini süre:** 5–7 gün · **Teknolojiler:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Docker, Docker Compose, Fake Store API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Advanced · **Estimated time:** 5–7 days · **Tech:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Docker, Docker Compose, Fake Store API
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Bir e-ticaret sitesini **microfrontend mimarisiyle** iki bağımsız Next.js uygulamasına bölün. Uygulamalar ayrı ayrı geliştirilip çalıştırılabilmeli, ama kullanıcı tek bir site kullanıyormuş gibi hissetmeli.
+## 📋 Task
 
-### Uygulamalar
+Split an e-commerce site into two independent Next.js applications using a **microfrontend architecture**. Each app must be developed and run on its own, yet the user should feel like they are using a single site.
 
-| Uygulama | Port | Sorumluluk |
+### Applications
+
+| App | Port | Responsibility |
 |---|---|---|
-| **Home** | 3000 | Ürün listesi ve ürün detay sayfaları |
-| **Cart** | 3001 | Sepet yönetimi |
+| **Home** | 3000 | Product list and product detail pages |
+| **Cart** | 3001 | Shopping cart management |
 
-### Gereksinimler
+### Requirements
 
-- Ürün verileri [Fake Store API](https://fakestoreapi.com/)'den çekilmeli.
-- **Home:** Responsive ürün grid'i, ürün detay sayfası, "Sepete ekle" butonu ve bildirim (toast).
-- **Cart:** Ürünleri listeleme, adet artırma/azaltma, ürün silme, sepeti temizleme, ara toplam/vergi/toplam özeti ve boş sepet ekranı.
-- İki uygulama arasında **sepet durumu senkron** olmalı: Home'da eklenen ürün Cart'ta anında görünmeli.
-- İki uygulama ortak tipleri ve servisleri paylaşmalı.
-- Her uygulamanın bir `Dockerfile`'ı olmalı ve tüm sistem `docker-compose` ile tek komutla ayağa kalkmalı.
-- TypeScript ve Tailwind CSS kullanılmalı.
+- Product data must come from the [Fake Store API](https://fakestoreapi.com/).
+- **Home:** Responsive product grid, product detail page, "Add to cart" button with a toast notification.
+- **Cart:** List items, increase/decrease quantity, remove items, clear the cart, subtotal/tax/total summary and an empty cart state.
+- The **cart state must stay in sync** between the two apps: an item added in Home must appear in Cart immediately.
+- Both apps must share common types and services.
+- Each app needs a `Dockerfile`, and the whole system must start with a single `docker-compose` command.
+- Use TypeScript and Tailwind CSS.
 
-## 💡 Çözüm
+## 💡 Solution
 
-- **Yönlendirme:** Home uygulamasındaki `next.config.js`, `/cart/*` isteklerini `rewrites` ile Cart uygulamasına (3001) yönlendiriyor. Böylece kullanıcı tek bir adres üzerinden iki uygulamayı da kullanıyor.
-- **Paylaşılan kod:** `shared/` klasöründe ortak tipler (`types`) ve sepet servisi (`services/CartManager.ts`) bulunuyor.
-- **Sepet senkronizasyonu:** `CartManager`, sepeti `localStorage`'da (`e-commerce-cart` anahtarı) tutuyor ve tarayıcının `storage` event'ini dinliyor. Bir uygulamada yapılan değişiklik diğerine anında yansıyor; Redux, BroadcastChannel veya URL parametresine gerek kalmıyor.
-- **Hata toleransı:** Yükleme durumları, hata ekranları ve `localStorage`'a erişilemediğinde güvenli varsayılanlar mevcut.
+- **Routing:** `next.config.js` in the Home app forwards `/cart/*` requests to the Cart app (3001) with `rewrites`, so the user reaches both apps through one address.
+- **Shared code:** The `shared/` folder contains common types (`types`) and the cart service (`services/CartManager.ts`).
+- **Cart sync:** `CartManager` stores the cart in `localStorage` (key `e-commerce-cart`) and listens to the browser's `storage` event. A change in one app is reflected in the other instantly, with no need for Redux, BroadcastChannel or URL parameters.
+- **Fault tolerance:** Loading states, error screens and safe defaults when `localStorage` is unavailable.
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
-Gereksinimler: Node.js 18+, Docker ve Docker Compose
+Requirements: Node.js 18+, Docker and Docker Compose
 
-**Docker ile:**
+**With Docker:**
 
 ```bash
 docker-compose up --build
 ```
 
-**Yerel geliştirme:**
+**Local development:**
 
 ```bash
 ./start-dev.sh
 ```
 
-veya iki ayrı terminalde:
+or in two separate terminals:
 
 ```bash
 cd home && npm install && npm run dev   # http://localhost:3000
 cd cart && npm install && npm run dev   # http://localhost:3001
 ```
 
-## 📁 Klasör yapısı
+## 📁 Folder structure
 
 ```
-├── home/                # Ürün listesi ve detay uygulaması
-├── cart/                # Sepet uygulaması
-├── shared/              # Ortak tipler ve CartManager servisi
+├── home/                # Product list and detail app
+├── cart/                # Cart app
+├── shared/              # Shared types and CartManager service
 ├── docker-compose.yml
-└── start-dev.sh         # İki uygulamayı birlikte başlatan script
+└── start-dev.sh         # Starts both apps together
 ```

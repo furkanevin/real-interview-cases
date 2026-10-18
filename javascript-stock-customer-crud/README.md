@@ -1,66 +1,68 @@
-# JavaScript Stok & Müşteri Yönetimi (CRUD)
+# JavaScript Stock & Customer Management (CRUD)
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** Vanilla JavaScript (ES Modules), Axios, SCSS, Toastify
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** Vanilla JavaScript (ES Modules), Axios, SCSS, Toastify
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Bir ön muhasebe / e-fatura firmasının test API'sini kullanarak **stok** ve **müşteri** kayıtlarını yöneten bir arayüz geliştirin. Framework kullanılmayacak; sadece HTML, CSS ve JavaScript.
+## 📋 Task
 
-### Gereksinimler
+Using the test API of an accounting / e-invoicing company, build an interface to manage **stock** and **customer** records. No framework: just HTML, CSS and JavaScript.
 
-- Üstte iki sekme olmalı: **Stoklar** ve **Müşteriler**.
-- **Stoklar** tablosu: stok adı, satıcı kodu, birim adı, fiyat, KDV oranı ve aktiflik durumu.
-- **Müşteriler** tablosu: ünvan/ad soyad, VKN/TCKN, vergi dairesi, iletişim bilgileri ve il/ilçe.
-- Her iki modül için tam **CRUD**:
-  - Kayıtları API'den çekip listeleme (`GET`)
-  - Modal içindeki form ile yeni kayıt ekleme (`POST`)
-  - Aynı modalı kullanarak kayıt düzenleme (`PUT`)
-  - Kayıt silme (`DELETE`)
-- API'nin döndürdüğü validasyon hataları kullanıcıya bildirim (toast) olarak gösterilmeli.
-- İstekler `Bearer` token ile yetkilendirilmeli.
+### Requirements
+
+- Two tabs at the top: **Stocks** and **Customers**.
+- **Stocks** table: stock name, seller code, unit name, price, VAT rate and active status.
+- **Customers** table: title/full name, tax or national ID number, tax office, contact info and city/district.
+- Full **CRUD** for both modules:
+  - List records from the API (`GET`)
+  - Add a new record with a form inside a modal (`POST`)
+  - Edit a record using the same modal (`PUT`)
+  - Delete a record (`DELETE`)
+- Validation errors returned by the API must be shown as toast notifications.
+- Requests must be authorized with a `Bearer` token.
 
 ### API
 
-| İşlem | Endpoint |
+| Action | Endpoint |
 |---|---|
-| Stok listesi / ekleme / güncelleme | `/general/Stocks` |
-| Stok silme | `/general/Stocks/{id}` |
-| Müşteri listesi / ekleme / güncelleme | `/general/Customers` |
-| Müşteri silme | `/general/Customers/{id}` |
+| List / create / update stocks | `/general/Stocks` |
+| Delete a stock | `/general/Stocks/{id}` |
+| List / create / update customers | `/general/Customers` |
+| Delete a customer | `/general/Customers/{id}` |
 
-## 💡 Çözüm
+## 💡 Solution
 
-Kod üç modüle ayrıldı:
+The code is split into three modules:
 
-| Dosya | Sorumluluk |
+| File | Responsibility |
 |---|---|
-| `js-code/api.js` | Axios ayarları ve tüm API istekleri, hata bildirimleri |
-| `js-code/ui.js` | Tablo satırlarını oluşturma, güncelleme, silme (DOM işlemleri) |
-| `js-code/app.js` | Olay dinleyicileri, sekme geçişleri, modal açma/kapama |
+| `js-code/api.js` | Axios setup, all API requests, error notifications |
+| `js-code/ui.js` | Creating, updating and removing table rows (DOM work) |
+| `js-code/app.js` | Event listeners, tab switching, opening/closing modals |
 
-- Ekleme ve düzenleme için **tek bir modal** kullanılıyor. Hangi işlemin yapılacağı `data-mode` ve `data-editId` attribute'larıyla belirleniyor.
-- Form verisi `FormData` ile okunup nesneye çevriliyor.
-- API hataları `Toastify` ile kırmızı bildirim olarak gösteriliyor.
+- A **single modal** is used for both creating and editing. The current action is tracked with the `data-mode` and `data-editId` attributes.
+- Form data is read with `FormData` and converted to an object.
+- API errors are shown as red notifications with `Toastify`.
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
-1. API bilgilerini girin:
+1. Add your API credentials:
 
    ```bash
    cp js-code/config.example.js js-code/config.js
    ```
 
-   `config.js` içine API adresini ve token'ı yazın. Bu dosya git'e eklenmez.
+   Put the API URL and token into `config.js`. This file is git-ignored.
 
-2. ES Modules kullanıldığı için dosyayı doğrudan açmak yerine bir yerel sunucuyla çalıştırın. Örneğin VS Code **Live Server** eklentisi veya:
+2. Because ES Modules are used, serve the folder with a local server instead of opening the file directly. For example the VS Code **Live Server** extension, or:
 
    ```bash
    npx serve .
    ```
 
-SCSS değişikliklerini derlemek için:
+To compile SCSS changes:
 
 ```bash
 npx sass style.scss style.css --watch

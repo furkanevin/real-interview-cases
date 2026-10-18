@@ -1,30 +1,32 @@
-# Redux Toolkit Query ile E-Ticaret
+# E-Commerce with Redux Toolkit Query
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 1–2 gün · **Teknolojiler:** React 18, Vite, Redux Toolkit, RTK Query, React Router, React Bootstrap, React Toastify, Fake Store API
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner–Intermediate · **Estimated time:** 1–2 days · **Tech:** React 18, Vite, Redux Toolkit, RTK Query, React Router, React Bootstrap, React Toastify, Fake Store API
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-[Fake Store API](https://fakestoreapi.com/) ile ürünleri listeleyen ve sepet yönetimi yapan bir e-ticaret uygulaması geliştirin. Veri çekme için **RTK Query**, sepet için **Redux Toolkit slice** kullanılmalı.
+## 📋 Task
 
-### Gereksinimler
+Build an e-commerce app that lists products from the [Fake Store API](https://fakestoreapi.com/) and manages a shopping cart. Use **RTK Query** for data fetching and a **Redux Toolkit slice** for the cart.
 
-- **Ana sayfa (`/`):** Ürünlerin kartlar hâlinde listesi (görsel, başlık, fiyat, "Sepete ekle" butonu).
-- **Sepet sayfası (`/cart`):** Sepetteki ürünler, adet artırma/azaltma, ürün silme, sepeti temizleme ve toplam tutar.
-- Header'da sepetteki toplam ürün sayısı görünmeli.
-- Sepet **sayfa yenilense de** korunmalı.
-- Sepet işlemlerinde kullanıcıya bildirim (toast) gösterilmeli.
-- Olmayan bir sayfaya gidilince 404 sayfası gösterilmeli.
+### Requirements
 
-## 💡 Çözüm
+- **Home page (`/`):** Products as cards (image, title, price, "Add to cart" button).
+- **Cart page (`/cart`):** Items in the cart, increase/decrease quantity, remove items, clear the cart and the total price.
+- The header shows the total number of items in the cart.
+- The cart must persist across **page reloads**.
+- Cart actions show a toast notification.
+- Navigating to a non-existent page shows a 404 page.
 
-- `src/redux/query/productsApi.js`: `createApi` ve `fetchBaseQuery` ile ürün endpoint'i tanımlandı; bileşenlerde `useGetProductsQuery` hook'u ile yükleme, hata ve veri durumları alınıyor.
-- `src/redux/slices/cartSlice.js`: Sepete ekleme, adet azaltma, silme, temizleme ve toplam hesaplama reducer'ları. Sepet her değişiklikte `localStorage`'a yazılıyor ve başlangıçta oradan okunuyor.
-- Bildirimler reducer içinden `react-toastify` ile gösteriliyor.
-- Arayüz React Bootstrap bileşenleriyle hazırlandı.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- `src/redux/query/productsApi.js`: The products endpoint is defined with `createApi` and `fetchBaseQuery`; components get loading, error and data states from the `useGetProductsQuery` hook.
+- `src/redux/slices/cartSlice.js`: Reducers for adding, decreasing, removing, clearing and computing totals. The cart is written to `localStorage` on every change and read from it on startup.
+- Notifications are shown from inside the reducers with `react-toastify`.
+- The UI is built with React Bootstrap components.
+
+## 🚀 Getting started
 
 ```bash
 npm install

@@ -1,42 +1,44 @@
-# Mevcut Bir Projede Geliştirme: Web Tabanlı IDE
+# Working on an Existing Project: Web-Based IDE
 
-> **Seviye:** Orta–İleri · **Tahmini süre:** 2–4 gün · **Teknolojiler:** React 18, Vite, Material UI, Monaco Editor, React Flow, Jest, Cypress
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Intermediate–Advanced · **Estimated time:** 2–4 days · **Tech:** React 18, Vite, Material UI, Monaco Editor, React Flow, Jest, Cypress
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Bu case diğerlerinden farklı: sıfırdan proje yazmak yerine **büyük ve gerçek bir açık kaynak kod tabanına** dahil olup üzerinde geliştirme yapmanız isteniyor. Proje, low-code backend geliştirmek için kullanılan web tabanlı bir IDE ([Nucleoid IDE](https://github.com/NucleoidAI/IDE), Apache-2.0 lisanslı).
+## 📋 Task
 
-Gerçek işe girişte en sık karşılaşılan durum budur: başkasının yazdığı, yüzlerce dosyalı bir projeyi okuyup anlamak ve mevcut yapıyı bozmadan değişiklik yapmak.
+This case is different from the others: instead of building a project from scratch, you join a **large, real open-source codebase** and develop on top of it. The project is a web-based IDE for low-code backend development ([Nucleoid IDE](https://github.com/NucleoidAI/IDE), Apache-2.0 licensed).
 
-### Beklenenler
+This is the most common situation when you start a real job: reading and understanding a project with hundreds of files written by someone else, and making changes without breaking the existing structure.
 
-- Projeyi yerelde ayağa kaldırın ve klasör yapısını, state yönetimini, bileşen mimarisini inceleyin.
-- İstenen özelliği ya da düzeltmeyi **mevcut kod stiline ve mimariye uygun** şekilde ekleyin.
-- Yardımcı fonksiyonlar (`src/utils`) için **Jest** ile birim testleri yazın.
-- Mevcut lint, test ve CI kurallarını bozmayın.
+### Expectations
 
-### Neye dikkat edilir?
+- Run the project locally and study its folder structure, state management and component architecture.
+- Add the requested feature or fix **in line with the existing code style and architecture**.
+- Write **Jest** unit tests for the utility functions (`src/utils`).
+- Don't break the existing lint, test and CI rules.
 
-- Var olan bileşenleri ve yardımcı fonksiyonları yeniden kullanmak, aynısını tekrar yazmamak
-- Küçük ve odaklı değişiklikler (gereksiz refactor yapmamak)
-- Anlamlı commit mesajları
+### What is evaluated?
 
-## 💡 Çözüm
+- Reusing existing components and helpers instead of rewriting them
+- Small, focused changes (no unnecessary refactoring)
+- Meaningful commit messages
 
-- `src/utils/test/` altında `DeepCopy`, `Map` ve `Path` yardımcı fonksiyonları için Jest testleri bulunuyor. Örneğin `DeepCopy` testi, kopyalanan nesnenin orijinalden bağımsız olduğunu (iç içe alanlar değiştirildiğinde kopyanın etkilenmediğini) doğruluyor.
-- Arayüz değişiklikleri MUI bileşenleri ve projenin kendi widget yapısı (`src/widgets`, `src/components`) kullanılarak yapıldı.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- `src/utils/test/` contains Jest tests for the `DeepCopy`, `Map` and `Path` helpers. For example, the `DeepCopy` test checks that the copy is independent of the original (changing nested fields does not affect the copy).
+- UI changes were made using MUI components and the project's own widget structure (`src/widgets`, `src/components`).
+
+## 🚀 Getting started
 
 ```bash
 npm install
 cp .env.example .env
-npm run dev   # Vite geliştirme sunucusu
-npm test      # Jest testleri
+npm run dev   # Vite dev server
+npm test      # Jest tests
 ```
 
-## 📄 Lisans
+## 📄 License
 
-Bu klasördeki kod, orijinal projenin [Apache License 2.0](./LICENSE) lisansı altındadır.
+The code in this folder is licensed under the original project's [Apache License 2.0](./LICENSE).

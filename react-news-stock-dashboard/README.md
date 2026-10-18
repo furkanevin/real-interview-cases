@@ -1,31 +1,33 @@
-# Finans Haberleri & Hisse Takip Paneli
+# Financial News & Stock Tracker
 
-> **Seviye:** Başlangıç–Orta · **Tahmini süre:** 2–3 gün · **Teknolojiler:** React 18, Vite, React Router, Bootstrap, Axios, json-server, React Paginate
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner–Intermediate · **Estimated time:** 2–3 days · **Tech:** React 18, Vite, React Router, Bootstrap, Axios, json-server, React Paginate
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Finans haberlerini ve hisse/kripto arama sonuçlarını gösteren bir haber sitesi arayüzü geliştirin. Veriler [Alpha Vantage](https://www.alphavantage.co/) API'sinin formatındadır (`NEWS_SENTIMENT` ve `SYMBOL_SEARCH`).
+## 📋 Task
 
-### Gereksinimler
+Build a news site interface that shows financial news and stock/crypto search results. The data follows the format of the [Alpha Vantage](https://www.alphavantage.co/) API (`NEWS_SENTIMENT` and `SYMBOL_SEARCH`).
 
-- **Header:** Site adı ve kategori menüsü (Home, Economy, Technology, Blockchain). Aktif kategori vurgulanmalı.
-- **Haber listesi:** Görsel, başlık, özet, yazar ve yayın tarihi içeren kartlar. **Sayfalama** (pagination) olmalı.
-- **Haber detayı (`/newsDetail/:id`):** Haberin tamamı ve kaynağa giden link.
-- **Hisse paneli:** Sembol listesi ve sembole göre **arama** yapılabilen bir yan panel.
-- Responsive tasarım (Bootstrap grid).
+### Requirements
 
-## 💡 Çözüm
+- **Header:** Site name and a category menu (Home, Economy, Technology, Blockchain). The active category must be highlighted.
+- **News list:** Cards with an image, title, summary, author and publish date, with **pagination**.
+- **News detail (`/newsDetail/:id`):** The full article and a link to the source.
+- **Stock panel:** A side panel with a list of symbols that can be **searched** by symbol.
+- Responsive design (Bootstrap grid).
 
-- Ücretsiz API'nin istek limiti düşük olduğu için örnek API yanıtları `db.json` dosyasına kaydedildi ve **json-server** ile lokal bir REST API olarak sunuldu (`/feed`, `/matches`).
-- Haber listesi `react-paginate` ile sayfalandı.
-- Hisse araması, önceden çekilen liste üzerinde istemci tarafında filtreleme yapıyor.
-- Alpha Vantage'a doğrudan istek atan kod `src/constant.js` içinde yorum satırı olarak duruyor; kendi API key'inizle canlı veriye geçebilirsiniz.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- The free API has a low request limit, so sample API responses were saved to `db.json` and served as a local REST API with **json-server** (`/feed`, `/matches`).
+- The news list is paginated with `react-paginate`.
+- Stock search filters the already-fetched list on the client.
+- Code that calls Alpha Vantage directly is left commented out in `src/constant.js`; you can switch to live data with your own API key.
 
-İki ayrı terminalde:
+## 🚀 Getting started
+
+In two separate terminals:
 
 ```bash
 npm install
@@ -33,4 +35,4 @@ npm run server   # json-server → http://localhost:3050
 npm run dev      # http://localhost:5173
 ```
 
-Canlı API kullanmak isterseniz [Alpha Vantage](https://www.alphavantage.co/support/#api-key)'dan ücretsiz key alıp `src/.env.example` dosyasını `.env` olarak kopyalayın.
+To use the live API, get a free key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and copy `src/.env.example` to `.env`.

@@ -1,32 +1,34 @@
-# Süreli Quiz Uygulaması
+# Timed Quiz App
 
-> **Seviye:** Başlangıç · **Tahmini süre:** 1 gün · **Teknolojiler:** React 18, Vite, Tailwind CSS, Axios
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-> ℹ️ Bu case'in orijinal görev metni kaydedilmediği için aşağıdaki görev tanımı, çözüm kodu incelenerek yeniden yazılmıştır.
+> **Level:** Beginner · **Estimated time:** 1 day · **Tech:** React 18, Vite, Tailwind CSS, Axios
 
-## 📋 Görev
+> ℹ️ The original task text was not saved, so the task below was reconstructed from the solution code.
 
-Soruların sırayla ve **süreli** olarak gösterildiği bir quiz uygulaması geliştirin.
+## 📋 Task
 
-### Gereksinimler
+Build a quiz app where questions are shown one after another, each with a **time limit**.
 
-- Sorular bir JSON kaynağından çekilmeli. Her soruda metin, 4 şık (A–D) ve doğru cevap bulunuyor.
-- Ekranda aynı anda **tek bir soru** gösterilmeli.
-- Her soru için bir **geri sayım sayacı** olmalı (ör. 30 saniye):
-  - Sorunun ilk saniyelerinde şıklar **kilitli** olmalı; kullanıcı önce soruyu okumalı.
-  - Süre bitince cevap verilmese bile otomatik olarak sonraki soruya geçilmeli.
-- Kullanıcının seçtiği cevaplar kaydedilmeli.
-- Quiz bitince her soru için **verilen cevap**, **doğru cevap** ve **doğru/yanlış** durumunu gösteren bir sonuç tablosu gösterilmeli.
+### Requirements
 
-## 💡 Çözüm
+- Questions come from a JSON source. Each has a text, 4 options (A–D) and the correct answer.
+- Only **one question** is shown at a time.
+- Each question has a **countdown timer** (e.g. 30 seconds):
+  - The options are **locked** for the first few seconds so the user reads the question first.
+  - When time runs out, the app moves to the next question automatically, even without an answer.
+- The user's chosen answers are recorded.
+- When the quiz ends, a results table shows the **given answer**, the **correct answer** and whether it was **right or wrong** for each question.
 
-- Sorular `public/db.json` dosyasından `axios` ile çekiliyor.
-- Sayaç `useEffect` içinde `setInterval` ile çalışıyor. Her soru değiştiğinde interval temizlenip yeniden kuruluyor (cleanup fonksiyonu sayesinde birden fazla sayaç çalışmıyor).
-- Şıkların kilitli olup olmadığı kalan süreye göre hesaplanıyor (`disabled={timeLeft > ...}`).
-- Süre bitince ya da cevap seçilince `handleNextQuestion` ile sonraki soruya geçiliyor; seçilen cevap `answers` dizisine ekleniyor.
-- Son sorudan sonra `AnswerTable` bileşeni sonuçları tablo hâlinde gösteriyor.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- Questions are fetched from `public/db.json` with `axios`.
+- The timer runs with `setInterval` inside a `useEffect`. Each time the question changes, the interval is cleared and recreated (the cleanup function prevents multiple timers from running).
+- Whether the options are locked is computed from the remaining time (`disabled={timeLeft > ...}`).
+- When time runs out or an answer is chosen, `handleNextQuestion` moves to the next question and adds the chosen answer to the `answers` array.
+- After the last question, the `AnswerTable` component shows the results in a table.
+
+## 🚀 Getting started
 
 ```bash
 npm install

@@ -1,46 +1,48 @@
-# Eğitim Platformu Dashboard'u (Next.js + MUI)
+# Learning Platform Dashboard (Next.js + MUI)
 
-> **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** Next.js (Pages Router), React, TypeScript, Material UI (MUI), Jest, React Testing Library, Cypress
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Intermediate · **Estimated time:** 3–5 days · **Tech:** Next.js (Pages Router), React, TypeScript, Material UI (MUI), Jest, React Testing Library, Cypress
 
-Bir sınav hazırlık / eğitim platformu için verilen **Figma tasarımına benzer** bir web uygulaması geliştirin. Şirket, başlangıç noktası olarak içinde Next.js, MUI, ESLint, Prettier, Jest ve Cypress kurulu hazır bir **template repo** veriyor. Tasarım referans niteliğinde; küçük değişiklikler ve ek özellikler serbest, ama temel özellikler aynı olmalı.
+## 📋 Task
 
-### Gereksinimler
+Build a web app **similar to the provided Figma design** for an exam-prep / learning platform. As a starting point, the company provides a **template repo** with Next.js, MUI, ESLint, Prettier, Jest and Cypress already set up. The design is a reference: small changes and extra features are fine, but the core features must stay the same.
 
-- Verilen template repoyu fork'layarak başlayın.
-- UI kütüphanesi olarak **MUI (Material UI)** kullanın.
-- Sadece **fonksiyonel bileşenler ve hook'lar** (class component yok).
-- Tekrar kullanılabilir bileşenler için **React Composition Pattern** uygulayın.
-- İkonlar için Material Design Icons kullanılabilir.
-- **Ekstra:** Jest + React Testing Library ile unit test, Cypress ile E2E test (E2E önerilir ama zorunlu değil).
-- Bitince repo linkini e-posta ile gönderin.
+### Requirements
 
-### Sayfalar
+- Fork the provided template repo and start from there.
+- Use **MUI (Material UI)** as the UI library.
+- **Functional components and hooks** only (no class components).
+- Apply the **React Composition Pattern** for reusable components.
+- Material Design Icons may be used for icons.
+- **Extra:** Unit tests with Jest + React Testing Library, E2E tests with Cypress (E2E recommended but not required).
+- Email the repo link when finished.
 
-- **Ana sayfa:** Proje listesi tablosu (ilerleme çubuklarıyla), ders kartları (Matematik, Kimya, Fizik, Biyoloji) ve konu bazlı başarı tablosu.
-- **Paketler (`/packages`):** Abonelik paketlerinin kartlar hâlinde listelendiği sayfa.
+### Pages
 
-## 💡 Çözüm
+- **Home:** A project list table with progress bars, lesson cards (Math, Chemistry, Physics, Biology) and a topic-based success table.
+- **Packages (`/packages`):** Subscription packages shown as cards.
 
-- Sayfa bölümleri ayrı bileşenlere bölündü: `ProjectList`, `LessonCards`, `SecondTable`, `PackageCard`, `ProgressWithLabel`.
-- Statik veriler `src/constants` altında tutuluyor; bileşenler `map` ile render ediliyor.
-- Responsive davranış MUI breakpoint'leri (`theme.breakpoints`) ve `styled` API ile sağlandı.
-- Tema ve layout ayarları `src/configs/themeConfig.ts` ve `src/layouts` altında.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- Page sections are split into components: `ProjectList`, `LessonCards`, `SecondTable`, `PackageCard`, `ProgressWithLabel`.
+- Static data lives in `src/constants` and is rendered with `map`.
+- Responsive behaviour uses MUI breakpoints (`theme.breakpoints`) and the `styled` API.
+- Theme and layout settings are in `src/configs/themeConfig.ts` and `src/layouts`.
+
+## 🚀 Getting started
 
 ```bash
-npm install --global yarn@1.22.10   # yoksa
+npm install --global yarn@1.22.10   # if needed
 yarn
 yarn dev        # http://localhost:3030
 ```
 
-### Testler
+### Tests
 
 ```bash
-yarn test:watch   # Jest unit testleri
-yarn e2e          # Cypress E2E testleri
+yarn test:watch   # Jest unit tests
+yarn e2e          # Cypress E2E tests
 ```
 
-Unit test dosyaları test edilen dosyanın yanına `.test.tsx` uzantısıyla, E2E testleri ise `cypress/e2e/` altına aynı klasör yapısıyla yazılır.
+Unit tests go next to the file under test with a `.test.tsx` extension; E2E tests go under `cypress/e2e/` using the same folder structure.

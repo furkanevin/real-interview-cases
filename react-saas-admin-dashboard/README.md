@@ -1,44 +1,46 @@
 # SaaS Admin Dashboard
 
-> **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** React 18, Vite, TypeScript, SCSS, Material UI, MUI Data Grid, Recharts, Framer Motion, React Router
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Intermediate · **Estimated time:** 3–5 days · **Tech:** React 18, Vite, TypeScript, SCSS, Material UI, MUI Data Grid, Recharts, Framer Motion, React Router
 
-Size gönderilen bir ekran kaydında (GIF) gösterilen **SaaS müşteri paneli (dashboard)** arayüzünü ve etkileşimlerini, **olabildiğince birebir** kopyalayın.
+## 📋 Task
 
-### Gereksinimler
+Replicate, **as precisely as possible**, the UI and interactions of a **SaaS client dashboard** shown in a screen recording (GIF) sent to you.
 
-1. GIF'teki arayüzü ve etkileşimi inceleyin.
-2. İstediğiniz frontend teknolojisini kullanın (React, Vue, Angular vb.).
-3. **Piksel piksel** doğruluğu hedefleyin.
-4. **Animasyonlar, geçişler ve responsive davranış** gibi detaylara dikkat edin.
-5. Projeyi bir platformda yayınlayıp **canlı demo** linki verin.
-6. Kodu private bir GitHub reposunda paylaşın.
+### Requirements
 
-### Değerlendirme
+1. Study the UI and interactions in the GIF.
+2. Use any frontend technology you like (React, Vue, Angular, etc.).
+3. Aim for **pixel-perfect** accuracy.
+4. Pay attention to details such as **animations, transitions and responsiveness**.
+5. Deploy the project and provide a **live demo** link.
+6. Share the code in a private GitHub repository.
 
-- Kullanıcı dostu ve görsel olarak çekici bir dashboard tasarımı
-- Fonksiyonellik ve farklı cihazlarda responsive davranış
-- Kullanıcı deneyimini iyileştiren animasyonlar
-- Kod kalitesi, açık kullanım talimatları ve temiz tasarım
+### Evaluation
 
-> ℹ️ Görevde verilen GIF dosyası repoya eklenmemiştir.
+- A user-friendly, visually appealing dashboard design
+- Functionality and responsive behaviour across devices
+- Animations that improve the user experience
+- Code quality, clear usage instructions and a clean design
 
-## 💡 Çözüm
+> ℹ️ The GIF provided with the task is not included in this repo.
 
-- **Layout:** `Navbar`, sol `Menu`, içerik alanı ve `Footer`. Rotalar `createBrowserRouter` ile tanımlandı (`/` ve `/users/:id`).
-- **Ana sayfa:** CSS Grid ile kutulara bölünmüş bir dashboard:
-  - `TopBox`: son mesajlar listesi
-  - `ChartBox`: toplam kullanıcı, ürün, gelir ve oran için küçük çizgi grafikler
-  - `BigChartBox`: gelir analizi (Revenue Analytics) alan grafiği
-  - `PieChartBox`: kaynaklara göre potansiyel müşteri dağılımı
-  - `BarChartBox`: toplam ziyaret ve kâr grafikleri
-- Grafikler **Recharts**, tablolar **MUI Data Grid** ile yapıldı.
-- `Members` bileşeninde **Framer Motion** ile sıralı giriş animasyonları var.
-- Responsive kırılımlar `styles/responsive.scss` içinde mixin olarak tanımlandı; renkler `styles/variables.scss` içinde.
-- Örnek veriler `src/data.ts` dosyasında.
+## 💡 Solution
 
-## 🚀 Çalıştırma
+- **Layout:** `Navbar`, a left `Menu`, the content area and a `Footer`. Routes are defined with `createBrowserRouter` (`/` and `/users/:id`).
+- **Home page:** A dashboard split into boxes with CSS Grid:
+  - `TopBox`: recent messages list
+  - `ChartBox`: small line charts for total users, products, revenue and ratio
+  - `BigChartBox`: revenue analytics area chart
+  - `PieChartBox`: leads by source
+  - `BarChartBox`: total visits and profit charts
+- Charts use **Recharts**; tables use **MUI Data Grid**.
+- The `Members` component has staggered entry animations with **Framer Motion**.
+- Responsive breakpoints are defined as mixins in `styles/responsive.scss`; colours are in `styles/variables.scss`.
+- Sample data is in `src/data.ts`.
+
+## 🚀 Getting started
 
 ```bash
 npm install

@@ -1,60 +1,62 @@
-# Next.js + Auth0 Kimlik Doğrulama ve Yetkilendirme
+# Next.js + Auth0 Authentication and Authorization
 
-> **Seviye:** Orta · **Tahmini süre:** 3–5 gün · **Teknolojiler:** Next.js 14+ (App Router), NextAuth.js, Auth0, JWT, TypeScript, Tailwind CSS, Jest
+🇬🇧 English | [🇹🇷 Türkçe](./README.tr.md)
 
-## 📋 Görev
+> **Level:** Intermediate · **Estimated time:** 3–5 days · **Tech:** Next.js 14+ (App Router), NextAuth.js, Auth0, JWT, TypeScript, Tailwind CSS, Jest
 
-Kullanıcıların **Auth0** üzerinden giriş yaptığı, oturumun **JWT** ile kontrol edildiği ve sayfa erişiminin **Next.js Middleware** ile kısıtlandığı bir kimlik doğrulama sistemi geliştirin. Proje **SOLID** prensiplerine ve **12 Factor App** ilkelerine uygun olmalı.
+## 📋 Task
 
-### Teknolojiler
+Build an authentication system where users log in with **Auth0**, sessions are checked with **JWT**, and page access is restricted with **Next.js Middleware**. The project must follow **SOLID** principles and the **12 Factor App** methodology.
+
+### Tech
 
 - Next.js 14+ (App Router), TypeScript
-- Auth0 (OAuth sağlayıcı) + NextAuth.js
-- JWT tabanlı oturum
-- Tailwind CSS (login sayfası)
-- Yapılandırma `.env` ile yapılmalı (12 Factor)
+- Auth0 (OAuth provider) + NextAuth.js
+- JWT-based sessions
+- Tailwind CSS (login page)
+- Configuration via `.env` (12 Factor)
 
-### Adımlar
+### Steps
 
-1. **GitHub reposu:** Public bir repo açın ve `dev/v1.0.0` branch'inde düzenli (saatlik/günlük) commit'lerle geliştirin.
-2. **Auth0 kurulumu:** Auth0'da bir uygulama oluşturup callback URL'lerini ayarlayın.
-3. **NextAuth entegrasyonu:** Auth0'ı NextAuth provider'ı olarak bağlayın.
-4. **Middleware ile koruma:** Giriş yapmamış kullanıcıların korumalı sayfalara erişimini engelleyin.
-5. **Kod kalitesi ve SOLID:** Sorumlulukları ayrılmış, okunabilir bir yapı kurun.
-6. **12 Factor uyumu:** Tüm gizli bilgileri ortam değişkenlerinden okuyun.
-7. **Test ve validasyon:** Temel bileşen ve sayfalar için test yazın.
+1. **GitHub repo:** Create a public repo and develop on a `dev/v1.0.0` branch with frequent (hourly/daily) commits.
+2. **Auth0 setup:** Create an application in Auth0 and configure the callback URLs.
+3. **NextAuth integration:** Connect Auth0 as a NextAuth provider.
+4. **Middleware protection:** Block unauthenticated users from protected pages.
+5. **Code quality and SOLID:** Build a readable structure with clear separation of concerns.
+6. **12 Factor compliance:** Read all secrets from environment variables.
+7. **Testing and validation:** Write tests for the main components and pages.
 
 ### Bonus
 
-- Rol bazlı yetkilendirme (`admin`, `user`)
-- Docker yapılandırması
-- İş bitince `prod/v1.0.0` branch'ine pull request açıp merge edin.
-- Açıklayıcı commit mesajları kullanın.
+- Role-based authorization (`admin`, `user`)
+- Docker setup
+- When done, open a pull request to the `prod/v1.0.0` branch and merge it.
+- Use descriptive commit messages.
 
-## 💡 Çözüm
+## 💡 Solution
 
-- `src/app/api/auth/[...nextauth]` altında Auth0 provider'ı ile NextAuth yapılandırıldı. Oturum stratejisi JWT.
-- `middleware.ts` içinde `next-auth/middleware`'in `withAuth` fonksiyonu kullanılarak `/admin` rotası korundu. Giriş yapılmamışsa kullanıcı login sayfasına yönlendiriliyor.
-- `SessionProvider` ve `AuthButton` bileşenleri ayrı tutuldu. Giriş/çıkış mantığı tek yerde.
-- Jest + React Testing Library ile sayfa ve bileşen testleri yazıldı.
+- NextAuth is configured with the Auth0 provider under `src/app/api/auth/[...nextauth]`, using the JWT session strategy.
+- In `middleware.ts`, `withAuth` from `next-auth/middleware` protects the `/admin` route. Unauthenticated users are redirected to the login page.
+- `SessionProvider` and `AuthButton` are separate components, so sign-in/sign-out logic lives in one place.
+- Page and component tests are written with Jest + React Testing Library.
 
-### Sayfalar
+### Pages
 
-| Rota | Açıklama |
+| Route | Description |
 |---|---|
-| `/` | Ana sayfa, giriş yapan kullanıcıyı karşılar |
-| `/admin` | Sadece giriş yapmış kullanıcıların erişebildiği korumalı sayfa |
-| `/api/auth/signin` | NextAuth giriş sayfası |
+| `/` | Home page that greets the signed-in user |
+| `/admin` | Protected page, only for signed-in users |
+| `/api/auth/signin` | NextAuth sign-in page |
 
-## 🚀 Çalıştırma
+## 🚀 Getting started
 
-Gereksinimler: Node.js 18+ ve ücretsiz bir [Auth0](https://auth0.com/) hesabı
+Requirements: Node.js 18+ and a free [Auth0](https://auth0.com/) account
 
 ```bash
 npm install
-cp .env.example .env.local   # Auth0 bilgilerinizi girin
+cp .env.example .env.local   # add your Auth0 credentials
 npm run dev                  # http://localhost:3000
 npm test
 ```
 
-Auth0 panelinde **Allowed Callback URLs** alanına `http://localhost:3000/api/auth/callback/auth0` eklemeyi unutmayın.
+Don't forget to add `http://localhost:3000/api/auth/callback/auth0` to **Allowed Callback URLs** in the Auth0 dashboard.
