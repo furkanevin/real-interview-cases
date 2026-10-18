@@ -12,7 +12,7 @@ const SideBar = () => {
   return (
     <div className="mb-5 flex justify-center">
       <div className="mt-5">
-        <h4 className="font-semibold text-center text-gray-900">Filtres</h4>
+        <h4 className="font-semibold text-center text-gray-900">Filters</h4>
         <button
           onClick={() => setParams({})}
           className="block w-80 rounded-md bg-red-800 py-1.5 text-sm font-semibold leading-6 text-white shadow hover:bg-red-600 focus-visible:outline-red-800"

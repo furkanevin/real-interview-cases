@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="w-1/2">
-        <img src="/public/images/logo.png" alt="" />
+        <img src="/images/logo.png" alt="" />
       </div>
       <div className="w-1/2">
         <p className="text-center">

@@ -1,9 +1,7 @@
 const Row = ({ item, answers }) => {
   const found = answers.find((i) => i.question === item.id - 1);
 
-  const isCorrect = !found
-    ? false
-    : item.correctAnswer === answers[item.id - 1].answer.slice(0, 1);
+  const isCorrect = !!found && item.correctAnswer === found.answer.slice(0, 1);
 
   return (
     <tr className=" border-b bg-gray-800 border-gray-700">

@@ -5,20 +5,19 @@ import Loader from './Loader';
 import Error from './Error';
 
 const Universities = () => {
-  const { filtred, isLoading, error } = useData();
+  const { filtered, isLoading, error } = useData();
 
   return (
     <>
-      <div className="mt-5"> a-z , deadle ane price filtre</div>
       <div className="min-h-[60vh] flex flex-wrap justify-center items-center">
         {isLoading ? (
           <Loader />
         ) : error ? (
           <Error message={error} />
-        ) : filtred.length === 0 ? (
-          <p>No University found</p>
+        ) : filtered.length === 0 ? (
+          <p>No universities found</p>
         ) : (
-          filtred.map((university) => (
+          filtered.map((university) => (
             <UniversityCard key={university.id} university={university} />
           ))
         )}

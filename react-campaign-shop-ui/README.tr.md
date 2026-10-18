@@ -10,7 +10,7 @@
 
 ## 📋 Görev
 
-Bir satış kampanyası sitesinin **3 sayfalık arayüzünü** verilen wireframe'e göre kodlayın. Görsellerin yerinde placeholder'lar kullanılabilir. Sadece arayüz (UI) isteniyor; backend ya da gerçek sepet mantığı gerekmiyor.
+Bir satış kampanyası sitesinin **3 sayfalık arayüzünü** verilen wireframe'e göre kodlayın. Görsellerin yerinde placeholder'lar kullanılabilir. Backend gerekmiyor, ancak 3. sayfa çalışır olmalı: arama, adet seçimi ve puanlı sepet.
 
 ### Sayfa 1: Ana sayfa (`/`)
 
@@ -34,9 +34,13 @@ Bir satış kampanyası sitesinin **3 sayfalık arayüzünü** verilen wireframe
 ## 💡 Çözüm
 
 - Üç sayfa `src/pages` altında, ortak parçalar `src/components` altında: `Header`, `Stories`, `Menu`, `Card`, `BackButton`.
-- Ürün verileri `src/constants` içinde sabit bir dizi olarak tutuluyor ve `Card` bileşeniyle render ediliyor.
-- `Card` bileşeni `isPointMode` prop'u ile hem 2. sayfadaki kampanya kartı hem de 3. sayfadaki puanlı kart olarak kullanılıyor.
-- Responsive grid için Tailwind breakpoint'leri (`sm`, `md`, `lg`, `xl`) kullanıldı. Mobilde sepet kolonu `flex-col-reverse` ile üste alınıyor.
+- Ürün verileri `src/constants` içinde sabit bir dizi olarak tutuluyor ve `Card` bileşeniyle render ediliyor. `Card`, `isPointMode` prop'u ile hem 2. sayfadaki kampanya kartı hem de 3. sayfadaki puanlı kart olarak kullanılıyor.
+- **3. sayfanın mantığı:**
+  - Arama kutusu, yazdıkça ürünleri isme göre filtreliyor.
+  - Sepet, state'te `{ ürünAdı: adet }` şeklinde bir nesne. Toplam ve kalan puan ayrı state olarak tutulmuyor, her render'da sepetten hesaplanıyor.
+  - Kalan puan ürüne yetmiyorsa `+` butonu, adet 0 ise `−` butonu pasif oluyor; böylece bakiye asla eksiye düşmüyor.
+  - Sepet boşken "Siparişi Tamamla" butonu pasif.
+- Responsive grid için Tailwind breakpoint'leri kullanıldı. Mobilde sepet kolonu `flex-col-reverse` ile üste alınıyor.
 
 ## 🚀 Çalıştırma
 

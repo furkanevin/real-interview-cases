@@ -1,35 +1,36 @@
-import Component0 from './components/Component0';
-import Component1 from './components/Component1';
-import Component2 from './components/Component2';
-import Component3 from './components/Component3';
-import Component4 from './components/Component4';
-import Component5 from './components/Component5';
-import './style.scss';
+import weather from './data/weather.json';
+import Sidebar from './components/Sidebar/Sidebar';
+import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import Activities from './components/Activities/Activities';
+import WeeklyForecast from './components/WeeklyForecast/WeeklyForecast';
+import HourlyForecast from './components/HourlyForecast/HourlyForecast';
+import AirConditions from './components/AirConditions/AirConditions';
 
 function App() {
   return (
-    <div className="container">
-      <div className="container-left">
-        <Component0 />
+    <div className="layout">
+      <Sidebar />
 
-        <div className="left-bottom">
-          <Component1 />
+      <main className="dashboard">
+        <section className="dashboard__main">
+          <CurrentWeather
+            city={weather.city}
+            condition={weather.condition}
+            temperature={weather.temperature}
+            updatedAt={weather.updatedAt}
+          />
+          <Activities activities={weather.activities} />
+          <WeeklyForecast weeks={weather.weekly} />
+        </section>
 
-          <div className="wrapper">
-            <Component2 />
-            <Component3 />
-          </div>
-        </div>
-      </div>
-
-      <div className="container-right">
-        <div className="img-wrapper">
-          <img width={300} src="/logo.svg" alt="logo" />
-        </div>
-
-        <Component5 />
-        <Component4 />
-      </div>
+        <aside className="dashboard__side">
+          <HourlyForecast hours={weather.hourly} />
+          <AirConditions
+            values={weather.airConditions}
+            updatedAt={weather.updatedAt}
+          />
+        </aside>
+      </main>
     </div>
   );
 }

@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: $text;
+  background-color: #1e293b;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.55)),
+    url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: $gap;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $gap;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: $gap;
+  align-items: start;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+
+  &__main,
+  &__side {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "city": "New York",
+  "updatedAt": "2023-11-07T20:00:00Z",
+  "condition": "thunder",
+  "temperature": 18,
+  "airConditions": {
+    "realFeel": 16,
+    "wind": 0.8,
+    "chanceOfRain": 2,
+    "uvIndex": 4
+  },
+  "hourly": [
+    { "time": "08:00", "temperature": 26 },
+    { "time": "12:00", "temperature": 22 },
+    { "time": "15:00", "temperature": 16 },
+    { "time": "18:00", "temperature": 20 },
+    { "time": "21:00", "temperature": 22 },
+    { "time": "00:00", "temperature": 16 }
+  ],
+  "activities": [
+    { "title": "Park walk", "image": "/img1.png" },
+    { "title": "Autumn trail", "image": "/img2.png" },
+    { "title": "Aqua park", "image": "/img3.png" },
+    { "title": "Beach", "image": "/img4.png" }
+  ],
+  "weekly": [
+    {
+      "label": "Last week",
+      "days": [
+        { "day": "Sunday", "condition": "sunny cloudy", "temperature": 18 },
+        { "day": "Monday", "condition": "sunny cloudy", "temperature": 19 },
+        { "day": "Tuesday", "condition": "sunny", "temperature": 24 },
+        { "day": "Wednesday", "condition": "rainy", "temperature": 15 },
+        { "day": "Thursday", "condition": "sunny rainy", "temperature": 18 },
+        { "day": "Friday", "condition": "thunder", "temperature": 14 },
+        { "day": "Saturday", "condition": "sunny", "temperature": 16 }
+      ]
+    },
+    {
+      "label": "This week",
+      "days": [
+        { "day": "Sunday", "condition": "thunder", "temperature": 18 },
+        { "day": "Monday", "condition": "sunny cloudy", "temperature": 24 },
+        { "day": "Tuesday", "condition": "sunny cloudy", "temperature": 25 },
+        { "day": "Wednesday", "condition": "rainy", "temperature": 14 },
+        { "day": "Thursday", "condition": "sunny rainy", "temperature": 19 },
+        { "day": "Friday", "condition": "thunder", "temperature": 13 },
+        { "day": "Saturday", "condition": "sunny", "temperature": 18 }
+      ]
+    },
+    {
+      "label": "Next week",
+      "days": [
+        { "day": "Sunday", "condition": "sunny", "temperature": 25 },
+        { "day": "Monday", "condition": "sunny", "temperature": 26 },
+        { "day": "Tuesday", "condition": "sunny cloudy", "temperature": 24 },
+        { "day": "Wednesday", "condition": "rainy", "temperature": 21 },
+        { "day": "Thursday", "condition": "sunny rainy", "temperature": 22 },
+        { "day": "Friday", "condition": "thunder", "temperature": 17 },
+        { "day": "Saturday", "condition": "sunny", "temperature": 18 }
+      ]
+    }
+  ]
+}

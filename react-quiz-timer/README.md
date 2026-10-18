@@ -25,10 +25,11 @@ Build a quiz app where questions are shown one after another, each with a **time
 ## 💡 Solution
 
 - Questions are fetched from `public/db.json` with `axios`.
-- The timer runs with `setInterval` inside a `useEffect`. Each time the question changes, the interval is cleared and recreated (the cleanup function prevents multiple timers from running).
-- Whether the options are locked is computed from the remaining time (`disabled={timeLeft > ...}`).
-- When time runs out or an answer is chosen, `handleNextQuestion` moves to the next question and adds the chosen answer to the `answers` array.
-- After the last question, the `AnswerTable` component shows the results in a table.
+- Timing is controlled by two constants: `QUESTION_TIME = 30` and `LOCK_TIME = 10`. Options are locked during the first 10 seconds and a message shows how long is left.
+- The timer `useEffect` resets the countdown whenever the question changes and clears its interval in the cleanup function. A second effect watches `timeLeft` and moves to the next question when it reaches 0, so no side effects run inside a state updater.
+- Radio buttons are controlled by state (`checked`), so no DOM refs or form resets are needed. Locked options cannot be selected.
+- Once an answer is selected, the user can move on early with the "Next question" button.
+- Answers are stored by question index; the results table matches each answer to its own question, so skipped questions don't shift the results.
 
 ## 🚀 Getting started
 

@@ -6,7 +6,7 @@ export const UniversityContext = createContext();
 
 export const UniversityProvider = ({ children }) => {
   const [universities, setUniversities] = useState([]);
-  const [filtred, setFiltred] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [maxCount, setMaxCount] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ export const UniversityProvider = ({ children }) => {
       .get('/universities', { params })
       .then((response) => {
         setMaxCount(response.headers.get('X-Total-Count'));
-        setFiltred(response.data);
+        setFiltered(response.data);
         setError(null);
       })
       .catch((error) => {
@@ -47,7 +47,7 @@ export const UniversityProvider = ({ children }) => {
     <UniversityContext.Provider
       value={{
         universities,
-        filtred,
+        filtered,
         selectedCategory,
         error,
         isLoading,

@@ -1,0 +1,84 @@
+@use '../../styles/variables' as *;
+
+.air {
+  @include panel;
+  padding: 24px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    @include panel-title;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: $text-muted;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    color: $text-muted;
+  }
+
+  &__value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 2px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__grid {
+      gap: 10px;
+    }
+
+    &__item {
+      gap: 10px;
+      padding: 12px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &__value {
+      font-size: 1.15rem;
+    }
+  }
+}

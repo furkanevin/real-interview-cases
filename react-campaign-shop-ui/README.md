@@ -10,7 +10,7 @@
 
 ## 📋 Task
 
-Code the **3-page interface** of a sales campaign site based on the provided wireframe. Placeholders may be used instead of images. Only the UI is required; no backend or real cart logic.
+Code the **3-page interface** of a sales campaign site based on the provided wireframe. Placeholders may be used instead of images. No backend is needed, but page 3 should work: search, quantity selection and the points cart.
 
 ### Page 1: Home (`/`)
 
@@ -34,9 +34,13 @@ Code the **3-page interface** of a sales campaign site based on the provided wir
 ## 💡 Solution
 
 - The three pages live in `src/pages`; shared parts are in `src/components`: `Header`, `Stories`, `Menu`, `Card`, `BackButton`.
-- Product data is a constant array in `src/constants`, rendered with the `Card` component.
-- The `Card` component uses an `isPointMode` prop to serve as both the campaign card on page 2 and the points card on page 3.
-- The responsive grid uses Tailwind breakpoints (`sm`, `md`, `lg`, `xl`). On mobile the cart column is moved to the top with `flex-col-reverse`.
+- Product data is a constant array in `src/constants`, rendered with the `Card` component. `Card` uses an `isPointMode` prop to serve as both the campaign card on page 2 and the points card on page 3.
+- **Page 3 logic:**
+  - The search box filters products by name as you type.
+  - The cart is a `{ productName: quantity }` object in state; the total and remaining points are derived from it on every render instead of being stored separately.
+  - The `+` button is disabled when the remaining balance can't cover the product, and `−` is disabled at 0, so the balance can never go negative.
+  - "Complete Order" is disabled while the cart is empty.
+- The responsive grid uses Tailwind breakpoints. On mobile the cart column is moved to the top with `flex-col-reverse`.
 
 ## 🚀 Getting started
 

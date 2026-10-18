@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
             {product.title}
           </Card.Title>
           <Card.Text>
-            <p>${product.description.slice(0, 70) + '...'}</p>
+            <p>{product.description.slice(0, 70) + '...'}</p>
             <p className="text-success fw-bold">${product.price}</p>
           </Card.Text>
         </div>

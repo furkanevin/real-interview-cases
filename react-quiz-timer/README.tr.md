@@ -25,10 +25,11 @@ Soruların sırayla ve **süreli** olarak gösterildiği bir quiz uygulaması ge
 ## 💡 Çözüm
 
 - Sorular `public/db.json` dosyasından `axios` ile çekiliyor.
-- Sayaç `useEffect` içinde `setInterval` ile çalışıyor. Her soru değiştiğinde interval temizlenip yeniden kuruluyor (cleanup fonksiyonu sayesinde birden fazla sayaç çalışmıyor).
-- Şıkların kilitli olup olmadığı kalan süreye göre hesaplanıyor (`disabled={timeLeft > ...}`).
-- Süre bitince ya da cevap seçilince `handleNextQuestion` ile sonraki soruya geçiliyor; seçilen cevap `answers` dizisine ekleniyor.
-- Son sorudan sonra `AnswerTable` bileşeni sonuçları tablo hâlinde gösteriyor.
+- Süreler iki sabitle yönetiliyor: `QUESTION_TIME = 30` ve `LOCK_TIME = 10`. Şıklar ilk 10 saniye kilitli kalıyor ve kaç saniye kaldığı ekranda yazıyor.
+- Sayaç `useEffect`'i her soru değiştiğinde süreyi sıfırlıyor ve cleanup fonksiyonunda interval'i temizliyor. İkinci bir effect `timeLeft`'i izliyor ve süre 0 olunca sonraki soruya geçiyor; böylece state güncelleme fonksiyonunun içinde yan etki çalışmıyor.
+- Radio butonlar state ile kontrol ediliyor (`checked`); DOM ref'ine veya form sıfırlamaya gerek kalmıyor. Kilitli şıklar seçilemiyor.
+- Cevap seçildikten sonra kullanıcı "Sonraki Soru" butonuyla süreyi beklemeden ilerleyebiliyor.
+- Cevaplar soru numarasıyla saklanıyor; sonuç tablosu her cevabı kendi sorusuyla eşleştiriyor, boş bırakılan sorular sonuçları kaydırmıyor.
 
 ## 🚀 Çalıştırma
 

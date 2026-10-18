@@ -1,4 +1,11 @@
-const Card = ({ product, isPointMode }) => {
+const Card = ({
+  product,
+  isPointMode,
+  quantity = 0,
+  canIncrease = true,
+  onIncrease,
+  onDecrease,
+}) => {
   return (
     <div className="border p-2 rounded flex flex-col gap-3">
       <img
@@ -11,17 +18,31 @@ const Card = ({ product, isPointMode }) => {
       <p>{product.spec}</p>
 
       {isPointMode ? (
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <p className="font-bold">{product.point} Puan</p>
-          <div className="border rounded-full py-1 px-6 flex gap-5">
-            <button>-</button>
-            <button>0</button>
-            <button>+</button>
+          <div className="border rounded-full py-1 px-4 flex items-center gap-4">
+            <button
+              onClick={onDecrease}
+              disabled={quantity === 0}
+              aria-label={`${product.name} adedini azalt`}
+              className="disabled:text-gray-300"
+            >
+              −
+            </button>
+            <span className="min-w-[1ch] text-center">{quantity}</span>
+            <button
+              onClick={onIncrease}
+              disabled={!canIncrease}
+              aria-label={`${product.name} adedini artır`}
+              className="disabled:text-gray-300"
+            >
+              +
+            </button>
           </div>
         </div>
       ) : (
         <p className="font-bold">
-          Çeklişe verilen ürün sayısı: {product.amount} adet
+          Çekilişe verilen ürün sayısı: {product.amount} adet
         </p>
       )}
     </div>

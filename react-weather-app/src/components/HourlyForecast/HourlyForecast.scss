@@ -1,0 +1,51 @@
+@use '../../styles/variables' as *;
+
+.hourly {
+  @include panel;
+  padding: 24px;
+
+  &__title {
+    @include panel-title;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__temp {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  &__bar {
+    width: 10px;
+    height: 110px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+
+    div {
+      width: 100%;
+      border-radius: 999px;
+      background: linear-gradient(to top, #60a5fa, #fbbf24);
+    }
+  }
+
+  &__time {
+    font-size: 0.85rem;
+    color: $text-muted;
+  }
+}

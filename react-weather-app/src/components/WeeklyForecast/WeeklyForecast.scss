@@ -1,0 +1,78 @@
+@use '../../styles/variables' as *;
+
+.weekly {
+  @include panel;
+  padding: 24px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      @include panel-title;
+    }
+
+    button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid $panel-border;
+      background: rgba(255, 255, 255, 0.08);
+      color: $text;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__days {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 16px;
+    }
+  }
+
+  &__day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 4px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+  }
+
+  &__name {
+    font-size: 0.85rem;
+    color: $text-muted;
+    font-weight: 500;
+  }
+
+  &__temp {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
